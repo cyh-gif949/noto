@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#E5E3DA">
+<title>Nôto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#E5E3DA;--card:#F4F3EE;--card2:#ECEAE1;--ink:#29100C;--acc:#5A1D22;--acc2:#378696;--line:rgba(41,16,12,.22);--line2:rgba(41,16,12,.12);--brown:#29100C;--brown2:#6B5853;--greige:#CFCABD;--greige-d:#8D807A;--rose:#EADCD8;--rose-d:#5A1D22;--lav:#DCE6E8;--lav2:#E9F0F1;--lav-d:#378696;--lime:#E0DDD1;--lime2:#EAE8DF;--lime-d:#8D807A;--f-tc:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;--f-jp:'Noto Sans JP','Source Han Sans JP','源ノ角ゴシック','Hiragino Kaku Gothic ProN','Yu Gothic','Noto Sans TC',sans-serif;--mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{background:var(--paper)}
+body{margin:0;color:var(--ink);background-color:var(--paper);background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .16 0 0 0 0 .06 0 0 0 0 .05 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");font:13px/1.7 var(--f-tc);-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--f-tc);font-weight:700;color:var(--ink);margin:0}
+.jp,.art p,.art-h,.q-p,.gr-ex,.cmp td:first-child,.opt.jp,.fc-word,.fc-r,.fc-ex,.mast-t,.mast-s,.side .logo,.splash .jp{font-family:var(--f-jp)}
+.jp{font-weight:500;color:var(--ink)}
+.q-p.zh{font-family:var(--f-tc)}
+.mono{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--brown2)}
+button{font:inherit;color:inherit;cursor:pointer}
+a{color:inherit;text-decoration:none}
+input,textarea,select{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--ink);border-radius:8px;padding:8px 10px;width:100%;outline:none}
+input:focus,textarea:focus,select:focus{border-color:var(--acc);outline:1px solid var(--acc);outline-offset:0}
+input[type=checkbox]{width:auto;accent-color:var(--acc)}
+textarea{resize:vertical}
+small{color:var(--brown2);font-size:11.5px}
+ruby rt{font-size:.5em;color:var(--brown2);font-weight:400;letter-spacing:0}
+.nofuri rt{display:none}
+.ic{width:20px;height:20px;flex:none}
+.shell{max-width:560px;margin:0 auto;padding:calc(env(safe-area-inset-top) + 16px) 16px calc(92px + env(safe-area-inset-bottom))}
+.side{display:none}
+main{min-width:0}
+.tabs{position:fixed;left:0;right:0;bottom:0;background:var(--paper);border-top:1px solid var(--ink);z-index:20;padding-bottom:env(safe-area-inset-bottom)}
+.tabs-in{display:flex;max-width:560px;margin:0 auto}
+.tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:1px;padding:8px 0 7px;font-size:10px;color:var(--greige-d);border:0;background:none;border-top:2px solid transparent;margin-top:-1px;letter-spacing:.04em}
+.tab .ic{width:19px;height:19px}
+.tab.on{color:var(--acc);border-top-color:var(--acc)}
+@media(min-width:640px){.shell{max-width:700px}.tabs-in{max-width:700px}}
+@media(min-width:960px){.shell{max-width:1060px;display:grid;grid-template-columns:200px minmax(0,1fr);gap:48px;padding-top:36px}.side{display:block;position:sticky;top:36px;align-self:start}.tabs{display:none}}
+.side .logo{font-size:20px;font-weight:700;margin-bottom:2px}.side .lsub{font:10.5px var(--mono);color:var(--greige-d);margin-bottom:22px;letter-spacing:.14em}
+.side .nv{display:flex;align-items:center;gap:10px;width:100%;padding:9px 12px;border:1px solid transparent;background:none;border-radius:10px;color:var(--brown2);text-align:left}
+.side .nv.on{border-color:var(--ink);color:var(--ink);background:var(--card)}
+.side .nv:hover{background:var(--card2)}
+/* masthead */
+.mast{border:1px solid var(--ink);border-radius:10px;background:var(--card);padding:12px 14px 14px;margin-bottom:12px}
+.mast-top{display:flex;justify-content:space-between;align-items:center}
+.mast-t{font-size:30px;font-weight:700;letter-spacing:.04em;margin:8px 0 0;line-height:1.1;color:var(--ink)}
+.mast-s{margin:4px 0 0;font-size:11.5px;color:var(--brown2);letter-spacing:.08em}
+.mast-rule{border-top:1px solid var(--ink);margin:12px 0}
+.hsearch{display:flex;align-items:center;gap:8px;border:1px solid var(--ink);border-radius:8px;padding:0 10px;background:var(--paper)}
+.hsearch .ic{width:16px;height:16px;color:var(--brown2)}
+.hsearch input{border:0;background:none;padding:8px 0;outline:none}
+.hsearch input:focus{outline:none}
+.hs-r{display:flex;gap:8px;align-items:baseline;padding:7px 4px;border-bottom:1px solid var(--line2);cursor:pointer}
+.hs-r span{color:var(--brown2);font-size:12px;margin-left:auto;text-align:right}
+.mast-h{display:flex;justify-content:space-between;margin:14px 0 6px}
+.act{display:grid;grid-template-columns:repeat(15,1fr);gap:3px;max-width:480px}
+.act i{aspect-ratio:1;border-radius:2px;border:1px solid transparent;display:block}
+.act i.z{border-color:var(--line)}
+.sec-h{display:flex;justify-content:space-between;align-items:center;margin:18px 2px 8px}
+.sec-h h2,.sec-h b{font-size:13px;letter-spacing:.14em}
+.lnk{border:0;background:none;color:var(--brown2);font-size:12px;display:inline-flex;align-items:center;gap:3px;padding:4px 6px}.lnk .ic{width:14px;height:14px}
+.lnk:hover{color:var(--acc)}
+.dr{display:flex;align-items:baseline;gap:8px;padding:6px 0;border-bottom:1px solid var(--line2)}.dr:last-of-type{border:0}.dr span{margin-left:auto;color:var(--brown2);font-size:12px;text-align:right}
+/* categories */
+.cat{display:flex;align-items:stretch;border:1px solid var(--ink);border-radius:10px;margin-bottom:8px;background:var(--card);position:relative;touch-action:pan-y;overflow:hidden}
+.cat:before{content:"";position:absolute;left:0;top:10px;bottom:10px;width:2px;background:var(--bar,var(--ink))}
+.cat.dragging{z-index:5;border-color:var(--acc);opacity:.95}
+.cat-main{flex:1;display:flex;align-items:center;gap:14px;padding:14px 8px 14px 18px;min-width:0;cursor:pointer}
+.cat-ic{width:38px;height:38px;border-radius:50%;border:1px solid var(--ink);display:flex;align-items:center;justify-content:center;flex:none}
+.cat-ic .ic{width:19px;height:19px;stroke-width:1.2}
+.cat-tx{flex:1;min-width:0}.cat-tx b{display:block;font:700 15px/1.3 var(--f-jp);letter-spacing:.06em}.cat-tx small{font-size:11px}
+.cat-n{font:500 12px var(--mono);color:var(--acc);padding-right:4px}
+.cat-ctl{display:flex;align-items:center;gap:2px;padding:0 8px 0 4px;border-left:1px solid var(--line2);margin:10px 0}
+.handle{padding:8px 5px;color:var(--greige-d);touch-action:none;cursor:grab;display:flex}.handle .ic{width:17px;height:17px}
+.xbtn{display:none;border:0;background:none;color:var(--acc);padding:6px}
+.editing .xbtn{display:flex}
+/* page head */
+.phead{display:flex;align-items:center;gap:10px;margin:2px 0 16px;padding-bottom:12px;border-bottom:1px solid var(--ink)}
+.phead h1{font-size:17px;letter-spacing:.08em}.phead small{letter-spacing:.1em;font:10.5px var(--mono)}
+.phead>div{flex:1}
+.back{width:32px;height:32px;border:1px solid var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--card);flex:none}.back .ic{width:16px;height:16px}
+.card{background:var(--card);border:1px solid var(--ink);border-radius:10px;padding:14px;margin-bottom:12px;position:relative}
+.ct{font-size:13px;letter-spacing:.1em;display:flex;align-items:center;gap:7px;margin-bottom:10px}.ct .ic{width:16px;height:16px;stroke-width:1.3;color:var(--brown2)}
+.hint{font-size:11px;color:var(--greige-d);margin:7px 0 0}
+.btn{border:1px solid var(--ink);background:none;border-radius:999px;padding:7px 15px;font-size:12.5px;letter-spacing:.04em;display:inline-flex;gap:5px;align-items:center;justify-content:center;white-space:nowrap}
+.btn:hover{background:var(--card2)}.btn .ic{width:15px;height:15px}
+.btn.pri{background:var(--ink);color:var(--paper)}.btn.soft{background:var(--card2)}.btn.lime{background:var(--acc);border-color:var(--acc);color:#F4F3EE}
+.btn.sm{padding:4px 11px;font-size:11.5px}.btn[disabled]{opacity:.4}
+.srch{display:flex;gap:8px}.srch input{flex:1}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{border:1px solid var(--line);background:none;border-radius:999px;padding:3px 11px;font-size:11.5px;color:var(--brown2);display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
+.chip .ic{width:13px;height:13px}
+.chip.on{border-color:var(--ink);color:var(--paper);background:var(--ink)}
+.chip.sm{padding:1px 9px;font-size:10.5px}
+.tag{display:inline-block;font-size:10px;padding:0 7px;border-radius:999px;border:1px solid var(--acc2);color:var(--acc2);margin-left:5px;vertical-align:middle;line-height:1.7;background:none}
+.tag.ghost{border-color:var(--line);color:var(--greige-d)}.tag.bad{border-color:var(--acc);color:var(--acc)}.tag.lav{border-color:var(--ink);color:var(--ink)}
+.drop{display:flex;align-items:center;justify-content:center;text-align:center;gap:6px;border:1px dashed var(--ink);border-radius:10px;padding:16px 10px;background:var(--paper);cursor:pointer;flex-direction:column}
+.drop.over{background:var(--card2);border-color:var(--acc)}.drop b{font-weight:500;font-size:12.5px}.drop small{font-size:10.5px}.drop .ic{color:var(--ink);width:22px;height:22px;stroke-width:1.2}
+.dz2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.or{display:flex;align-items:center;gap:10px;color:var(--greige-d);font-size:11px;margin:12px 0 8px}.or:before,.or:after{content:"";flex:1;border-top:1px solid var(--line)}
+.rowc{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:8px;flex-wrap:wrap}
+.chk{display:flex;gap:6px;align-items:center;font-size:12px;color:var(--brown2)}
+.status{font-size:12px;color:var(--brown2);margin-top:8px;min-height:1px}.status.err{color:var(--acc)}
+.prog{height:2px;background:var(--line);overflow:hidden;margin-top:8px}.prog i{display:block;height:100%;background:var(--acc);width:0;transition:width .3s}
+.sp{display:inline-block;width:12px;height:12px;border:2px solid var(--line);border-top-color:var(--acc);border-radius:50%;animation:sp .8s linear infinite;vertical-align:-2px;margin-right:6px}@keyframes sp{to{transform:rotate(360deg)}}
+/* lists */
+.cd,.wr,.gr,.res{display:flex;gap:9px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line2)}.cd:last-child,.wr:last-child,.gr:last-child,.res:last-child{border:0}
+.ck{width:20px;height:20px;border:1px solid var(--ink);border-radius:5px;background:none;display:flex;align-items:center;justify-content:center;flex:none;color:transparent;padding:0}.ck .ic{width:13px;height:13px;stroke-width:2}
+.cd.on .ck,.pv.on .ck{background:var(--acc);border-color:var(--acc);color:#F4F3EE}
+.cd-b,.wr-b,.gr-b{flex:1;min-width:0}.cd-b b,.wr-t b{font-size:15px}.cd-b small,.wr-t small{margin-left:6px}
+.mini{margin-top:5px;padding:5px 8px;font-size:12px;border-radius:6px}.en{font-size:11px;color:var(--greige-d)}
+.wr-m{font-size:12px;color:var(--brown2)}.wr-b,.gr-b{cursor:pointer}
+.wr-side{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.mvw{position:relative;display:inline-block}.mvw:after{content:"▾";position:absolute;right:7px;top:50%;transform:translateY(-52%);font-size:10px;pointer-events:none;color:var(--brown2)}
+.mvw select{width:auto;max-width:104px;font-size:10.5px;padding:2px 20px 2px 8px;border-radius:999px;border-color:var(--line);background:none;appearance:none;-webkit-appearance:none;color:var(--brown2);text-overflow:ellipsis}
+.gr-p{font-size:14px}.gr-ex{font-size:12px;margin-top:3px;padding-left:9px;border-left:1px solid var(--ink)}
+.ib{width:30px;height:30px;border:0;background:none;color:var(--greige-d);display:flex;align-items:center;justify-content:center;border-radius:50%;flex:none}.ib .ic{width:17px;height:17px}.ib.on{color:var(--acc)}.ib.on .ic{fill:var(--acc)}
+.ib.sm{width:26px;height:26px}.ib.sm .ic{width:15px;height:15px}
+.tabsx{display:flex;gap:6px;margin-bottom:8px;overflow-x:auto;padding-bottom:6px}
+.empty{text-align:center;color:var(--greige-d);padding:18px 8px;font-size:12px}
+.acts2{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;align-items:center}
+.grid2{display:grid;gap:10px}@media(min-width:640px){.grid2{grid-template-columns:1fr 1fr}}
+.tile{border:1px solid var(--ink);border-radius:10px;padding:12px;background:var(--card);display:block;text-align:left;width:100%}
+.tile b{display:block;font:700 14px var(--f-tc);letter-spacing:.06em}.tile small{display:block}.tile .big{font:500 24px var(--mono);color:var(--acc)}
+.big-blk{display:flex;gap:14px;align-items:center;padding:18px 14px;border-radius:10px;border:1px solid var(--ink);margin-bottom:10px;cursor:pointer;position:relative;background:var(--card)}
+.big-blk .no{position:absolute;right:12px;top:8px;color:var(--greige-d)}
+.big-blk .cat-ic{width:40px;height:40px}
+.big-blk h2{font-size:16px;letter-spacing:.12em}.big-blk p{margin:2px 0 0;font-size:12px;color:var(--brown2)}
+.news-c{display:flex;gap:12px;border:1px solid var(--ink);border-radius:10px;padding:14px;background:var(--card);margin-bottom:8px;cursor:pointer;align-items:flex-start}
+.news-c .n{font:500 18px/1 var(--mono);color:var(--acc);width:24px;flex:none}
+.news-c h3{font-size:14px;line-height:1.55}.news-c p{margin:5px 0 0;font-size:12px;color:var(--brown2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.art p{margin:0 0 .9em;font-size:14.5px;line-height:2.25;color:var(--ink)}
+.art-h{font-size:17px;line-height:1.9;margin:4px 0 10px;font-weight:700}
+.meta{font-size:11px;color:var(--greige-d);display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.seg{display:flex;border:1px solid var(--ink);border-radius:999px;padding:2px;margin-bottom:10px}.seg button{flex:1;border:0;background:none;padding:5px 4px;border-radius:999px;font-size:12px;color:var(--brown2)}.seg button.on{background:var(--ink);color:var(--paper)}
+.lseg{display:inline-flex;border:1px solid var(--ink);border-radius:999px;padding:1px}.lseg button{border:0;background:none;padding:1px 10px;border-radius:999px;font-size:11px;color:var(--brown2);font-family:var(--mono)}.lseg button.on{background:var(--ink);color:var(--paper)}
+/* quiz */
+.q-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}.q-top .prog{flex:1;margin:0}.q-top small{font:11px var(--mono)}
+.q-card{background:var(--card);border:1px solid var(--ink);border-radius:10px;padding:22px 16px;margin-bottom:12px;text-align:center}
+.q-p{font:500 24px/1.5 var(--f-jp);color:var(--ink);letter-spacing:.03em;word-break:break-all}.q-p.s{font-size:16px;text-align:left;line-height:1.9}.q-sub{color:var(--brown2);font-size:12px;margin-top:6px}
+.q-p u{display:inline-block;min-width:3em;border-bottom:1px solid var(--ink);text-decoration:none;text-align:center;color:var(--acc)}
+.opt{display:block;width:100%;text-align:left;padding:11px 13px;border:1px solid var(--ink);border-radius:10px;background:var(--card);margin-bottom:8px;font-size:13.5px;line-height:1.5}
+.opt:active{background:var(--card2)}.opt.ok{background:var(--acc2);border-color:var(--acc2);color:#fff}.opt.ng{background:var(--acc);border-color:var(--acc);color:#F4F3EE}.opt[disabled]{opacity:1}
+.why{border-left:2px solid var(--acc);padding:6px 10px;font-size:12px;background:var(--card2);border-radius:0 8px 8px 0;margin:6px 0 12px}
+.score{font:500 44px/1 var(--mono);color:var(--acc);text-align:center;margin:10px 0 2px}
+.side-by{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cmp{width:100%;border-collapse:collapse;font-size:12px}.cmp td{padding:8px 6px;border-bottom:1px solid var(--line2);vertical-align:top}.cmp td:first-child{font-weight:500;font-size:13px;white-space:nowrap;padding-right:12px}
+/* sheet */
+.sheet-bg{position:fixed;inset:0;background:rgba(41,16,12,.4);z-index:50;display:flex;align-items:flex-end;justify-content:center;animation:fd .2s}
+.sheet{background:var(--paper);border:1px solid var(--ink);width:100%;max-width:560px;max-height:90vh;overflow:auto;border-radius:14px 14px 0 0;padding:10px 16px calc(18px + env(safe-area-inset-bottom));animation:up .25s}
+.sheet .grab{width:36px;height:3px;background:var(--ink);opacity:.35;border-radius:3px;margin:0 auto 12px}.sheet h3{font-size:15px;margin-bottom:12px;letter-spacing:.08em}
+.sheet label.l{display:block;font-size:11px;color:var(--brown2);margin:10px 0 4px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 8px}.fgrid .full{grid-column:1/-1}
+@media(min-width:640px){.sheet-bg{align-items:center}.sheet{border-radius:14px}}
+@keyframes fd{from{opacity:0}}@keyframes up{from{transform:translateY(24px);opacity:0}}
+#toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:7px 16px;border-radius:999px;font-size:12px;z-index:99;opacity:0;pointer-events:none;transition:opacity .25s;max-width:86vw;text-align:center}#toast.on{opacity:1}
+.set-r{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 0}.set-r>div:first-child{flex:1}.set-r b{font-weight:500;display:block}
+.cks{display:flex;flex-wrap:wrap;gap:8px}
+hr.dash{border:0;border-top:1px solid var(--line);margin:12px 0}
+/* preview list */
+.pv{border:1px solid var(--line);border-radius:8px;padding:8px;margin-bottom:8px;background:var(--card)}.pv.on{border-color:var(--ink)}
+.pv-h{display:flex;align-items:center;gap:6px;margin-bottom:6px}
+.pv-g{display:grid;grid-template-columns:1fr 1fr;gap:6px}.pv-g input{padding:5px 8px;font-size:12px;border-radius:6px;border-color:var(--line)}.pv-g .full{grid-column:1/-1}
+.pvfoot{position:sticky;bottom:calc(-18px - env(safe-area-inset-bottom));background:var(--paper);padding:10px 0 4px;border-top:1px solid var(--ink);margin-top:8px}
+/* personal */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ink);border-radius:10px;background:var(--card);margin-bottom:12px;overflow:hidden}
+.stats>div{padding:10px 8px;border-right:1px solid var(--ink);text-align:left}.stats>div:last-child{border:0}
+.stats b{display:block;font:500 22px/1.2 var(--mono);color:var(--acc);margin:2px 0}.stats small{font-size:10.5px;display:block}
+.pf{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+/* flashcards */
+.fc-wrap{touch-action:pan-y}
+.fc{perspective:1200px;margin-bottom:12px}
+.fc-in{position:relative;height:min(56vh,380px);min-height:320px;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.3,.7,.2,1);cursor:pointer}
+.fc-in.flip{transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;background:#F4F3EE;border:1px solid var(--ink);border-radius:12px;padding:12px 14px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;overflow:auto}
+.fc-back{transform:rotateY(180deg)}
+.fc-in:not(.flip) .fc-back,.fc-in.flip .fc-front{pointer-events:none}
+.fc-meta{display:flex;justify-content:space-between;align-items:center;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.fc-btns{display:flex;gap:0}
+.fc-mid{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;padding:8px 0}
+.fc-word{font-size:36px;font-weight:700;line-height:1.5;display:flex;align-items:center;gap:6px;justify-content:center;flex-wrap:wrap}
+.fc-pos{text-align:center;font:11px var(--mono);color:var(--brown2)}
+.fc-tap{text-align:center;font:9.5px var(--mono);color:var(--greige-d);letter-spacing:.18em;margin-top:4px}
+.fc-r{font-size:24px;font-weight:700;line-height:1.5}.fc-r .ac{font-family:var(--f-jp);color:var(--acc);margin-left:6px;font-size:18px}
+.fc-m{font-size:16px;font-weight:500;margin-top:2px}
+.fc-ex{font-size:14px;line-height:1.9;text-align:left;border-top:1px solid var(--line);padding-top:10px;margin-top:10px}
+.fc-ex mark{background:none;color:var(--acc);font-weight:700;border-bottom:1px solid var(--acc)}
+.fc-xt{font-size:12px;color:var(--brown2);text-align:left;margin-top:4px}
+.fc-prog{display:flex;align-items:center;gap:10px;margin-bottom:10px}.fc-prog .prog{flex:1;margin:0}
+.fc-act{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:8px}
+.fc-nav{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+/* splash */
+.splash{position:fixed;inset:0;background:#29100C;color:#E5E3DA;z-index:200;display:flex;align-items:center;justify-content:center;text-align:center;animation:spOut .9s ease 1.5s forwards}
+.splash-in{animation:spIn .9s ease both;padding:0 24px}
+.splash .mono{color:#E5E3DA;opacity:.6;letter-spacing:.3em;margin-bottom:22px}
+.splash-hi{font-size:22px;font-weight:500;letter-spacing:.12em;margin-bottom:12px}
+.splash-sub{font-size:12px;opacity:.7;letter-spacing:.14em}
+.splash-line{width:40px;border-top:1px solid #E5E3DA;opacity:.5;margin:0 auto 18px}
+@keyframes spOut{to{opacity:0;visibility:hidden}}@keyframes spIn{from{opacity:0;transform:translateY(6px)}}
+</style>
+</head>
+<body>
+<div id="splash" class="splash"><div class="splash-in"><div class="mono">NÔTO // ARCHIVE</div><div class="splash-line"></div><div id="spHi" class="jp splash-hi">こんにちは</div><div class="jp splash-sub">ゆっくり、ていねいに、日本語を。</div></div></div>
+<div id="app"></div>
+<div id="toast"></div>
+<script>
+'use strict';
+/* ================= 基本工具 ================= */
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const kata2hira=s=>(s||'').replace(/[\u30a1-\u30f6]/g,c=>String.fromCharCode(c.charCodeAt(0)-0x60));
+const hasKanji=s=>/[\u4e00-\u9fff]/.test(s);
+const dayKey=(d=new Date())=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+function toast(m,ms=2200){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('on'),ms)}
+const IC={
+book:'<path d="M4 5.5C6.5 4.5 9.5 4.5 12 6c2.5-1.5 5.5-1.5 8-.5V18c-2.5-1-5.5-1-8 .5-2.5-1.5-5.5-1.5-8-.5V5.5Z"/><path d="M12 6v12.5"/>',
+news:'<path d="M5 4.5h11a1 1 0 0 1 1 1V19.5H6a2 2 0 0 1-2-2V5.5a1 1 0 0 1 1-1Z"/><path d="M17 8.5h2.5a.5.5 0 0 1 .5.5v8.5a2 2 0 0 1-3 1.7"/><path d="M7.5 8h6M7.5 11.5h6M7.5 15h4"/>',
+test:'<path d="M6 4.5h9l3 3V19.5H6Z"/><path d="M15 4.5v3h3"/><path d="M9 13.2l2 2 4-4.4"/>',
+folder:'<path d="M4 7a1 1 0 0 1 1-1h4l2 2h8a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1Z"/>',
+home:'<path d="M4 11l8-6.5 8 6.5V19H4Z"/><path d="M10 19v-5h4v5"/>',
+plus:'<path d="M12 5v14M5 12h14"/>',star:'<path d="M12 4l2.4 5 5.4.7-4 3.8 1 5.4L12 16.3l-4.8 2.6 1-5.4-4-3.8 5.4-.7Z"/>',
+sliders:'<path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/>',
+search:'<circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/>',back:'<path d="M15 5l-7 7 7 7"/>',x:'<path d="M6 6l12 12M18 6L6 18"/>',
+drag:'<path d="M5 9h14M5 15h14"/>',trash:'<path d="M5 7h14M10 7V5h4v2M7 7l1 12h8l1-12"/>',
+upload:'<path d="M12 16V5M7.5 9.5L12 5l4.5 4.5M5 19h14"/>',camera:'<path d="M4 8h3l1.5-2h7L17 8h3v11H4Z"/><circle cx="12" cy="13" r="3"/>',
+cloud:'<path d="M7 18h10a4 4 0 0 0 .5-8A5.5 5.5 0 0 0 7 9.5 4.3 4.3 0 0 0 7 18Z"/>',check:'<path d="M5 12.5l4.5 4.5L19 7"/>',
+chev:'<path d="M9 5l7 7-7 7"/>',spark:'<path d="M12 4l1.6 4.4L18 10l-4.4 1.6L12 16l-1.6-4.4L6 10l4.4-1.6Z"/><path d="M18.5 16v3M17 17.5h3"/>',
+pen:'<path d="M5 19l1-4 9.5-9.5 3 3L9 18Z"/><path d="M14 7l3 3"/>',link:'<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7L11.800 6.500"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3A4 4 0 0 0 11 18.700l1.200-1.200"/>'};
+const ic=(n,c='')=>`<svg class="ic ${c}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">${IC[n]||''}</svg>`;
+
+/* ================= 資料 ================= */
+const LS='jpnote.data.v1',LSS='jpnote.settings.v1';
+let D,S;
+const defaults=()=>({cats:[{id:'study',t:'study',n:'學習項目',s:'語彙 ・ 文法'},{id:'news',t:'news',n:'精選新聞',s:'每日三則'},{id:'test',t:'test',n:'テスト',s:'複習 ・ 測驗'}],words:[],grammar:[],aiQs:[],news:{},weak:{},gst:{},hist:[],del:{},u:0});
+function load(){let d=null,s=null;try{d=JSON.parse(localStorage.getItem(LS))}catch(e){}try{s=JSON.parse(localStorage.getItem(LSS))}catch(e){}
+ D=Object.assign(defaults(),d||{});S=Object.assign({lang:'zh',qn:10,aiKey:'',aiModel:'claude-sonnet-5-5',token:'',gist:'',auto:false,newsSrc:'easy',engV:0,engG:0},s||{});
+ D.cats.forEach(c=>{if(c.t==='test')c.n='テスト'})}
+let syncT=null;
+function save(noSync){D.u=Date.now();try{localStorage.setItem(LS,JSON.stringify(D))}catch(e){toast('儲存空間已滿，請匯出備份')}
+ if(!noSync&&S.auto&&S.token&&S.gist){clearTimeout(syncT);syncT=setTimeout(()=>syncPush().catch(()=>{}),5000)}}
+function saveS(){try{localStorage.setItem(LSS,JSON.stringify(S))}catch(e){}}
+const __mean0=(w,lang)=>lang==='en'?(w.e||w.m||''):(w.m||w.e||'');
+
+/* ================= 文法題庫（N2／N1 易混對比） ================= */
+const GB=[
+{id:'g1',lv:'N2',t:'逆接：ものの／ながらも／にもかかわらず',tip:'三者都是「雖然…卻…」，差在接續與語感。',
+ it:[['〜ものの','接普通形。承認前項事實，但後項不如預期。偏書面。'],['〜ながらも','接動詞ます形語幹、い形容詞、名詞。同一主語同時具有矛盾的兩面。'],['〜にもかかわらず','接普通形（名詞直接接）。強調完全不受前項影響，語氣客觀正式。']],
+ qs:[{s:'新しい辞書を買った（　）、ほとんど使っていない。',tr:'雖然買了新字典，卻幾乎沒在用。',a:'ものの',o:['ものの','ながらも','ゆえに','ばかりに'],w:'「買った」是過去普通形，可接「ものの」。「ながらも」不能接「〜た」。'},
+ {s:'彼は失敗を重ね（　）、決して諦めなかった。',tr:'他雖然屢次失敗，卻從未放棄。',a:'ながらも',o:['ながらも','ものの','にもかかわらず','ばかりに'],w:'「重ね」是ます形語幹，只有「ながらも」能直接接續，表示同一主語兼具矛盾狀態。'},
+ {s:'大雨（　）、試合は予定通り行われた。',tr:'儘管下大雨，比賽仍照預定舉行。',a:'にもかかわらず',o:['にもかかわらず','ものの','ながらも','ゆえに'],w:'名詞後可直接接「にもかかわらず」，強調不受大雨影響。「ゆえに」是「因此」，意思相反。'}]},
+{id:'g2',lv:'N2',t:'「不能做」：わけにはいかない／ざるを得ない／かねる',tip:'都與「不能／不得不」有關，但立場完全不同。',
+ it:[['〜わけにはいかない','接辭書形／ない形。基於立場、常識、道義而「不可以」。'],['〜ざるを得ない','接ない形（去ない）+ざる，する→せざる。沒有其他選擇「不得不」。'],['〜かねる','接ます形語幹。想做也「難以／無法」，用於委婉拒絕。']],
+ qs:[{s:'明日は大事な試験があるので、今夜は遊ぶ（　）。',tr:'明天有重要考試，今晚不能（不應該）去玩。',a:'わけにはいかない',o:['わけにはいかない','ざるを得ない','かねる','ようがない'],w:'「遊ぶ」是辭書形，可接「わけにはいかない」。其他三者需要「遊ばざる」「遊びかねる」「遊びようがない」。'},
+ {s:'上司の命令なので、不本意ながら従わ（　）。',tr:'因為是上司命令，雖然不情願也不得不服從。',a:'ざるを得ない',o:['ざるを得ない','わけにはいかない','かねる','ようがない'],w:'「従わ」是ない形語幹，接「ざるを得ない」表示別無選擇。'},
+ {s:'その件については、私の一存では決め（　）。',tr:'這件事我一個人無法決定。',a:'かねます',o:['かねます','かねません','ざるを得ません','わけにはいきません'],w:'「かねる」＝無法…（委婉）；「かねない」＝可能會…（負面）。兩者常被搞混。'}]},
+{id:'g3',lv:'N2',t:'原因：せいで／おかげで／ばかりに',tip:'重點是結果的好壞與說話者的情緒。',
+ it:[['〜せいで','負面結果的原因，帶有歸咎。'],['〜おかげで','正面結果，帶有感謝。'],['〜ばかりに','「只因為…」導致不好的結果，帶強烈後悔。']],
+ qs:[{s:'彼が約束を忘れた（　）、みんなが一時間も待たされた。',tr:'都怪他忘了約定，大家被迫等了一個小時。',a:'せいで',o:['せいで','おかげで','ものの','くせに'],w:'負面結果（等了一小時）→「せいで」歸咎於他。'},
+ {s:'先生が丁寧に教えてくださった（　）、試験に合格できました。',tr:'多虧老師細心指導，我才能通過考試。',a:'おかげで',o:['おかげで','せいで','ばかりに','くせに'],w:'正面結果、帶感謝 →「おかげで」。'},
+ {s:'ちょっと油断した（　）、大きな事故を起こしてしまった。',tr:'只因為稍微大意，就釀成了重大事故。',a:'ばかりに',o:['ばかりに','おかげで','ものの','ながらも'],w:'「ばかりに」強調「就因為這一點」造成嚴重後果，帶後悔語氣。'}]},
+{id:'g4',lv:'N2',t:'推測與判斷：はずだ／わけだ／べきだ',tip:'「應該」有三種：推測、恍然大悟、義務。',
+ it:[['〜はずだ','依據理由的合理推測「應該」。'],['〜わけだ','說明因果、恍然大悟「難怪、原來如此」。'],['〜べきだ','道義、義務上「應當」。']],
+ qs:[{s:'今日は日曜日だから、あの店は休みの（　）。',tr:'今天星期日，那家店應該（推測）休息。',a:'はずだ',o:['はずだ','わけだ','べきだ','ことだ'],w:'依據「日曜日」做的合理推測 →「はずだ」。'},
+ {s:'彼は十年も日本に住んでいたのか。どうりで日本語が上手な（　）。',tr:'原來他在日本住了十年啊，難怪日文那麼好。',a:'わけだ',o:['わけだ','はずだ','べきだ','ものだ'],w:'「どうりで」搭配「わけだ」，表示恍然大悟。'},
+ {s:'学生は学校の規則を守る（　）。',tr:'學生理應遵守校規（這是應盡的義務）。',a:'べきだ',o:['べきだ','はずだ','わけだ','ところだ'],w:'義務、道義 →「べきだ」。'}]},
+{id:'g5',lv:'N1',t:'「一…就…」：とたん／次第／やいなや',tip:'接續各不同，後項的性質也不同。',
+ it:[['〜たとたん(に)','接た形。後項多為意外、非說話者意志的事。'],['〜次第','接ます形語幹。後項是說話者將做的事，用於敬語、書信。'],['〜やいなや','接辭書形。N1 書面語，兩動作幾乎同時。']],
+ qs:[{s:'ドアを開けた（　）、猫が飛び出してきた。',tr:'一打開門，貓就衝了出來。',a:'とたん',o:['とたん','次第','末に','あげく'],w:'接「〜た」、後項為意外 →「とたん」。'},
+ {s:'会議の日程が決まり（　）、すぐにご連絡いたします。',tr:'會議日程一確定，就立刻跟您聯絡。',a:'次第',o:['次第','とたん','やいなや','ところ'],w:'「決まり」是ます形語幹，後項是說話者的行為（聯絡）→「次第」。'},
+ {s:'彼は家に帰る（　）、すぐ寝てしまった。',tr:'他一回到家，就馬上睡著了。',a:'やいなや',o:['やいなや','次第','とたん','末に'],w:'「帰る」是辭書形，可接「やいなや」。「とたん」要「帰ったとたん」。'}]},
+{id:'g6',lv:'N2',t:'評價：にしては／わりには／だけあって',tip:'都含「與預期相比」，但方向不同。',
+ it:[['〜にしては','以…來說（出乎意料）。'],['〜わりには','與…的程度不成比例。'],['〜だけあって','不愧是…，結果符合預期。']],
+ qs:[{s:'彼は子供（　）、とても落ち着いている。',tr:'以小孩子來說，他非常沉穩。',a:'にしては',o:['にしては','だけあって','からには','ばかりか'],w:'以「子供」的標準來看出乎意料 →「にしては」。'},
+ {s:'さすが専門家（　）、説明が分かりやすい。',tr:'不愧是專家，說明很好懂。',a:'だけあって',o:['だけあって','にしては','わりには','からには'],w:'「さすが」呼應「だけあって」，結果符合身分。'},
+ {s:'この店は値段が高い（　）、味は普通だ。',tr:'這家店價格雖貴，味道卻普通（與價格不成比例）。',a:'わりには',o:['わりには','だけあって','からには','ことから'],w:'價格與味道不成比例 →「わりには」。'}]},
+{id:'g7',lv:'N2',t:'決定與變化：ことにする／ことになる／ようになる／ようにする',tip:'「自己決定」「被決定」「能力變化」「努力做到」。',
+ it:[['〜ことにする','自己決定。'],['〜ことになる','客觀決定、被安排的結果。'],['〜ようになる','能力、習慣的變化。'],['〜ようにする','努力讓自己做到。']],
+ qs:[{s:'来月から一人暮らしをする（　）した。',tr:'我決定下個月開始一個人生活。',a:'ことに',o:['ことに','ように','ことが','ものと'],w:'自己的決定 →「ことにした」。'},
+ {s:'4月から、新しい部署に異動する（　）なりました。',tr:'四月起，（公司決定）我要調到新部門了。',a:'ことに',o:['ことに','ように','ものに','ことを'],w:'被安排的結果 →「ことになりました」。'},
+ {s:'彼は最近、野菜が食べられる（　）なった。',tr:'他最近變得能吃蔬菜了。',a:'ように',o:['ように','ことに','ことが','ものに'],w:'能力的變化 →「ようになった」。'}]},
+{id:'g8',lv:'N2',t:'ものだ／ことだ',tip:'「ものだ」是感慨與常理，「ことだ」是忠告。',
+ it:[['〜ものだ','感慨、懷念、一般常理。'],['〜ことだ','（對對方的）忠告、建議。']],
+ qs:[{s:'健康のためには、毎日少しでも運動する（　）。',tr:'為了健康，建議你每天哪怕一點也要運動。',a:'ことだ',o:['ことだ','ものだ','はずだ','わけだ'],w:'給對方的建議 →「ことだ」。'},
+ {s:'子供のころは、よく川で泳いだ（　）。',tr:'小時候常常在河裡游泳呢（懷念）。',a:'ものだ',o:['ものだ','ことだ','べきだ','ところだ'],w:'「〜たものだ」表示懷念往事。'},
+ {s:'人間は誰でも間違える（　）。',tr:'人都是會犯錯的（一般常理）。',a:'ものだ',o:['ものだ','ところだ','ばかりだ','わけだ'],w:'陳述一般常理 →「ものだ」。'}]},
+{id:'g9',lv:'N1',t:'情緒：ずにはいられない／てならない／ざるを得ない',tip:'「忍不住」vs「情不自禁地覺得」vs「不得不」。',
+ it:[['〜ずにはいられない','接ない形去ない（する→せず）。忍不住做某動作。'],['〜てならない','接て形／名詞+でならない。感情自然湧現，無法抑制。'],['〜ざるを得ない','不得不（外在原因）。']],
+ qs:[{s:'その映画を見て、涙を流さ（　）。',tr:'看了那部電影，忍不住流下淚來。',a:'ずにはいられなかった',o:['ずにはいられなかった','ざるを得なかった','てならなかった','ものではなかった'],w:'自然無法克制的動作 →「ずにはいられない」。'},
+ {s:'将来のことが心配（　）。',tr:'對將來的事擔心得不得了。',a:'でならない',o:['でならない','ずにはいられない','ざるを得ない','わけにはいかない'],w:'名詞+「でならない」表示感情強烈。'},
+ {s:'彼の態度があまりにひどかったので、注意せ（　）。',tr:'他的態度太過分了，我忍不住提醒了他。',a:'ずにはいられなかった',o:['ずにはいられなかった','でならなかった','ものではなかった','ところだった'],w:'「する」→「せず」，接「ずにはいられなかった」。'}]},
+{id:'g10',lv:'N2',t:'に対して／にとって／について',tip:'對象、立場、話題。',
+ it:[['〜に対して','針對（動作的對象），常含對比。'],['〜にとって','對…而言（立場、觀點）。'],['〜について','關於（話題）。']],
+ qs:[{s:'私（　）、家族はいちばん大切なものです。',tr:'對我而言，家人是最重要的。',a:'にとって',o:['にとって','に対して','について','によって'],w:'「立場上的價值判斷」→「にとって」。'},
+ {s:'お客様（　）、失礼な態度を取ってはいけない。',tr:'不可以對客人採取失禮的態度。',a:'に対して',o:['に対して','にとって','について','によって'],w:'態度的對象 →「に対して」。'},
+ {s:'日本の歴史（　）、レポートを書く。',tr:'寫關於日本歷史的報告。',a:'について',o:['について','にとって','に対して','によって'],w:'話題 →「について」。'}]},
+{id:'g11',lv:'N2',t:'からには／からといって',tip:'「既然」與「不能只因為」。',
+ it:[['〜からには','既然…就必須（決心、義務）。'],['〜からといって','不能因為…就…（後面接否定）。']],
+ qs:[{s:'やると言った（　）、最後までやり遂げなければならない。',tr:'既然說了要做，就必須做到最後。',a:'からには',o:['からには','からといって','にしては','ものの'],w:'「既然…就要…」→「からには」。'},
+ {s:'お金持ちだ（　）、幸せだとは限らない。',tr:'不能因為有錢，就說一定幸福。',a:'からといって',o:['からといって','からには','ばかりに','ゆえに'],w:'後句「とは限らない」，搭配「からといって」。'}]},
+{id:'g12',lv:'N1',t:'をよそに／をものともせず／ならでは',tip:'「不顧」有兩種，另有「獨有的」。',
+ it:[['〜をよそに','無視（他人的擔心、期待）。'],['〜をものともせず','不把（困難、障礙）當一回事。'],['〜ならでは','只有…才有的（讚美）。']],
+ qs:[{s:'両親の心配（　）、彼は危険な山に登り続けた。',tr:'他不顧父母的擔心，繼續攀登危險的山。',a:'をよそに',o:['をよそに','をものともせず','ならではの','ばかりに'],w:'無視「心配、期待」→「をよそに」。'},
+ {s:'彼は怪我（　）、最後まで走り抜いた。',tr:'他不把受傷當一回事，跑完全程。',a:'をものともせず',o:['をものともせず','をよそに','ならではの','ばかりに'],w:'面對困難（怪我）不畏懼 →「をものともせず」。'},
+ {s:'これは京都の老舗（　）味だ。',tr:'這是京都老店才有的風味。',a:'ならではの',o:['ならではの','をよそにした','ばかりの','にとっての'],w:'「〜ならではの＋名詞」＝只有…才有。'}]}
+];
+/* 文法辨識字典：[顯示, 意思, 分類, 級別, 正規表達式(可省略)] */
+const PD=[
+['〜ものの','雖然…但是','逆接','N2'],['〜ながらも','雖然…卻','逆接','N2'],['〜にもかかわらず','儘管…仍','逆接','N2'],['〜とはいえ','話雖如此','逆接','N2'],['〜くせに','明明…卻（責備）','逆接','N2'],['〜つつも','雖然…','逆接','N2'],
+['〜わけにはいかない','不能（基於立場）','義務','N2','わけにはいか'],['〜ざるを得ない','不得不','義務','N2','ざるを得'],['〜かねる','難以…','義務','N2','かね[るまなて]'],['〜かねない','可能會（負面）','義務','N2','かねな'],['〜ようがない','沒辦法','義務','N2','ようがな'],['〜べきだ','應當','義務','N2','べき'],['〜ずにはいられない','忍不住','情緒','N2','ずにはいられ'],['〜てならない','…得不得了','情緒','N2','てならな'],['〜ずにはおかない','必定會','情緒','N1','ずにはおか'],
+['〜せいで','都怪…','原因','N2','せいで|せいか|せいだ'],['〜おかげで','多虧…','原因','N2','おかげで|おかげだ'],['〜ばかりに','只因為…','原因','N2','ばかりに'],['〜ゆえに','因此、由於','原因','N1','ゆえに|ゆえの'],['〜ことから','由於…（根據）','原因','N2','ことから'],['〜あまり','過於…以致','原因','N2','あまり'],['〜ものだから','因為（辯解）','原因','N2','ものだから'],
+['〜はずだ','應該','判斷','N3','はずだ|はずです'],['〜わけだ','難怪、也就是說','判斷','N2','わけだ|わけです|わけで'],['〜に違いない','一定是','判斷','N2','に違いな'],['〜おそれがある','有…的危險','判斷','N2','おそれがあ|恐れがあ'],['〜とは限らない','不一定','判斷','N2','とは限らな'],['〜わけがない','不可能','判斷','N2','わけがな'],['〜はずがない','不可能','判斷','N2','はずがな'],['〜に相違ない','必定','判斷','N1','に相違な'],
+['〜たとたん','一…就（意外）','時間','N2','たとたん|たとたんに'],['〜やいなや','一…就立刻','時間','N1','やいなや|や否や'],['〜次第','一…就立刻（敬語）','時間','N2','次第'],['〜てはじめて','…之後才','時間','N2','てはじめて|て初めて'],['〜末に','經過…最後','時間','N2','末に'],['〜あげく','…到最後（負面）','時間','N2','あげく|挙句'],['〜つつある','正在逐漸','時間','N2','つつある'],['〜に際して','在…之際','時間','N2','に際し'],['〜にあたって','當…之時','時間','N2','にあたって|にあたり|に当たって'],
+['〜にしては','以…而言（出乎意料）','評價','N2','にしては'],['〜わりには','與…不成比例','評價','N2','わりには|わりに'],['〜だけあって','不愧是','評價','N2','だけあって|だけに'],['〜からには','既然…就','評價','N2','からには'],['〜からといって','不能因為…就','評價','N2','からといって'],['〜に限って','偏偏、唯獨','評價','N2','に限って'],['〜ならでは','只有…才有','評價','N1','ならでは'],['〜に限らず','不限於','評價','N2','に限らず'],
+['〜に対して','對於、相對於','對象','N3','に対し'],['〜にとって','對…而言','對象','N3','にとって'],['〜について','關於','對象','N3','について'],['〜に関して','關於','對象','N2','に関し'],['〜をめぐって','圍繞著','對象','N2','をめぐ'],['〜をもとに','以…為基礎','對象','N2','をもとに|を基に'],['〜に基づいて','根據','對象','N2','に基づ'],['〜にわたって','橫跨（範圍）','範圍','N2','にわたって|にわたり|にわたる'],['〜を通じて','透過、整個…','範圍','N2','を通じて|を通して'],['〜を問わず','不論','範圍','N2','を問わず'],['〜にかかわらず','不論','範圍','N2','にかかわらず'],['〜をきっかけに','以…為契機','範圍','N2','をきっかけに|をきっかけとして'],['〜をよそに','不顧','範圍','N1','をよそに'],['〜をものともせず','不把…當一回事','範圍','N1','をものともせず'],['〜にほかならない','正是','範圍','N2','にほかならな'],['〜のみならず','不僅','範圍','N1','のみならず'],['〜ばかりか','不僅…而且','範圍','N2','ばかりか'],['〜に加えて','加上','範圍','N2','に加えて'],
+['〜がちだ','容易…','傾向','N2','がち'],['〜気味','有點…','傾向','N2','気味|ぎみ'],['〜っぱなし','一直…（放任）','傾向','N2','っぱなし'],['〜ようになる','變得…','變化','N3','ようにな'],['〜ことになる','（被）決定','變化','N3','ことにな'],['〜ことにする','決定','變化','N3','ことにし'],['〜ようにする','努力做到','變化','N3','ようにし'],['〜ものだ','（常理／感慨）','傾向','N2','ものだ|ものです'],['〜ことだ','（忠告）要…','傾向','N2','ことだ'],
+['〜ないことには','不…的話就','條件','N2','ないことには'],['〜ものなら','如果能…的話','條件','N1','ものなら'],['〜たところで','即使…也（徒勞）','條件','N1','たところで'],['〜うえで','在…之後／方面','條件','N2','上で'],['〜かのようだ','彷彿','條件','N2','かのよう']
+].map(a=>({p:a[0],m:a[1],g:a[2],lv:a[3],r:new RegExp(a[4]||a[0].replace('〜',''))}));
+const core=p=>p.replace(/^〜/,'');
+
+/* ================= 外部函式庫載入 ================= */
+const loaded={};
+function loadScript(src){if(!loaded[src])loaded[src]=new Promise((res,rej)=>{const s=document.createElement('script');s.src=src;s.onload=res;s.onerror=()=>{delete loaded[src];rej(new Error('無法載入 '+src))};document.head.appendChild(s)});return loaded[src]}
+let KT=null,ktP=null;
+function getTok(){if(KT)return Promise.resolve(KT);if(!ktP)ktP=(async()=>{await loadScript('https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/build/kuromoji.js');return await new Promise((res,rej)=>kuromoji.builder({dicPath:'https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/dict/'}).build((e,t)=>e?rej(e):res(t)))})().then(t=>KT=t).catch(e=>{ktP=null;throw e});return ktP}
+async function prepImg(file){try{const bmp=await createImageBitmap(file);const sc=Math.min(1,2200/Math.max(bmp.width,bmp.height));const c=document.createElement('canvas');c.width=Math.round(bmp.width*sc);c.height=Math.round(bmp.height*sc);const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);try{x.filter='grayscale(1) contrast(1.25)'}catch(e){}x.drawImage(bmp,0,0,c.width,c.height);return await new Promise(r=>c.toBlob(r,'image/png'))}catch(e){return file}}
+async function ocr(file,k){await loadScript('https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js');
+ const vert=$('#vert_'+k)&&$('#vert_'+k).checked;
+ const w=await Tesseract.createWorker(vert?'jpn_vert':'jpn',1,{logger:m=>{if(m.progress!=null){const p=$('#p_'+k);if(p)p.style.width=Math.round(m.progress*100)+'%';setSt(k,`<span class="sp"></span>辨識中（${m.status}）${Math.round(m.progress*100)}%`)}}});
+ try{const img=await prepImg(file);const r=await w.recognize(img);return cleanOCR(r.data.text)}finally{await w.terminate()}}
+const cleanOCR=t=>t.replace(/([\u3040-\u30ff\u4e00-\u9fff々ー、。！？「」（）])[ \t]+(?=[\u3040-\u30ff\u4e00-\u9fff々ー、。！？「」（）])/g,'$1').replace(/[ \t]+\n/g,'\n').trim();
+
+/* ================= 日文分析：詞性／讀音／文法 ================= */
+const STOP=new Set(['する','いる','ある','なる','できる','やる','くる','来る','言う','思う','れる','られる','ない','よう','こと','もの','ため','これ','それ','あれ','ところ']);
+const sentsOf=t=>(t.match(/[^。！？!?\n]+[。！？!?]?/g)||[]).map(s=>s.trim()).filter(s=>s.length>1);
+async function analyze(text){
+ const sents=sentsOf(text);const map=new Map();let mode='kuromoji';let tok=null;
+ try{tok=await getTok()}catch(e){mode='fallback'}
+ const exOf=w=>sents.find(s=>s.includes(w))||'';
+ if(tok){
+  for(const t of tok.tokenize(text)){
+   const pos=t.pos,d1=t.pos_detail_1;let label='';
+   if(pos==='名詞'){if(d1==='固有名詞')label='固有名詞';else if(d1==='形容動詞語幹')label='な形容詞';else if(['一般','サ変接続','副詞可能'].includes(d1))label=d1==='サ変接続'?'名詞（する）':'名詞'}
+   else if(pos==='動詞'&&d1==='自立')label='動詞';else if(pos==='形容詞'&&d1==='自立')label='い形容詞';else if(pos==='副詞')label='副詞';else if(pos==='連体詞'||pos==='接続詞')label=pos;
+   if(!label)continue;
+   const base=(t.basic_form&&t.basic_form!=='*')?t.basic_form:t.surface_form;
+   if(STOP.has(base)||/^[ぁ-ん]{1,2}$/.test(base)||/^[0-9０-９a-zA-Zａ-ｚＡ-Ｚ]+$/.test(base)||base.length<2&&!hasKanji(base))continue;
+   const e=map.get(base);if(e){e.count++;continue}
+   let r=t.surface_form===base?kata2hira(t.reading||''):'';
+   if(!r&&hasKanji(base)){try{r=kata2hira(tok.tokenize(base).map(x=>x.reading||x.surface_form).join(''))}catch(_){}}
+   if(!hasKanji(base)&&!r)r=base;
+   map.set(base,{w:base,r:hasKanji(base)?r:'',pos:label,count:1,m:'',e:'',ex:exOf(t.surface_form),sel:label!=='固有名詞'});
+  }
+ }else{
+  (text.match(/[\u4e00-\u9fff]{2,}[ぁ-ん]{0,2}|[\u30a0-\u30ff]{3,}/g)||[]).forEach(w=>{const e=map.get(w);if(e)e.count++;else map.set(w,{w,r:'',pos:'',count:1,m:'',e:'',ex:exOf(w),sel:true})});
+ }
+ return{words:[...map.values()],grammar:detectGrammar(text,sents),mode};
+}
+function detectGrammar(text,sents){const out=[];const used=[];
+ PD.forEach(g=>{const m=g.r.exec(text);if(!m)return;const hit=m[0];if(used.some(u=>u.includes(hit)&&u!==hit))return;used.push(hit);
+  out.push({p:g.p,m:g.m,g:g.g,lv:g.lv,hit,ex:sents.find(s=>g.r.test(s))||'',sel:g.lv!=='N3'})});
+ return out}
+
+/* ================= 查詞（Jotoba → Jisho 備援）與 AI ================= */
+async function fetchTxt(url,proxy=true){const tries=[url];if(proxy)tries.push('https://api.allorigins.win/raw?url='+encodeURIComponent(url),'https://corsproxy.io/?'+encodeURIComponent(url));
+ for(const u of tries){try{const r=await fetch(u);if(r.ok)return await r.text()}catch(e){}}throw new Error('無法連線：'+url)}
+async function dictSearch(q,n=1){
+ try{const r=await fetch('https://jotoba.de/api/search/words',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({query:q,language:'English',no_english:false})});
+  if(r.ok){const j=await r.json();const L=(j.words||[]).slice(0,n).map(x=>({w:(x.reading&&(x.reading.kanji||x.reading.kana))||q,r:(x.reading&&x.reading.kana)||'',e:(x.senses||[]).slice(0,3).map(s=>(s.glosses||[]).slice(0,3).join(', ')).filter(Boolean).join('; '),pos:''}));if(L.length)return L}}catch(e){}
+ try{const t=await fetchTxt('https://jisho.org/api/v1/search/words?keyword='+encodeURIComponent(q));const j=JSON.parse(t);const L=(j.data||[]).slice(0,n).map(x=>({w:(x.japanese[0].word||x.japanese[0].reading),r:x.japanese[0].reading||'',e:(x.senses||[]).slice(0,3).map(s=>(s.english_definitions||[]).slice(0,3).join(', ')).join('; '),pos:''}));if(L.length)return L}catch(e){}
+ return[]}
+async function runPool(items,fn,conc=4){let i=0;await Promise.all(Array.from({length:Math.min(conc,items.length)},async()=>{while(i<items.length){const k=i++;try{await fn(items[k],k)}catch(e){}}}))}
+async function ai(prompt,max=2500){if(!S.aiKey)throw new Error('尚未設定 AI 金鑰（到設定頁填寫）');
+ const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'content-type':'application/json','x-api-key':S.aiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:S.aiModel||'claude-sonnet-5-5',max_tokens:max,messages:[{role:'user',content:prompt}]})});
+ const j=await r.json();if(!r.ok)throw new Error((j.error&&j.error.message)||('HTTP '+r.status));return(j.content||[]).map(c=>c.text||'').join('')}
+const jparse=t=>{const m=t.match(/[\[{][\s\S]*[\]}]/);return JSON.parse(m?m[0]:t)};
+async function aiZh(words){const txt=await ai(`請把下列日文單字翻成簡短的繁體中文意思（每個不超過 12 字，動詞用原形意思）。只輸出 JSON 物件，鍵為日文單字、值為中文。\n${JSON.stringify(words)}`,1500);return jparse(txt)}
+
+/* ================= 路由與外框 ================= */
+let editMode=false;
+const NAV=[['home','首頁','home','#/'],['study','學習','book','#/study'],['news','新聞','news','#/news'],['test','テスト','test','#/test'],['set','設定','sliders','#/set']];
+function render(){
+ const h=(location.hash||'#/').slice(1);const p=h.split('/').filter(Boolean);let v=p[0]||'home';
+ const fn={home:vHome,study:vStudy,vocab:vVocab,grammar:vGrammar,gtopic:vGTopic,news:p[1]!==undefined?vArticle:vNews,test:vTest,quiz:vQuiz,cat:vCat,set:vSet}[v]||vHome;
+ const key={home:'home',study:'study',vocab:'study',grammar:'study',gtopic:'study',news:'news',test:'test',quiz:'test',cat:'home',set:'set'}[v];
+ closeSheet();
+ $('#app').innerHTML=`<div class="shell"><aside class="side"><div class="jp logo">日本語ノート</div><div class="lsub">NIHONGO NOTE</div>${NAV.map(n=>`<button class="nv ${n[0]===key?'on':''}" data-a="go" data-to="${n[3]}">${ic(n[2])}${n[1]}</button>`).join('')}</aside><main id="main">${fn(p)}</main></div>
+ <nav class="tabs"><div class="tabs-in">${NAV.map(n=>`<button class="tab ${n[0]===key?'on':''}" data-a="go" data-to="${n[3]}">${ic(n[2])}<span>${n[1]}</span></button>`).join('')}</div></nav>`;
+ window.scrollTo(0,0);
+ const post={vocab:()=>{renderVList()},grammar:()=>{renderGList()},news:()=>{p[1]!==undefined?loadArticle(+p[1]):loadNews()}}[v];post&&post();
+}
+const head=(t,s,back)=>`<div class="phead"><a class="back" href="${back}">${ic('back')}</a><div><h1>${t}</h1><small>${s}</small></div></div>`;
+window.addEventListener('hashchange',render);
+
+/* ================= 首頁 ================= */
+const catCount=c=>{if(c.t==='study')return D.words.length+D.grammar.length;if(c.t==='news')return'3';if(c.t==='test')return D.words.filter(w=>w.wrong>0).length;return D.words.filter(w=>(w.cats||[]).includes(c.id)).length+D.grammar.filter(g=>(g.cats||[]).includes(c.id)).length};
+function catCard(c){const m={study:['book','lime','#/study'],news:['news','lav','#/news'],test:['test','greige','#/test']}[c.t]||['folder','','#/cat/'+c.id];
+ return`<div class="cat ${m[1]}" data-id="${c.id}"><div class="cat-main" data-a="go" data-to="${m[2]}"><span class="cat-ic">${ic(m[0])}</span><span class="cat-tx"><b>${esc(c.n)}</b><small>${esc(c.s||'')}</small></span><span class="cat-n">${catCount(c)}</span></div>
+ <div class="cat-ctl">${c.t==='custom'?`<button class="xbtn" data-a="catDel" data-id="${c.id}" aria-label="刪除">${ic('trash')}</button>`:''}<span class="handle" data-drag aria-label="拖曳排序">${ic('drag')}</span></div></div>`}
+function vHome(){const d=new Date(),wd='日月火水木金土'[d.getDay()];
+ return`<div class="top"><div class="tape"></div><div class="brand"><div class="stamp"><b>${d.getMonth()+1}.${d.getDate()}</b><i>${wd}</i></div><div><h1>日本語ノート</h1><p class="sub">ゆっくり、ていねいに、日本語を。</p></div></div></div>
+ <div class="strip"><div><b>${D.words.length}</b><small>單字</small></div><div><b>${D.words.filter(w=>w.fav).length}</b><small>收藏</small></div><div><b>${D.words.filter(w=>w.wrong>0).length}</b><small>錯題</small></div><div><b>${D.grammar.length}</b><small>文法</small></div></div>
+ <div class="sec-h"><h2>分類</h2><div><button class="lnk" data-a="catEdit">${editMode?'完成':'整理'}</button><button class="lnk" data-a="catAdd">${ic('plus')}新增</button></div></div>
+ <div id="catList" class="${editMode?'editing':''}">${D.cats.map(catCard).join('')}</div><p class="hint" style="text-align:center">按住右側 ≡ 即可上下拖曳排序</p>`}
+let drag=null;
+document.addEventListener('pointerdown',e=>{const h=e.target.closest('[data-drag]');if(!h)return;const el=h.closest('.cat');e.preventDefault();const r=el.getBoundingClientRect();drag={el,list:el.parentElement,grab:e.clientY-r.top};el.classList.add('dragging');try{h.setPointerCapture(e.pointerId)}catch(_){}});
+document.addEventListener('pointermove',e=>{if(!drag)return;e.preventDefault();const{el,list}=drag;el.style.transform='none';let before=null;
+ for(const s of [...list.children].filter(x=>x!==el)){const r=s.getBoundingClientRect();if(e.clientY<r.top+r.height/2){before=s;break}}
+ if(before!==el.nextElementSibling)list.insertBefore(el,before);
+ const r2=el.getBoundingClientRect();el.style.transform=`translateY(${e.clientY-drag.grab-r2.top}px)`},{passive:false});
+const endDrag=()=>{if(!drag)return;const{el,list}=drag;el.style.transform='';el.classList.remove('dragging');const ids=[...list.children].map(x=>x.dataset.id);D.cats.sort((a,b)=>ids.indexOf(a.id)-ids.indexOf(b.id));save();drag=null};
+document.addEventListener('pointerup',endDrag);document.addEventListener('pointercancel',endDrag);
+
+/* ================= 學習項目 ================= */
+function vStudy(){return`${head('學習項目','Study · 学習','#/')}
+ <div class="big-blk a" data-a="go" data-to="#/vocab"><span class="no">01</span><div class="cat-ic">${ic('book')}</div><div><h2>語彙</h2><p>單字表・拍照擷取・小卡測驗</p><small>${D.words.length} 個單字　收藏 ${D.words.filter(w=>w.fav).length}　錯題 ${D.words.filter(w=>w.wrong>0).length}</small></div></div>
+ <div class="big-blk b" data-a="go" data-to="#/grammar"><span class="no">02</span><div class="cat-ic">${ic('pen')}</div><div><h2>文法</h2><p>例句訓練・易混文法對比・弱點加強</p><small>${D.grammar.length} 個文法　題庫 ${GB.reduce((n,g)=>n+g.qs.length,0)+D.aiQs.length} 題</small></div></div>`}
+
+/* ================= 上傳／匯入（語彙・文法共用） ================= */
+const setSt=(k,h,err)=>{const e=$('#s_'+k);if(e){e.className='status'+(err?' err':'');e.innerHTML=h}};
+const __dropHTML0=k=>`<div class="dz2"><label class="drop"><input type="file" accept="image/*,.txt,.csv,.tsv,.json,.md" multiple hidden data-c="upFile" data-k="${k}">${ic('upload')}<b>選擇圖片／檔案</b><small>或拖曳到此處</small></label>
+ <label class="drop"><input type="file" accept="image/*" capture="environment" hidden data-c="upFile" data-k="${k}">${ic('camera')}<b>拍照</b><small>JPG・PNG</small></label></div>
+ <div class="prog"><i id="p_${k}"></i></div><div id="s_${k}" class="status"></div>
+ <div class="or">或貼上文字／單字表</div><textarea id="t_${k}" rows="3" placeholder="${k==='v'?'貼上日文文章，或每行「單字,讀音,意思」的清單…':'貼上含文法的日文文章，或每行「文法,意思,例句」…'}"></textarea>
+ <div class="rowc"><label class="chk"><input type="checkbox" id="vert_${k}">直排文字</label><button class="btn soft" data-a="upText" data-k="${k}">${ic('spark')}分析文字</button></div>
+ <p class="hint">圖片以日文 OCR 辨識（首次需下載辨識模型）；支援 .txt .csv .tsv .json（也可匯入備份檔）。</p>`;
+document.addEventListener('dragover',e=>{const d=e.target.closest('.drop');if(d){e.preventDefault();d.classList.add('over')}});
+document.addEventListener('dragleave',e=>{const d=e.target.closest('.drop');d&&d.classList.remove('over')});
+document.addEventListener('drop',e=>{const d=e.target.closest('.drop');if(!d)return;e.preventDefault();d.classList.remove('over');const k=d.querySelector('[data-k]').dataset.k;handleFiles([...e.dataTransfer.files],k)});
+async function handleFiles(files,k){const out=[];$('#p_'+k).style.width='0';
+ for(const f of files){try{
+  if(f.type.startsWith('image/')){setSt(k,`<span class="sp"></span>準備辨識：${esc(f.name)}`);out.push(await ocr(f,k))}
+  else{const txt=await f.text();if(/\.json$/i.test(f.name)&&importJSON(txt,k))continue;out.push(txt)}
+ }catch(e){setSt(k,'讀取失敗：'+esc(e.message)+'（若離線，請改貼上文字）',true)}}
+ const text=out.join('\n').trim();if(text){$('#t_'+k).value=text;$('#p_'+k).style.width='100%';runText(k)}}
+function importJSON(txt,k){let j;try{j=JSON.parse(txt)}catch(e){return false}
+ if(j&&!Array.isArray(j)&&(j.words||j.grammar)){mergeData(j);save();toast('已匯入備份資料');render();return true}
+ if(Array.isArray(j)&&j.length&&k==='v'&&j[0].w){VC.items=j.map(x=>({w:x.w,r:x.r||x.reading||'',pos:x.pos||'',m:x.m||x.meaning||'',e:x.e||'',ex:x.ex||'',count:1,sel:true}));markDup(VC.items);renderCand();return true}
+ if(Array.isArray(j)&&j.length&&k==='g'&&j[0].p){GC.items=j.map(x=>({p:x.p,m:x.m||'',ex:x.ex||'',tr:x.tr||'',lv:x.lv||'',sel:true}));renderGCand();return true}
+ return false}
+function runText(k){const t=($('#t_'+k).value||'').trim();if(!t){toast('請先上傳或貼上內容');return}k==='v'?procVocab(t):procGrammar(t)}
+const splitCols=l=>l.split(/\t|,|，|｜|\|/).map(x=>x.trim());
+
+/* ================= 語彙 ================= */
+const ENG_V=[['Jisho',q=>'https://jisho.org/search/'+encodeURIComponent(q)],['Weblio',q=>'https://www.weblio.jp/content/'+encodeURIComponent(q)],['goo辞書',q=>'https://dictionary.goo.ne.jp/srch/all/'+encodeURIComponent(q)+'/m0u/'],['Google',q=>'https://www.google.com/search?q='+encodeURIComponent(q+' 意味')]];
+let VC={items:[]},vTab='all',vFilter='';
+function vVocab(){return`${head('語彙','Vocabulary ・ 単語','#/study')}
+ <section class="card"><h3 class="ct">${ic('search')}查詢新資料</h3><div class="srch"><input id="vq" placeholder="輸入單字、讀音或英文…" data-i="enter" data-a2="vFind"><button class="btn pri" data-a="vFind">站內查</button></div>
+ <div class="chips">${ENG_V.map((e,i)=>`<button class="chip" data-a="vWeb" data-n="${i}">${e[0]} ↗</button>`).join('')}</div><p class="hint">「站內查」可直接把結果加進單字表；其他按鈕會用新分頁開啟網站。</p><div id="vFound"></div></section>
+ <section class="card"><h3 class="ct">${ic('upload')}上傳資料</h3>${dropHTML('v')}<div id="vCand"></div></section>
+ <section class="card"><h3 class="ct">${ic('book')}我的單字表</h3><div class="srch" style="margin-bottom:10px"><input placeholder="在單字表中搜尋" data-i="vFilter"></div><div class="tabsx" id="vTabs"></div><div id="vList"></div>
+ <div class="acts2"><button class="btn lime" data-a="vQuizSheet">開始小卡測驗</button><button class="btn sm" data-a="wAdd">${ic('plus')}手動新增</button></div></section>`}
+async function procVocab(text){
+ const lines=text.split(/\n/).map(l=>l.trim()).filter(Boolean);
+ const st=lines.filter(l=>{const c=splitCols(l);return c.length>=2&&/[\u3040-\u30ff\u4e00-\u9fff]/.test(c[0])&&c[0].length<=20});
+ if(lines.length&&st.length/lines.length>=.6){VC.items=st.map(l=>{const c=splitCols(l);const kana=/^[ぁ-んァ-ヶー]+$/.test(c[1]||'');return{w:c[0],r:kana?kana2(c[1]):'',pos:'',m:kana?(c.slice(2).join(' ')):c.slice(1).join(' '),e:'',ex:'',count:1,sel:true}});markDup(VC.items);renderCand();setSt('v',`已匯入 ${VC.items.length} 筆清單，可逐一勾選`);return}
+ setSt('v','<span class="sp"></span>分析詞性與讀音中…（首次需載入詞典）');
+ const r=await analyze(text);VC.items=r.words;markDup(VC.items);renderCand();
+ setSt('v',r.mode==='kuromoji'?`完成：找到 ${r.words.length} 個候選詞（形態素解析：詞性・讀音）。`:'詞典載入失敗，已改用簡易擷取（無詞性／讀音）。請檢查網路後重試。',r.mode!=='kuromoji')}
+const kana2=s=>kata2hira(s);
+const markDup=L=>L.forEach(c=>{c.dup=D.words.some(w=>w.w===c.w);if(c.dup)c.sel=false});
+function renderCand(){const el=$('#vCand');if(!el)return;const L=VC.items;if(!L.length){el.innerHTML='';return}
+ const n=L.filter(c=>c.sel).length;
+ el.innerHTML=`<hr class="dash"><div class="rowc" style="margin:0 0 4px"><b class="jp" style="font-size:16px">擷取結果 ${L.length}</b><span><button class="lnk" data-a="cdAll" data-v="1">全選</button><button class="lnk" data-a="cdAll" data-v="0">全不選</button></span></div>
+ ${L.slice(0,120).map((c,i)=>`<div class="cd ${c.sel?'on':''}"><button class="ck" data-a="cdSel" data-n="${i}">${ic('check')}</button><div class="cd-b"><b class="jp">${esc(c.w)}</b><small>${esc(c.r)}</small>${c.pos?`<span class="tag">${esc(c.pos)}</span>`:''}${c.count>1?`<span class="tag ghost">×${c.count}</span>`:''}${c.dup?'<span class="tag ghost">已收錄</span>':''}<input class="mini" placeholder="中文意思（可編輯）" value="${esc(c.m)}" data-i="cdM" data-n="${i}">${c.e?`<div class="en">EN: ${esc(c.e)}</div>`:''}</div></div>`).join('')}
+ <div class="acts2"><button class="btn sm" data-a="cdLookup">查詞義（英）</button>${S.aiKey?`<button class="btn sm soft" data-a="cdAi">${ic('spark')}AI 中文釋義</button>`:''}<button class="btn pri" data-a="cdAdd" ${n?'':'disabled'}>加入單字表（${n}）</button></div><div id="cdSt" class="hint"></div>`}
+function wRow(w){return`<div class="wr"><div class="wr-b" data-a="wEdit" data-id="${w.id}"><div class="wr-t"><b class="jp">${esc(w.w)}</b><small>${esc(w.r)}</small>${w.pos?`<span class="tag">${esc(w.pos)}</span>`:''}${w.wrong>0?`<span class="tag bad">錯 ${w.wrong}</span>`:''}</div><div class="wr-m">${esc(w.m||'')}${w.m&&w.e?' ・ ':''}<span class="en">${esc(w.e||'')}</span>${!w.m&&!w.e?'<span class="en">（尚無意思，點此編輯）</span>':''}</div></div><button class="ib ${w.fav?'on':''}" data-a="wFav" data-id="${w.id}" aria-label="收藏">${ic('star')}</button></div>`}
+function renderVList(){const tb=$('#vTabs');if(!tb)return;const fav=D.words.filter(w=>w.fav).length,wr=D.words.filter(w=>w.wrong>0).length;
+ tb.innerHTML=[['all','全部',D.words.length],['fav','收藏',fav],['wrong','錯題',wr]].map(t=>`<button class="chip ${vTab===t[0]?'on':''}" data-a="vTab" data-t="${t[0]}">${t[1]} ${t[2]}</button>`).join('');
+ let L=D.words;if(vTab==='fav')L=L.filter(w=>w.fav);if(vTab==='wrong')L=L.filter(w=>w.wrong>0);const q=vFilter.trim();if(q)L=L.filter(w=>(w.w+w.r+w.m+w.e).includes(q));
+ $('#vList').innerHTML=L.length?L.slice(0,200).map(wRow).join(''):`<div class="empty">${D.words.length?'沒有符合的單字':'還沒有單字。上傳照片或貼上文章開始吧。'}</div>`}
+function addWords(list){let n=0;for(const x of list){const ex=D.words.find(w=>w.w===x.w);if(ex){['r','m','e','ex','pos'].forEach(k=>{if(!ex[k]&&x[k])ex[k]=x[k]});ex.u=Date.now();continue}
+ D.words.unshift({id:uid(),w:x.w,r:x.r||'',pos:x.pos||'',m:x.m||'',e:x.e||'',ex:x.ex||'',src:x.src||'',cats:[],fav:!!x.fav,wrong:0,right:0,u:Date.now()});n++}save();return n}
+function wSheet(w){const cs=D.cats.filter(c=>c.t==='custom');
+ sheet(`<h3>${w.id?'編輯單字':'新增單字'}</h3><label class="l">單字</label><input id="e_w" value="${esc(w.w)}"><label class="l">讀音（ひらがな）</label><input id="e_r" value="${esc(w.r)}"><label class="l">中文意思</label><input id="e_m" value="${esc(w.m)}"><label class="l">English</label><input id="e_e" value="${esc(w.e)}"><label class="l">例句</label><textarea id="e_x" rows="2">${esc(w.ex)}</textarea>
+ ${cs.length?`<label class="l">加入分類</label><div class="cks">${cs.map(c=>`<label class="chk"><input type="checkbox" class="e_c" value="${c.id}" ${(w.cats||[]).includes(c.id)?'checked':''}>${esc(c.n)}</label>`).join('')}</div>`:''}
+ <div class="acts2" style="margin-top:18px"><button class="btn pri" data-a="wSave" data-id="${w.id||''}">儲存</button>${w.id?`<button class="btn" data-a="wDel" data-id="${w.id}">${ic('trash')}刪除</button><a class="btn" target="_blank" rel="noopener" href="${ENG_V[0][1](w.w)}">${ic('link')}Jisho</a>`:''}</div>`)}
+
+/* ================= 文法 ================= */
+const ENG_G=[['Google',q=>'https://www.google.com/search?q='+encodeURIComponent(q+' 文法 違い 使い方')],['例句 Tatoeba',q=>'https://tatoeba.org/ja/sentences/search?from=jpn&query='+encodeURIComponent(q)],['Jisho',q=>'https://jisho.org/search/'+encodeURIComponent(q)]];
+let GC={items:[]},gTab='all',gFilter='';
+function vGrammar(){const wk=weakList();
+ return`${head('文法','Grammar ・ 文法','#/study')}
+ <section class="card"><h3 class="ct">${ic('search')}查詢新資料</h3><div class="srch"><input id="gq" placeholder="輸入文法，例如「ものの」「に対して」" data-i="enter" data-a2="gWeb0"><button class="btn pri" data-a="gWeb0">Google 搜尋</button></div>
+ <div class="chips">${ENG_G.map((e,i)=>`<button class="chip" data-a="gWeb" data-n="${i}">${e[0]} ↗</button>`).join('')}${S.aiKey?`<button class="chip on" data-a="gAsk">${ic('spark')}請 AI 解說易混差異</button>`:''}</div><div id="gAns"></div><p class="hint">網站會用新分頁開啟；填寫 AI 金鑰後可直接在這裡得到對比解說。</p></section>
+ <section class="card"><h3 class="ct">${ic('upload')}上傳資料</h3>${dropHTML('g')}<div id="gCand"></div></section>
+ <section class="card"><h3 class="ct">${ic('pen')}主題式訓練</h3><p class="hint" style="margin:-4px 0 10px">長得像、一直搞混的文法，放在一起對比練習。</p>
+ ${GB.map(g=>{const s=D.gst[g.id]||{w:0,r:0};return`<div class="gr"><div class="gr-b" data-a="go" data-to="#/gtopic/${g.id}"><b class="jp gr-p">${g.t}</b><span class="tag ${g.lv==='N1'?'lav':''}">${g.lv}</span><div class="wr-m">${g.tip}${s.w?` <span class="tag bad">錯 ${s.w}</span>`:''}</div></div>${ic('chev')}</div>`}).join('')}
+ <div class="acts2"><button class="btn lime" data-a="gQuiz" data-src="weak">弱點加強${wk.length?'（'+wk.length+'）':''}</button><button class="btn soft" data-a="aiGenSheet">${ic('spark')}AI 生成對比題</button><button class="btn" data-a="gQuiz" data-src="mine">我的例句填空</button></div></section>
+ <section class="card"><h3 class="ct">${ic('book')}我的文法</h3><div class="srch" style="margin-bottom:10px"><input placeholder="在文法庫中搜尋" data-i="gFilter"></div><div class="tabsx" id="gTabs"></div><div id="gList"></div><div class="acts2"><button class="btn sm" data-a="gAdd">${ic('plus')}手動新增</button></div></section>`}
+function weakList(){return Object.entries(D.weak).filter(e=>e[1]>0).sort((a,b)=>b[1]-a[1])}
+async function procGrammar(text){const lines=text.split(/\n/).map(l=>l.trim()).filter(Boolean);
+ const st=lines.filter(l=>{const c=splitCols(l);return c.length>=2&&/[\u3040-\u30ff\u4e00-\u9fff〜~]/.test(c[0])&&c[0].length<=24});
+ if(lines.length&&st.length/lines.length>=.6){GC.items=st.map(l=>{const c=splitCols(l);return{p:c[0],m:c[1]||'',ex:c.slice(2).join(' '),lv:'',sel:true}});renderGCand();setSt('g',`已匯入 ${GC.items.length} 筆文法`);return}
+ setSt('g','<span class="sp"></span>比對文法中…');const sents=sentsOf(text);const items=detectGrammar(text,sents);
+ GC.items=items;renderGCand();setSt('g',items.length?`在文字中辨識出 ${items.length} 個文法點（N2・N1 為主）。`:'沒有辨識到內建字典中的文法。可直接手動新增。',!items.length)}
+function renderGCand(){const el=$('#gCand');if(!el)return;const L=GC.items;if(!L.length){el.innerHTML='';return}const n=L.filter(c=>c.sel).length;
+ el.innerHTML=`<hr class="dash"><div class="rowc" style="margin:0 0 4px"><b class="jp" style="font-size:16px">辨識結果 ${L.length}</b><span><button class="lnk" data-a="gcAll" data-v="1">全選</button><button class="lnk" data-a="gcAll" data-v="0">全不選</button></span></div>
+ ${L.map((c,i)=>`<div class="cd ${c.sel?'on':''}"><button class="ck" data-a="gcSel" data-n="${i}">${ic('check')}</button><div class="cd-b"><b class="jp">${esc(c.p)}</b>${c.lv?`<span class="tag ${c.lv==='N1'?'lav':''}">${c.lv}</span>`:''}<div class="wr-m">${esc(c.m)}</div>${c.ex?`<div class="gr-ex">${esc(c.ex)}</div>`:''}</div></div>`).join('')}
+ <div class="acts2"><button class="btn pri" data-a="gcAdd" ${n?'':'disabled'}>加入文法庫（${n}）</button></div>`}
+function addGrammar(list){let n=0;for(const x of list){const ex=D.grammar.find(g=>g.p===x.p);if(ex){if(!ex.ex&&x.ex)ex.ex=x.ex;ex.u=Date.now();continue}
+ D.grammar.unshift({id:uid(),p:x.p,m:x.m||'',ex:x.ex||'',tr:x.tr||'',lv:x.lv||'',fav:!!x.fav,wrong:0,cats:[],u:Date.now()});n++}save();return n}
+function renderGList(){const tb=$('#gTabs');if(!tb)return;tb.innerHTML=[['all','全部',D.grammar.length],['fav','收藏',D.grammar.filter(g=>g.fav).length],['wrong','錯題',D.grammar.filter(g=>g.wrong>0).length]].map(t=>`<button class="chip ${gTab===t[0]?'on':''}" data-a="gTab" data-t="${t[0]}">${t[1]} ${t[2]}</button>`).join('');
+ let L=D.grammar;if(gTab==='fav')L=L.filter(g=>g.fav);if(gTab==='wrong')L=L.filter(g=>g.wrong>0);const q=gFilter.trim();if(q)L=L.filter(g=>(g.p+g.m+g.ex).includes(q));
+ $('#gList').innerHTML=L.length?L.slice(0,200).map(g=>`<div class="gr"><div class="gr-b" data-a="gEdit" data-id="${g.id}"><b class="jp gr-p">${esc(g.p)}</b>${g.lv?`<span class="tag ${g.lv==='N1'?'lav':''}">${g.lv}</span>`:''}${g.wrong>0?`<span class="tag bad">錯 ${g.wrong}</span>`:''}<div class="wr-m">${esc(g.m)}</div>${g.ex?`<div class="gr-ex">${esc(g.ex)}${g.tr?`<br><small>${esc(g.tr)}</small>`:''}</div>`:''}</div><button class="ib ${g.fav?'on':''}" data-a="gFav" data-id="${g.id}">${ic('star')}</button></div>`).join(''):`<div class="empty">${D.grammar.length?'沒有符合的文法':'還沒有文法。上傳照片或貼上文章，從辨識結果中挑選加入。'}</div>`}
+function gSheet(g){sheet(`<h3>${g.id?'編輯文法':'新增文法'}</h3><label class="l">文法</label><input id="e_p" value="${esc(g.p)}" placeholder="例：〜ものの"><label class="l">意思／接續</label><input id="e_m" value="${esc(g.m)}"><label class="l">例句</label><textarea id="e_x" rows="2">${esc(g.ex)}</textarea><label class="l">例句翻譯</label><input id="e_t" value="${esc(g.tr||'')}"><label class="l">級別</label><select id="e_l">${['','N3','N2','N1'].map(l=>`<option ${g.lv===l?'selected':''}>${l}</option>`).join('')}</select>
+ <div class="acts2" style="margin-top:18px"><button class="btn pri" data-a="gSave" data-id="${g.id||''}">儲存</button>${g.id?`<button class="btn" data-a="gDel" data-id="${g.id}">${ic('trash')}刪除</button>`:''}</div>`)}
+function vGTopic(p){const g=GB.find(x=>x.id===p[1]);if(!g)return vGrammar();const s=D.gst[g.id]||{w:0,r:0};
+ return`${head('易混文法','Contrast ・ 対比','#/grammar')}<section class="card"><span class="tag ${g.lv==='N1'?'lav':''}" style="margin:0 0 8px">${g.lv}</span><h2 style="font-size:19px;line-height:1.5;margin-bottom:6px">${g.t}</h2><p style="margin:0 0 10px;color:var(--brown2)">${g.tip}</p>
+ <table class="cmp">${g.it.map(i=>`<tr><td>${i[0]}</td><td>${i[1]}</td></tr>`).join('')}</table><p class="hint">累計：答對 ${s.r||0}　答錯 ${s.w||0}</p>
+ <div class="acts2"><button class="btn pri" data-a="gQuiz" data-src="topic" data-id="${g.id}">開始訓練（${g.qs.length} 題）</button><button class="btn soft" data-a="aiGenSheet" data-pat="${esc(g.it.map(i=>i[0]).join('、'))}">${ic('spark')}AI 再出新題</button></div></section>`}
+
+/* ================= 小卡／測驗引擎 ================= */
+let Q=null;
+function startQuiz(o){if(!o.items.length){toast('沒有可出題的內容');return}Q=Object.assign({i:0,sc:0,wr:[],sel:null,flip:false,back:'#/test'},o);location.hash='#/quiz'}
+function buildVocabQs({src,mode,lang,n,cat,pool}){let L=pool||D.words;if(!pool){if(src==='fav')L=L.filter(w=>w.fav);else if(src==='wrong')L=L.filter(w=>w.wrong>0);else if(src==='vague')L=L.filter(w=>w.st==='vague');else if(src==='cat')L=L.filter(w=>(w.f||'')===(cat||''))}
+ let eff=mode;const withM=L.filter(w=>mean(w,lang)),withR=L.filter(w=>w.r&&hasKanji(w.w));
+ if(mode==='jp2m'||mode==='m2jp'){if(withM.length<4){eff='flash';toast('有意思的單字不足 4 個，改用閃卡')}}
+ if(mode==='read'){if(withR.length<4){eff='flash';toast('有讀音的單字不足 4 個，改用閃卡')}}
+ const base=eff==='flash'?L:(mode==='read'?withR:withM);const pick=shuffle(base).slice(0,n);
+ return pick.map(w=>{const rec=ok=>{if(w.id&&D.words.includes(w)){if(ok){w.right=(w.right||0)+1;if(w.wrong>0)w.wrong--}else w.wrong=(w.wrong||0)+1;save(true)}};
+  const sum=`<b class="jp">${esc(w.w)}</b> <small>${esc(w.r)}</small>　${esc(mean(w,lang)||'')}`;
+  if(eff==='flash')return{type:'flash',front:esc(w.w),fsub:'',back:`${esc(w.r)}<br>${esc(mean(w,lang)||w.m||'（尚無意思）')}${w.ex?`<br><small>${esc(w.ex)}</small>`:''}`,on:rec,sum,wid:w.id};
+  const dist=(f)=>shuffle(base.filter(x=>x!==w&&f(x)!==f(w)&&f(x))).map(f).filter((v,i,a)=>a.indexOf(v)===i).slice(0,3);
+  if(mode==='jp2m'){const o=shuffle([mean(w,lang),...dist(x=>mean(x,lang))]);return{type:'mc',p:esc(w.w),sub:esc(w.r),o,a:o.indexOf(mean(w,lang)),on:rec,sum,wid:w.id}}
+  if(mode==='m2jp'){const o=shuffle([w.w,...dist(x=>x.w)]);return{type:'mc',zp:1,jo:1,p:esc(mean(w,lang)),sub:'選出對應的日文',o,a:o.indexOf(w.w),on:rec,sum,wid:w.id}}
+  const o=shuffle([w.r,...dist(x=>x.r)]);return{type:'mc',jo:1,p:esc(w.w),sub:'選出正確讀音',o,a:o.indexOf(w.r),on:rec,sum,wid:w.id}})}
+function vQuizSheet(src,cat,pool,back,title){
+ sheet(`<h3>${title||'單字小卡測驗'}</h3>${pool||cat?'':`<label class="l">範圍</label><select id="qz_s"><option value="all" ${src==='all'?'selected':''}>全部單字（${D.words.length}）</option><option value="fav" ${src==='fav'?'selected':''}>收藏（${D.words.filter(w=>w.fav).length}）</option><option value="wrong" ${src==='wrong'?'selected':''}>錯題（${D.words.filter(w=>w.wrong>0).length}）</option></select>`}
+ <label class="l">題型</label><select id="qz_m"><option value="jp2m">看日文 → 選意思</option><option value="m2jp">看意思 → 選日文</option><option value="read">看漢字 → 選讀音</option><option value="flash">閃卡（翻面自評）</option></select>
+ <label class="l">意思語言</label><select id="qz_l"><option value="zh" ${S.lang==='zh'?'selected':''}>中文</option><option value="en" ${S.lang==='en'?'selected':''}>English</option></select>
+ <label class="l">題數</label><select id="qz_n">${[5,10,15,20,30].map(n=>`<option ${S.qn===n?'selected':''}>${n}</option>`).join('')}</select>
+ <div class="acts2" style="margin-top:18px"><button class="btn pri" data-a="qzGo" data-cat="${cat||''}" data-back="${back||''}" ${pool?'data-pool="1"':''}>開始</button></div>`);
+ vQuizSheet.pool=pool}
+function vQuiz(){if(!Q)return`${head('測驗','Quiz','#/test')}<div class="card empty">目前沒有進行中的測驗。</div>`;
+ const n=Q.items.length;
+ if(Q.i>=n){const sc=Q.sc;if(!Q.logged){Q.logged=1;D.hist.unshift({t:Date.now(),k:Q.title,s:sc,n});D.hist=D.hist.slice(0,30);save()}
+  return`${head('結果',Q.title,Q.back)}<div class="card" style="text-align:center"><div class="score">${sc}<small style="font-size:20px"> / ${n}</small></div><p>${sc===n?'全部答對，太棒了。':sc/n>=.7?'表現不錯，再鞏固一下錯題吧。':'沒關係，錯題已記錄，下次會加強。'}</p></div>
+  ${Q.wr.length?`<div class="card"><h3 class="ct">本次錯題</h3>${Q.wr.map(it=>`<div class="wr"><div class="wr-b">${it.sum||''}${it.why?`<div class="wr-m">${esc(it.why)}</div>`:''}</div>${it.wid?`<button class="ib" data-a="qFav" data-id="${it.wid}">${ic('star')}</button>`:''}</div>`).join('')}<p class="hint">★ 可收藏單字，錯題也會自動出現在「錯題」分頁。</p></div>`:''}
+  <div class="acts2" style="justify-content:center">${Q.wr.length?`<button class="btn lime" data-a="qRetry">重做錯題</button>`:''}<button class="btn" data-a="go" data-to="${Q.back}">返回</button></div>`}
+ const it=Q.items[Q.i];const pr=`<div class="q-top"><small>${Q.i+1}/${n}</small><div class="prog"><i style="width:${Q.i/n*100}%"></i></div><button class="lnk" data-a="go" data-to="${Q.back}">結束</button></div>`;
+ if(it.type==='flash')return`${pr}<div class="q-card" data-a="qFlip" style="cursor:pointer;min-height:200px;display:flex;flex-direction:column;justify-content:center"><div class="q-p">${it.front}</div>${Q.flip?`<hr class="dash"><div class="q-sub" style="font-size:16px;color:var(--ink)">${it.back}</div>`:'<div class="q-sub">點一下翻面</div>'}</div>
+  ${Q.flip?`<div class="side-by"><button class="btn" data-a="qFlash" data-v="0">還不熟</button><button class="btn lime" data-a="qFlash" data-v="1">記得</button></div>`:''}`;
+ const done=Q.sel!=null;
+ return`${pr}<div class="q-card"><div class="q-p ${it.s?'s':''} ${it.zp?'zh':''}">${it.s?it.p.replace('（　）','<u>　　</u>'):it.p}</div>${it.sub?`<div class="q-sub">${it.sub}</div>`:''}</div>
+ ${it.o.map((o,i)=>`<button class="opt ${it.s||it.jo?'jp':''} ${done?(i===it.a?'ok':(i===Q.sel?'ng':'')):''}" data-a="qPick" data-n="${i}" ${done?'disabled':''}>${esc(o)}</button>`).join('')}
+ ${done?`${it.why?`<div class="why">${esc(it.why)}</div>`:''}<button class="btn pri" style="width:100%" data-a="qNext">${Q.i+1>=n?'看結果':'下一題'}</button>`:''}`}
+function qAdvance(ok){const it=Q.items[Q.i];it.on&&it.on(ok);if(ok)Q.sc++;else Q.wr.push(it)}
+
+/* ================= 文法題目組裝 ================= */
+function gqItem(q,gid){const gAns=q.a;return{type:'mc',s:1,p:esc(q.s),sub:esc(q.tr||''),o:q.shuffled?q.o:shuffle(q.o),a:null,ans:gAns,why:q.w,on:ok=>{const s=D.gst[gid]||(D.gst[gid]={w:0,r:0});if(ok){s.r++;if(D.weak[gAns]>0)D.weak[gAns]--}else{s.w++;D.weak[gAns]=(D.weak[gAns]||0)+1}save(true)},sum:`${esc(q.s.replace('（　）','【'+q.a+'】'))}<br><small>${esc(q.tr||'')}</small>`,why2:q.w}}
+function finalizeG(items){items.forEach(it=>{it.a=it.o.indexOf(it.ans)});return items.filter(it=>it.a>=0)}
+function buildGrammar(src,id,lv){let pool=[];
+ if(src==='topic'){const g=GB.find(x=>x.id===id);pool=g.qs.map(q=>({...q,g:g.id}))}
+ else if(src==='ai'){pool=D.aiQs.map(q=>({...q,g:'ai'}))}
+ else{GB.forEach(g=>g.qs.forEach(q=>pool.push({...q,g:g.id,lv:g.lv})));D.aiQs.forEach(q=>pool.push({...q,g:'ai'}));
+  if(lv)pool=pool.filter(q=>q.lv===lv);
+  if(src==='weak'){const wk=D.weak;const sc=q=>(wk[q.a]||0)*3+((D.gst[q.g]&&D.gst[q.g].w)||0);const ws=pool.filter(q=>sc(q)>0).sort((a,b)=>sc(b)-sc(a));pool=ws.length?ws.slice(0,12):shuffle(pool).slice(0,10)}}
+ return finalizeG(shuffle(pool).slice(0,src==='topic'?pool.length:12).map(q=>gqItem(q,q.g)))}
+function buildMine(){const L=D.grammar.filter(g=>g.ex&&g.ex.includes(core(g.p).replace(/[〜~]/g,'')));if(!L.length)return[];
+ const all=[...new Set([...D.grammar.map(g=>core(g.p)),...PD.map(p=>core(p.p))])];
+ return finalizeG(shuffle(L).slice(0,10).map(g=>{const c=core(g.p);const same=PD.find(p=>core(p.p)===c);const near=shuffle(all.filter(x=>x!==c&&(same?PD.some(p=>core(p.p)===x&&p.g===same.g):true))).slice(0,3);
+  const o=shuffle([c,...near]);return{type:'mc',s:1,p:esc(g.ex.replace(c,'（　）')),sub:esc((g.tr||'')+(g.m?'　意思：'+g.m:'')),o,ans:c,a:0,why:`正確：${g.p}　${g.m||''}`,on:ok=>{if(!ok){g.wrong=(g.wrong||0)+1;D.weak[c]=(D.weak[c]||0)+1}else if(g.wrong>0)g.wrong--;save(true)},sum:esc(g.ex)+`<br><small>${esc(g.p)}</small>`}}))}
+async function aiGenerate(lv,n,pat){const wk=weakList().slice(0,6).map(e=>e[0]);const mine=D.grammar.filter(g=>g.wrong>0).slice(0,4).map(g=>core(g.p));
+ const focus=[...new Set([...(pat?pat.split('、').map(core):[]),...wk,...mine])];
+ const prompt=`你是日語教師。學習者常答錯的文法：${focus.length?focus.join('、'):'（尚無紀錄，請選 N2/N1 常見易混文法，例如 ものの／ながらも／にもかかわらず／わけにはいかない／ざるを得ない）'}。\n請生成 ${n} 題「${lv==='both'?'N2 與 N1':lv}」程度的易混文法對比四選一填空題，著重在這些文法與其容易混淆的文法之間的差異。\n要求：1) 句子含一個「（　）」空格；2) 四個選項皆為易混淆的文法，但只有一個最恰當；3) 提供繁體中文翻譯作提示，使答案唯一；4) 提供繁體中文解說，說明正解理由與其他選項為何不行。\n只輸出 JSON 陣列，每個元素格式：{"s":"句子","tr":"中文翻譯","a":"正確選項","o":["選項1","選項2","選項3","選項4"],"w":"解說","lv":"N2或N1"}`;
+ const arr=jparse(await ai(prompt,4000));const ok=[];
+ for(const q of arr){if(!q||typeof q.s!=='string'||!Array.isArray(q.o)||q.o.length!==4||!q.o.includes(q.a))continue;q.s=q.s.replace(/[（(]\s*[）)]/,'（　）');if(!q.s.includes('（　）'))continue;ok.push({id:uid(),s:q.s,tr:q.tr||'',a:q.a,o:q.o.map(String),w:q.w||'',lv:q.lv||(lv==='both'?'N2':lv),ai:1})}
+ if(!ok.length)throw new Error('AI 回傳格式無法使用，請再試一次');D.aiQs=[...ok,...D.aiQs].slice(0,120);save();return ok}
+
+/* ================= 新聞 ================= */
+const SAMPLES=[
+{id:'s1',title:'市立図書館、夜10時まで開館へ',src:'範例文章（離線備用）',body:'市は来月から、市立図書館を夜10時まで開けることを決めました。これまで図書館は午後6時に閉まっていたため、仕事が終わってから行くことができないという声が多く寄せられていました。\n市の調査によると、働く世代の約6割が「夜にも利用したい」と答えたということです。一方で、職員の数が足りないことから、夜間の開館には反対する意見もありました。\nそこで市は、地域のボランティアに協力してもらうことにしました。ボランティアは本の貸し出しなどを手伝います。市の担当者は「忙しい人ほど本を読む時間が必要です。多くの人に利用してもらいたい」と話しています。',
+ rc:[{p:'図書館が夜10時まで開く主な理由は何ですか。',o:['仕事のあとに行けないという声が多かったから','職員が増えたから','本の数が増えたから','ボランティアが反対したから'],a:0},{p:'夜の開館に反対する意見があったのはなぜですか。',o:['本が古いから','職員の数が足りないから','市民が少ないから','お金がないから'],a:1},{p:'ボランティアは何をしますか。',o:['本を書く','図書館を建てる','本の貸し出しなどを手伝う','調査をする'],a:2}]},
+{id:'s2',title:'駅の自動販売機、災害のときは無料に',src:'範例文章（離線備用）',body:'ある鉄道会社は、駅にある自動販売機の一部を、災害のときに飲み物を無料で出せるものに変えると発表しました。\n大きな地震や台風で電車が止まると、駅で長い時間待たざるを得ない人が出てきます。そのような人たちに、水やお茶を無料で配るのが目的です。\nこの自動販売機は、停電になっても数日間は動くようになっています。会社は今年度中に、主な50の駅に置く予定です。\n会社の担当者は「災害は、いつ起こるか分かりません。安心して待てる駅にしていきたい」と話しています。',
+ rc:[{p:'災害のとき、自動販売機は何を無料で出しますか。',o:['食べ物','水やお茶などの飲み物','電車の切符','地図'],a:1},{p:'停電になったら、この自動販売機はどうなりますか。',o:['すぐ止まる','数日間は動く','壊れる','無料にならない'],a:1},{p:'会社は何の駅に置く予定ですか。',o:['全部の駅','東京の駅','主な50の駅','小さい駅'],a:2}]},
+{id:'s3',title:'小学生が田植えを体験',src:'範例文章（離線備用）',body:'ある小学校の5年生が、近くの田んぼで田植えを体験しました。地元の農家の人が先生になり、苗の持ち方や植え方を教えました。\n子どもたちは、泥に足をとられながらも、一列ずつていねいに苗を植えていきました。初めて田んぼに入った男の子は「思ったより冷たくて、歩くのが大変でした」と話しました。\nこの体験をきっかけに、学校では給食の米がどこで作られているかを調べる授業も始めました。農家の人は「ごはんが食べられるのは、たくさんの人の仕事があるからだということを知ってほしい」と話しています。',
+ rc:[{p:'田植えを教えたのは誰ですか。',o:['学校の先生','地元の農家の人','市長','男の子'],a:1},{p:'男の子は田んぼに入ってどう感じましたか。',o:['楽しくて簡単だった','思ったより冷たくて歩くのが大変だった','暑かった','怖かった'],a:1},{p:'体験のあと、学校は何を始めましたか。',o:['給食をやめた','田んぼを買った','給食の米の産地を調べる授業','農家の仕事'],a:2}]}];
+const rng=seed=>()=>{seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};
+async function fetchNews(){const rand=rng(+dayKey().replace(/-/g,''));const out=[];
+ if(S.newsSrc==='easy'){
+  const raw=await fetchTxt('https://www3.nhk.or.jp/news/easy/news-list.json');const list=JSON.parse(raw.replace(/^\uFEFF/,''));const all=[];
+  (Array.isArray(list)?list:[list]).forEach(o=>Object.keys(o).forEach(d=>(o[d]||[]).forEach(it=>all.push({d,id:it.news_id,title:it.title}))));
+  all.sort((a,b)=>b.d.localeCompare(a.d));const cand=[...all.slice(0,18)].map(x=>[rand(),x]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]);
+  for(const c of cand){if(out.length>=3)break;try{const html=await fetchTxt(`https://www3.nhk.or.jp/news/easy/${c.id}/${c.id}.html`);const doc=new DOMParser().parseFromString(html,'text/html');
+   doc.querySelectorAll('rt,rp,script,style').forEach(e=>e.remove());const box=doc.querySelector('#js-article-body,.article-body,.article-main__body,article')||doc.body;
+   const ps=[...box.querySelectorAll('p')].map(p=>p.textContent.replace(/\s+/g,'').trim()).filter(t=>t.length>8);const body=ps.join('\n');
+   if(body.length>40)out.push({id:c.id,title:c.title,src:'NHK NEWS WEB EASY',url:`https://www3.nhk.or.jp/news/easy/${c.id}/${c.id}.html`,date:c.d,body})}catch(e){}}
+ }else{
+  const xml=await fetchTxt('https://www3.nhk.or.jp/rss/news/cat0.xml');const doc=new DOMParser().parseFromString(xml,'text/xml');
+  const its=[...doc.querySelectorAll('item')].slice(0,15).map(i=>({title:i.querySelector('title')?.textContent||'',desc:i.querySelector('description')?.textContent||'',url:i.querySelector('link')?.textContent||''})).filter(x=>x.desc.length>20);
+  [...its].map(x=>[rand(),x]).sort((a,b)=>a[0]-b[0]).slice(0,3).forEach((x,i)=>out.push({id:'r'+i+dayKey(),title:x[1].title,src:'NHK ニュース（摘要）',url:x[1].url,body:x[1].desc}))}
+ return out}
+let newsBusy=false;
+async function getNews(force){const k=dayKey();if(!force&&D.news[k]&&D.news[k].items.length>=3)return D.news[k].items;
+ let items=[];try{items=await fetchNews()}catch(e){}
+ const used=items.length;if(items.length<3){SAMPLES.forEach(s=>{if(items.length<3)items.push({...s})})}
+ D.news[k]={items:items.slice(0,3),live:used>=3,at:Date.now()};Object.keys(D.news).sort().slice(0,-14).forEach(x=>delete D.news[x]);save();return D.news[k].items}
+function vNews(){return`${head('精選新聞','Daily News ・ 今日の3本','#/')}<div id="newsBox"><div class="card empty"><span class="sp"></span>取得今日新聞…</div></div>`}
+async function loadNews(force){if(newsBusy)return;newsBusy=true;const box=$('#newsBox');let items;try{items=await getNews(force)}finally{newsBusy=false}if(!$('#newsBox'))return;const live=D.news[dayKey()].live;
+ $('#newsBox').innerHTML=`<div class="meta"><span>${dayKey()}</span><span>${live?'NHK 每日自動取得':'網路新聞暫時無法取得，顯示範例文章'}</span><button class="lnk" data-a="newsRefresh">重新取得</button></div>
+ ${items.map((a,i)=>`<div class="news-c" data-a="go" data-to="#/news/${i}"><span class="n">${i+1}</span><div><h3 class="jp">${esc(a.title)}</h3><p>${esc(a.body.slice(0,90))}…</p><div class="meta" style="margin:6px 0 0">${esc(a.src)}</div></div></div>`).join('')}
+ <p class="hint">每天選 3 則，讀完後可擷取重點單字／文法並做測驗。</p>`}
+let AR=null;
+function vArticle(p){const items=(D.news[dayKey()]||{}).items||[];const a=items[+p[1]];if(!a)return`${head('新聞','News','#/news')}<div class="card empty">找不到這則新聞，請回到列表重新取得。</div>`;
+ return`${head('閱讀','News ・ 記事','#/news')}<div class="card art"><div class="meta"><span>${esc(a.src)}</span>${a.url?`<a class="lnk" target="_blank" rel="noopener" href="${esc(a.url)}">${ic('link')}原文</a>`:''}</div><h2 class="art-h">${esc(a.title)}</h2>${a.body.split('\n').map(x=>`<p>${esc(x)}</p>`).join('')}</div>
+ <div class="seg" id="arSeg"><button class="on" data-a="arTab" data-t="w">重點單字</button><button data-a="arTab" data-t="g">重點文法</button><button data-a="arTab" data-t="q">測驗</button></div><div id="arBody"><div class="card empty"><span class="sp"></span>分析文章…</div></div>`}
+async function loadArticle(i){const a=((D.news[dayKey()]||{}).items||[])[i];if(!a)return;AR={i,a,tab:'w',words:[],gram:[],mode:''};
+ try{const r=await analyze(a.body);AR.words=r.words.filter(w=>w.pos!=='固有名詞').sort((x,y)=>(hasKanji(y.w)-hasKanji(x.w))||(y.count-x.count)).slice(0,14);AR.gram=r.grammar;AR.mode=r.mode}catch(e){}
+ renderAr();runPool(AR.words,async w=>{const r=(await dictSearch(w.w,1))[0];if(r){w.e=r.e;if(!w.r&&r.r&&hasKanji(w.w))w.r=r.r}if(AR&&AR.tab==='w'&&$('#arBody'))renderAr()},3)}
+function renderAr(){const el=$('#arBody');if(!el||!AR)return;
+ if(AR.tab==='w')el.innerHTML=`<div class="card"><h3 class="ct">${ic('book')}重點單字</h3>${AR.words.length?AR.words.map((w,i)=>{const have=D.words.find(x=>x.w===w.w);return`<div class="wr"><div class="wr-b"><div class="wr-t"><b class="jp">${esc(w.w)}</b><small>${esc(w.r)}</small>${w.pos?`<span class="tag">${esc(w.pos)}</span>`:''}</div><div class="wr-m">${w.e?`<span class="en">${esc(w.e)}</span>`:'<span class="en">查詢詞義中…</span>'}</div>${w.ex?`<div class="gr-ex">${esc(w.ex)}</div>`:''}</div><button class="ib ${have&&have.fav?'on':''}" data-a="arFavW" data-n="${i}" aria-label="收藏">${ic('star')}</button></div>`}).join(''):'<div class="empty">沒有擷取到單字（詞典可能尚未載入，請檢查網路）</div>'}<p class="hint">★ 收藏會加入單字表（含讀音與例句）。${AR.mode==='fallback'?' 目前為簡易擷取模式。':''}</p></div>`;
+ else if(AR.tab==='g')el.innerHTML=`<div class="card"><h3 class="ct">${ic('pen')}重點文法</h3>${AR.gram.length?AR.gram.map((g,i)=>{const have=D.grammar.find(x=>x.p===g.p);return`<div class="gr"><div class="gr-b"><b class="jp gr-p">${esc(g.p)}</b><span class="tag ${g.lv==='N1'?'lav':''}">${g.lv}</span><div class="wr-m">${esc(g.m)}</div>${g.ex?`<div class="gr-ex">${esc(g.ex)}</div>`:''}</div><button class="ib ${have&&have.fav?'on':''}" data-a="arFavG" data-n="${i}">${ic('star')}</button></div>`}).join(''):'<div class="empty">這篇沒有偵測到字典內的文法點</div>'}</div>`;
+ else el.innerHTML=`<div class="card"><h3 class="ct">${ic('test')}文章測驗</h3><div class="grid2"><button class="tile lav" data-a="arQuiz" data-k="rc"><b>閱讀理解</b><small>${AR.a.rc?'3 題':S.aiKey?'AI 出題':'填空理解'}</small></button><button class="tile lime" data-a="arQuiz" data-k="w"><b>單字</b><small>${AR.words.length} 個重點詞</small></button><button class="tile" data-a="arQuiz" data-k="g"><b>文法</b><small>${AR.gram.length} 個文法點</small></button><button class="tile" data-a="arQuiz" data-k="all"><b>綜合</b><small>三種混合</small></button></div></div>`}
+async function articleQs(kind){const a=AR.a,back='#/news/'+AR.i;let items=[];
+ const rc=async()=>{let L=a.rc;if(!L&&S.aiKey){try{toast('AI 出題中…',6000);const arr=jparse(await ai(`請依下列日文新聞內容，出 3 題繁體中文提問的閱讀理解四選一題，並用日文原文語意作答。只輸出 JSON 陣列：[{"p":"題目","o":["A","B","C","D"],"a":正確選項索引0-3,"w":"簡短解說"}]\n\n${a.body}`,2000));L=arr.filter(q=>q.p&&Array.isArray(q.o)&&q.o.length===4&&q.a>=0&&q.a<4);a.rc=L;a.rcZh=1;save(true)}catch(e){toast('AI 出題失敗：'+e.message,3500)}}
+  if(L&&L.length)return L.map(q=>({type:'mc',jo:1,zp:a.rcZh?1:0,p:esc(q.p),sub:'',o:q.o,a:q.a,why:q.w||'',sum:esc(q.p)+'<br><small>正解：'+esc(q.o[q.a])+'</small>'}));
+  const sents=sentsOf(a.body).filter(s=>s.length>10);const ws=AR.words.filter(w=>w.pos&&/名詞|動詞|形容詞/.test(w.pos));
+  return shuffle(sents).slice(0,3).map(s=>{const t=ws.find(w=>s.includes(w.w));if(!t)return null;const others=shuffle(ws.filter(w=>w!==t&&w.pos===t.pos)).slice(0,3);if(others.length<3)return null;const o=shuffle([t.w,...others.map(w=>w.w)]);
+   return{type:'mc',s:1,p:esc(s.replace(t.w,'（　）')),sub:'填入文章中原本的詞',o,a:o.indexOf(t.w),why:'原文：'+s,sum:esc(s)}}).filter(Boolean)};
+ const wq=()=>{const pool=AR.words.map(w=>({w:w.w,r:w.r,pos:w.pos,m:w.m,e:w.e,ex:w.ex}));return buildVocabQs({mode:'jp2m',lang:'en',n:6,pool})};
+ const gq=()=>{const dict=PD;return AR.gram.slice(0,5).map(g=>{const c=core(g.p);const near=shuffle(dict.filter(x=>x.g===(PD.find(p=>p.p===g.p)||{}).g&&core(x.p)!==c)).slice(0,2).map(x=>core(x.p));const far=shuffle(dict.filter(x=>core(x.p)!==c&&!near.includes(core(x.p)))).slice(0,3-near.length).map(x=>core(x.p));
+  const o=shuffle([c,...near,...far]);const ex=g.ex||'';const base=ex.includes(g.hit)?ex.replace(g.hit,'（　）'):'';if(!base)return null;return{type:'mc',s:1,p:esc(base),sub:'意思：'+g.m,o,a:o.indexOf(c),why:`答案：${g.p}（${g.m}）`,on:ok=>{if(!ok){D.weak[c]=(D.weak[c]||0)+1;save(true)}},sum:esc(ex)+'<br><small>'+esc(g.p)+'</small>'}}).filter(Boolean)};
+ if(kind==='rc')items=await rc();else if(kind==='w')items=wq();else if(kind==='g')items=gq();else items=[...(await rc()),...wq().slice(0,4),...gq().slice(0,3)];
+ startQuiz({title:'新聞測驗',items,back})}
+
+/* ================= テスト／分類／設定 ================= */
+function vTest(){const wrong=D.words.filter(w=>w.wrong>0).length,wk=weakList().slice(0,6);
+ return`${head('テスト','Review ・ 復習','#/')}<div class="grid2" style="margin-bottom:16px"><button class="tile lime" data-a="vQuizSheet" data-src="wrong"><small>錯題單字</small><span class="big">${wrong}</span><small>點此測驗</small></button><button class="tile lav" data-a="vQuizSheet" data-src="fav"><small>收藏單字</small><span class="big">${D.words.filter(w=>w.fav).length}</span><small>點此測驗</small></button></div>
+ <section class="card"><h3 class="ct">${ic('book')}單字小卡</h3><p class="hint" style="margin-top:-4px">四選一或閃卡，可切換「中文／English」意思。</p><div class="acts2"><button class="btn lime" data-a="vQuizSheet" data-src="all">全部單字</button></div></section>
+ <section class="card"><h3 class="ct">${ic('pen')}文法對比訓練（N2・N1）</h3><div class="acts2"><button class="btn lime" data-a="gQuiz" data-src="weak">弱點加強</button><button class="btn" data-a="gQuiz" data-src="all" data-lv="N2">N2 綜合</button><button class="btn" data-a="gQuiz" data-src="all" data-lv="N1">N1 綜合</button><button class="btn soft" data-a="aiGenSheet">${ic('spark')}AI 生成</button></div>
+ <hr class="dash"><b class="jp">常錯文法</b>${wk.length?wk.map(e=>`<div class="gr"><div class="gr-b"><b class="jp gr-p">${esc(e[0])}</b></div><span class="tag bad">錯 ${e[1]}</span></div>`).join(''):'<div class="empty">還沒有錯題紀錄，做幾題訓練後這裡會自動統計。</div>'}</section>
+ ${D.hist.length?`<section class="card"><h3 class="ct">最近成績</h3>${D.hist.slice(0,6).map(h=>`<div class="gr"><div class="gr-b">${esc(h.k)}<div class="wr-m">${new Date(h.t).toLocaleDateString()}</div></div><b class="jp">${h.s}/${h.n}</b></div>`).join('')}</section>`:''}`}
+function vCat(p){const c=D.cats.find(x=>x.id===p[1]);if(!c)return vHome();const ws=D.words.filter(w=>(w.cats||[]).includes(c.id)),gs=D.grammar.filter(g=>(g.cats||[]).includes(c.id));
+ return`${head(esc(c.n),esc(c.s||'自訂分類'),'#/')}<section class="card"><h3 class="ct">${ic('book')}單字 ${ws.length}</h3>${ws.length?ws.map(wRow).join(''):'<div class="empty">尚無單字。在單字的編輯畫面勾選此分類即可加入。</div>'}<div class="acts2">${ws.length?`<button class="btn lime" data-a="catQuiz" data-id="${c.id}">小卡測驗</button>`:''}<button class="btn sm" data-a="catPick" data-id="${c.id}">${ic('plus')}加入單字</button></div></section>
+ <section class="card"><h3 class="ct">${ic('pen')}文法 ${gs.length}</h3>${gs.length?gs.map(g=>`<div class="gr"><div class="gr-b" data-a="gEdit" data-id="${g.id}"><b class="jp gr-p">${esc(g.p)}</b><div class="wr-m">${esc(g.m)}</div></div></div>`).join(''):'<div class="empty">尚無文法。</div>'}</section>`}
+function vSet(){return`${head('設定','Settings ・ 設定','#/')}
+ <section class="card"><h3 class="ct">學習偏好</h3><div class="set-r"><div><b>測驗意思語言</b><small>單字小卡預設語言</small></div><select data-c="sLang" style="width:auto"><option value="zh" ${S.lang==='zh'?'selected':''}>中文</option><option value="en" ${S.lang==='en'?'selected':''}>English</option></select></div>
+ <div class="set-r"><div><b>每日新聞來源</b><small>「一般新聞」只有摘要，文章較短</small></div><select data-c="sNews" style="width:auto"><option value="easy" ${S.newsSrc==='easy'?'selected':''}>NHK EASY</option><option value="rss" ${S.newsSrc==='rss'?'selected':''}>NHK 一般新聞</option></select></div></section>
+ <section class="card"><h3 class="ct">${ic('spark')}AI（選用）</h3><p class="hint" style="margin-top:-6px">填入 Anthropic API 金鑰後，可生成針對你錯題的 N2／N1 對比題、中文釋義、新聞閱讀理解題。金鑰只存在這台裝置的瀏覽器，不會同步。</p>
+ <label class="l" style="display:block;margin:10px 0 4px;font-size:12.5px">API 金鑰</label><input type="password" placeholder="sk-ant-…" value="${esc(S.aiKey)}" data-c="sKey" autocomplete="off"><label class="l" style="display:block;margin:10px 0 4px;font-size:12.5px">模型</label><input value="${esc(S.aiModel)}" data-c="sModel"></section>
+ <section class="card"><h3 class="ct">${ic('cloud')}跨裝置同步</h3><p class="hint" style="margin-top:-6px">使用你自己的 GitHub 私人 Gist 存放資料（需要一組僅勾選 gist 權限的 Personal Access Token）。在另一台裝置填入同一組 Token 與 Gist ID，按「從雲端下載」即可。</p>
+ <label class="l" style="display:block;margin:10px 0 4px;font-size:12.5px">GitHub Token</label><input type="password" value="${esc(S.token)}" data-c="sToken" autocomplete="off"><label class="l" style="display:block;margin:10px 0 4px;font-size:12.5px">Gist ID（首次上傳會自動建立）</label><input value="${esc(S.gist)}" data-c="sGist">
+ <div class="set-r"><div><b>變更後自動上傳</b></div><input type="checkbox" ${S.auto?'checked':''} data-c="sAuto"></div>
+ <div class="acts2"><button class="btn lime" data-a="syncUp">${ic('upload')}上傳到雲端</button><button class="btn" data-a="syncDown">下載並合併</button></div><div id="syncSt" class="hint"></div></section>
+ <section class="card"><h3 class="ct">備份與資料</h3><div class="acts2"><button class="btn" data-a="exp">匯出 JSON</button><label class="btn">匯入 JSON<input type="file" accept=".json" hidden data-c="impFile"></label><button class="btn" data-a="reset" style="color:var(--rose-d)">清除全部資料</button></div><p class="hint">沒有設定雲端時，可用匯出／匯入在不同裝置間搬移資料。</p></section>`}
+
+/* ================= 同步 ================= */
+function mergeData(R){const L=D;L.del=Object.assign({},R.del||{},L.del);
+ const mergeArr=(a,b)=>{const m=new Map();[...(a||[]),...(b||[])].forEach(x=>{const o=m.get(x.id);if(!o||(x.u||0)>(o.u||0))m.set(x.id,x)});return[...m.values()].filter(x=>!(L.del[x.id]&&L.del[x.id]>=(x.u||0))).sort((p,q)=>(q.u||0)-(p.u||0))};
+ L.words=mergeArr(L.words,R.words);L.grammar=mergeArr(L.grammar,R.grammar);L.aiQs=mergeArr(L.aiQs,R.aiQs).slice(0,120);
+ Object.keys(R.news||{}).forEach(k=>{if(!L.news[k])L.news[k]=R.news[k]});
+ const mx=(a,b)=>{const o={...a};Object.keys(b||{}).forEach(k=>o[k]=Math.max(o[k]||0,b[k]));return o};L.weak=mx(L.weak,R.weak);
+ L.gst={...L.gst};Object.keys(R.gst||{}).forEach(k=>{const a=L.gst[k]||{w:0,r:0},b=R.gst[k];L.gst[k]={w:Math.max(a.w,b.w),r:Math.max(a.r,b.r)}});
+ if((R.u||0)>(L.u||0)&&Array.isArray(R.cats)){const ids=R.cats.map(c=>c.id);const keep=L.cats.filter(c=>!ids.includes(c.id)&&c.t==='custom');L.cats=[...R.cats,...keep]}
+ else if(Array.isArray(R.cats)){R.cats.forEach(c=>{if(!L.cats.some(x=>x.id===c.id))L.cats.push(c)})}
+ L.hist=[...(R.hist||[]),...L.hist].sort((a,b)=>b.t-a.t).slice(0,30)}
+async function gh(path,opt={}){const r=await fetch('https://api.github.com'+path,{...opt,headers:{'Authorization':'Bearer '+S.token,'Accept':'application/vnd.github+json','Content-Type':'application/json'}});const j=await r.json();if(!r.ok)throw new Error(j.message||('HTTP '+r.status));return j}
+async function syncPush(){if(!S.token)throw new Error('請先填入 GitHub Token');const files={'japanese-notebook.json':{content:JSON.stringify(D)}};
+ if(S.gist)await gh('/gists/'+S.gist,{method:'PATCH',body:JSON.stringify({files})});else{const j=await gh('/gists',{method:'POST',body:JSON.stringify({description:'日本語ノート 同步資料',public:false,files})});S.gist=j.id;saveS()}}
+async function syncPull(){if(!S.token||!S.gist)throw new Error('請填入 Token 與 Gist ID');const j=await gh('/gists/'+S.gist);const f=j.files['japanese-notebook.json'];if(!f)throw new Error('Gist 內找不到資料檔');
+ let txt=f.content;if(f.truncated)txt=await(await fetch(f.raw_url)).text();mergeData(JSON.parse(txt));save(true)}
+
+/* ================= 彈出面板 ================= */
+function sheet(html){closeSheet();const d=document.createElement('div');d.className='sheet-bg';d.id='sheet';d.innerHTML=`<div class="sheet"><div class="grab"></div>${html}</div>`;d.addEventListener('click',e=>{if(e.target===d)closeSheet()});document.body.appendChild(d)}
+function closeSheet(){const s=$('#sheet');s&&s.remove()}
+
+/* ================= 動作 ================= */
+const A={
+go:t=>{location.hash=t.dataset.to;if(location.hash==='#'+t.dataset.to.slice(1)&&0)render()},
+catEdit:()=>{editMode=!editMode;render()},
+catAdd:()=>sheet(`<h3>新增分類</h3><label class="l">名稱</label><input id="c_n" placeholder="例：旅行日文"><label class="l">備註（選填）</label><input id="c_s" placeholder="例：機場・餐廳用語"><div class="acts2" style="margin-top:18px"><button class="btn pri" data-a="catSave">建立</button></div>`),
+catSave:()=>{const n=$('#c_n').value.trim();if(!n)return toast('請輸入名稱');D.cats.push({id:uid(),t:'custom',n,s:$('#c_s').value.trim()});save();closeSheet();render()},
+catDel:t=>{const c=D.cats.find(x=>x.id===t.dataset.id);if(!confirm(`刪除分類「${c.n}」？（單字與文法不會被刪除）`))return;D.cats=D.cats.filter(x=>x!==c);D.words.forEach(w=>w.cats=(w.cats||[]).filter(i=>i!==c.id));D.grammar.forEach(g=>g.cats=(g.cats||[]).filter(i=>i!==c.id));save();render()},
+catPick:t=>{const id=t.dataset.id;sheet(`<h3>加入單字</h3>${D.words.length?`<div style="max-height:50vh;overflow:auto">${D.words.map(w=>`<label class="chk" style="padding:8px 0;border-bottom:1px dashed var(--line)"><input type="checkbox" class="cp" value="${w.id}" ${(w.cats||[]).includes(id)?'checked':''}> <b class="jp">${esc(w.w)}</b> <small>${esc(w.m||w.e||'')}</small></label>`).join('')}</div>`:'<div class="empty">單字表是空的</div>'}<div class="acts2"><button class="btn pri" data-a="catPickSave" data-id="${id}">完成</button></div>`)},
+catPickSave:t=>{const id=t.dataset.id,sel=$$('.cp').filter(x=>x.checked).map(x=>x.value);D.words.forEach(w=>{w.cats=(w.cats||[]).filter(x=>x!==id);if(sel.includes(w.id))w.cats.push(id);w.u=Date.now()});save();closeSheet();render()},
+catQuiz:t=>vQuizSheet('cat',t.dataset.id,null,'#/cat/'+t.dataset.id,'分類小卡測驗'),
+/* 語彙 */
+vWeb:t=>{const q=$('#vq').value.trim();if(!q)return toast('先輸入要查的字');window.open(ENG_V[+t.dataset.n][1](q),'_blank','noopener')},
+vFind:async()=>{const q=$('#vq').value.trim();if(!q)return;const el=$('#vFound');el.innerHTML='<div class="status"><span class="sp"></span>查詢中…</div>';const L=await dictSearch(q,5);VC.found=L;
+ el.innerHTML=L.length?L.map((x,i)=>`<div class="res"><div class="wr-b"><b class="jp" style="font-size:18px">${esc(x.w)}</b><small>${esc(x.r)}</small><div class="wr-m">${esc(x.e)}</div></div><button class="btn sm lime" data-a="vFoundAdd" data-n="${i}">加入</button></div>`).join(''):'<div class="status err">站內查詢暫時失敗（可能是網路或來源限制），請改用上方網站按鈕。</div>'},
+vFoundAdd:t=>{const x=VC.found[+t.dataset.n];addWords([{w:x.w,r:x.r,e:x.e}]);toast('已加入單字表');renderVList()},
+vTab:t=>{vTab=t.dataset.t;renderVList()},
+upText:t=>runText(t.dataset.k),
+cdSel:t=>{const c=VC.items[+t.dataset.n];c.sel=!c.sel;renderCand()},
+cdAll:t=>{VC.items.forEach(c=>c.sel=t.dataset.v==='1'&&!c.dup);renderCand()},
+cdLookup:async()=>{const L=VC.items.filter(c=>c.sel&&!c.e);if(!L.length)return toast('已選取的詞都已有詞義');const st=$('#cdSt');let n=0;
+ await runPool(L,async c=>{const r=(await dictSearch(c.w,1))[0];if(r){c.e=r.e;if(!c.r&&r.r&&hasKanji(c.w))c.r=r.r}n++;if(st)st.innerHTML=`<span class="sp"></span>查詢詞義 ${n}/${L.length}`},4);renderCand();const s=$('#cdSt');if(s)s.textContent=`已查詢 ${n} 個`},
+cdAi:async()=>{const L=VC.items.filter(c=>c.sel&&!c.m);if(!L.length)return toast('已選取的詞都已有中文');const st=$('#cdSt');st.innerHTML='<span class="sp"></span>AI 翻譯中…';
+ try{const m=await aiZh(L.slice(0,40).map(c=>c.w));L.forEach(c=>{if(m[c.w])c.m=m[c.w]});renderCand()}catch(e){st.textContent='AI 失敗：'+e.message}},
+cdAdd:()=>{const L=VC.items.filter(c=>c.sel);const n=addWords(L.map(c=>({...c,src:'上傳'})));VC.items=VC.items.filter(c=>!c.sel);renderCand();renderVList();toast(`已加入 ${n} 個單字`)},
+wFav:t=>{const w=D.words.find(x=>x.id===t.dataset.id);w.fav=!w.fav;w.u=Date.now();save();renderVList();if($('#main .wr')&&location.hash.startsWith('#/cat'))render()},
+wEdit:t=>wSheet(D.words.find(x=>x.id===t.dataset.id)),
+wAdd:()=>wSheet({w:'',r:'',m:'',e:'',ex:'',cats:[]}),
+wSave:t=>{const v=id=>$(id).value.trim();if(!v('#e_w'))return toast('請輸入單字');const cats=$$('.e_c').filter(x=>x.checked).map(x=>x.value);
+ if(t.dataset.id){const w=D.words.find(x=>x.id===t.dataset.id);Object.assign(w,{w:v('#e_w'),r:v('#e_r'),m:v('#e_m'),e:v('#e_e'),ex:v('#e_x'),cats,u:Date.now()})}else{addWords([{w:v('#e_w'),r:v('#e_r'),m:v('#e_m'),e:v('#e_e'),ex:v('#e_x')}]);if(cats.length)D.words[0].cats=cats}
+ save();closeSheet();location.hash.startsWith('#/vocab')?renderVList():render()},
+wDel:t=>{if(!confirm('刪除這個單字？'))return;D.words=D.words.filter(w=>w.id!==t.dataset.id);D.del[t.dataset.id]=Date.now();save();closeSheet();location.hash.startsWith('#/vocab')?renderVList():render()},
+vQuizSheet:t=>vQuizSheet(t.dataset.src||'all',null,null,location.hash||'#/test'),
+qzGo:t=>{const mode=$('#qz_m').value,lang=$('#qz_l').value,n=+$('#qz_n').value,src=$('#qz_s')?$('#qz_s').value:'all';S.qn=n;S.lang=lang;saveS();
+ const cat=t.dataset.cat||null;const items=buildVocabQs({src:cat?'cat':src,cat,mode,lang,n});closeSheet();startQuiz({title:'單字測驗',items,back:t.dataset.back||(location.hash.startsWith('#/quiz')?'#/test':location.hash)||'#/test'})},
+/* 測驗 */
+qFlip:()=>{Q.flip=true;render()},
+qFlash:t=>{qAdvance(t.dataset.v==='1');Q.i++;Q.flip=false;render()},
+qPick:t=>{if(Q.sel!=null)return;const i=+t.dataset.n;Q.sel=i;qAdvance(i===Q.items[Q.i].a);render()},
+qNext:()=>{Q.i++;Q.sel=null;render()},
+qRetry:()=>{Q.items=Q.wr.map(x=>{const it={...x};if(it.o){const ans=it.o[it.a];it.o=shuffle(it.o);it.a=it.o.indexOf(ans)}return it});Q.i=0;Q.sc=0;Q.wr=[];Q.sel=null;Q.logged=0;render()},
+qFav:t=>{const w=D.words.find(x=>x.id===t.dataset.id);if(w){w.fav=true;save();toast('已收藏')}},
+/* 文法 */
+gWeb0:()=>{const q=$('#gq').value.trim();if(!q)return toast('先輸入文法');window.open(ENG_G[0][1](q),'_blank','noopener')},
+gWeb:t=>{const q=$('#gq').value.trim();if(!q)return toast('先輸入文法');window.open(ENG_G[+t.dataset.n][1](q),'_blank','noopener')},
+gAsk:async()=>{const q=$('#gq').value.trim();if(!q)return toast('先輸入文法');const el=$('#gAns');el.innerHTML='<div class="status"><span class="sp"></span>AI 整理中…</div>';
+ try{const t=await ai(`請用繁體中文，簡潔說明日語文法「${q}」的意思、接續、語感，並與 2～3 個最容易混淆的文法做對比，各附一個日文例句（附翻譯）。控制在 350 字內，不要使用 markdown 標題。`,1200);el.innerHTML=`<div class="why" style="white-space:pre-wrap;margin-top:12px">${esc(t)}</div>`}catch(e){el.innerHTML=`<div class="status err">${esc(e.message)}</div>`}},
+gcSel:t=>{const c=GC.items[+t.dataset.n];c.sel=!c.sel;renderGCand()},gcAll:t=>{GC.items.forEach(c=>c.sel=t.dataset.v==='1');renderGCand()},
+gcAdd:()=>{const L=GC.items.filter(c=>c.sel);const n=addGrammar(L);GC.items=GC.items.filter(c=>!c.sel);renderGCand();renderGList();toast(`已加入 ${n} 個文法`)},
+gTab:t=>{gTab=t.dataset.t;renderGList()},
+gFav:t=>{const g=D.grammar.find(x=>x.id===t.dataset.id);g.fav=!g.fav;g.u=Date.now();save();renderGList()},
+gEdit:t=>gSheet(D.grammar.find(x=>x.id===t.dataset.id)),gAdd:()=>gSheet({p:'',m:'',ex:'',tr:'',lv:''}),
+gSave:t=>{const v=id=>$(id).value.trim();if(!v('#e_p'))return toast('請輸入文法');const o={p:v('#e_p'),m:v('#e_m'),ex:v('#e_x'),tr:v('#e_t'),lv:$('#e_l').value};
+ if(t.dataset.id)Object.assign(D.grammar.find(g=>g.id===t.dataset.id),o,{u:Date.now()});else addGrammar([o]);save();closeSheet();location.hash.startsWith('#/grammar')?renderGList():render()},
+gDel:t=>{if(!confirm('刪除這個文法？'))return;D.grammar=D.grammar.filter(g=>g.id!==t.dataset.id);D.del[t.dataset.id]=Date.now();save();closeSheet();location.hash.startsWith('#/grammar')?renderGList():render()},
+gQuiz:t=>{const src=t.dataset.src;let items,title='文法對比訓練';
+ if(src==='mine'){items=buildMine();title='我的例句填空';if(!items.length)return toast('文法庫需要含例句（且例句包含該文法）的項目')}
+ else{items=buildGrammar(src,t.dataset.id,t.dataset.lv);if(src==='weak')title='弱點加強'}
+ startQuiz({title,items,back:src==='topic'?'#/gtopic/'+t.dataset.id:(location.hash.startsWith('#/test')?'#/test':'#/grammar')})},
+aiGenSheet:t=>{const pat=t.dataset.pat||'';sheet(`<h3>${ic('spark')} AI 生成對比題</h3><p class="hint" style="margin-top:-6px">${S.aiKey?'會依你的錯題統計，優先出常錯文法與其易混文法。':'需要先到「設定」填寫 AI 金鑰。'}</p><label class="l">程度</label><select id="ai_l"><option value="both">N2 + N1</option><option value="N2">N2</option><option value="N1">N1</option></select><label class="l">題數</label><select id="ai_n"><option>6</option><option selected>8</option><option>12</option></select>
+ <div class="acts2" style="margin-top:18px"><button class="btn pri" data-a="aiGen" data-pat="${esc(pat)}" ${S.aiKey?'':'disabled'}>生成並開始</button></div><div id="aiSt" class="status"></div>`)},
+aiGen:async t=>{const st=$('#aiSt');st.innerHTML='<span class="sp"></span>AI 出題中，約需 10～30 秒…';t.disabled=true;
+ try{const qs=await aiGenerate($('#ai_l').value,+$('#ai_n').value,t.dataset.pat);closeSheet();startQuiz({title:'AI 對比題',items:finalizeG(qs.map(q=>gqItem(q,'ai'))),back:'#/grammar'})}catch(e){st.className='status err';st.textContent='失敗：'+e.message;t.disabled=false}},
+/* 新聞 */
+newsRefresh:()=>{$('#newsBox').innerHTML='<div class="card empty"><span class="sp"></span>重新取得中…</div>';loadNews(true)},
+arTab:t=>{AR.tab=t.dataset.t;$$('#arSeg button').forEach(b=>b.classList.toggle('on',b===t));renderAr()},
+arFavW:t=>{const w=AR.words[+t.dataset.n];const ex=D.words.find(x=>x.w===w.w);if(ex){ex.fav=!ex.fav;ex.u=Date.now();save()}else{addWords([{w:w.w,r:w.r,pos:w.pos,e:w.e,ex:w.ex,fav:true,src:'新聞'}])}toast('已更新收藏');renderAr()},
+arFavG:t=>{const g=AR.gram[+t.dataset.n];const ex=D.grammar.find(x=>x.p===g.p);if(ex){ex.fav=!ex.fav;ex.u=Date.now();save()}else addGrammar([{p:g.p,m:g.m,ex:g.ex,lv:g.lv,fav:true}]);toast('已更新收藏');renderAr()},
+arQuiz:async t=>{await articleQs(t.dataset.k)},
+/* 設定 */
+syncUp:async()=>{const st=$('#syncSt');st.innerHTML='<span class="sp"></span>上傳中…';try{await syncPush();st.textContent='已上傳。Gist ID：'+S.gist+'（請在另一台裝置填入）';$$('[data-c=sGist]').forEach(i=>i.value=S.gist)}catch(e){st.textContent='失敗：'+e.message}},
+syncDown:async()=>{const st=$('#syncSt');st.innerHTML='<span class="sp"></span>下載中…';try{await syncPull();st.textContent='已下載並合併（以較新的項目為準）。'}catch(e){st.textContent='失敗：'+e.message}},
+exp:()=>{const b=new Blob([JSON.stringify(D,null,1)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='noto-'+dayKey()+'.json';a.click()},
+reset:()=>{if(confirm('確定清除所有單字、文法與紀錄？此動作無法復原。')&&confirm('再次確認：全部清除？')){D=defaults();save(true);render()}}
+};
+document.addEventListener('click',e=>{const t=e.target.closest('[data-a]');if(!t||t.closest('label.drop')&&0)return;const f=A[t.dataset.a];if(f){if(t.tagName==='A')e.preventDefault();f(t,e)}});
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.dataset&&e.target.dataset.i==='enter'){const f=A[e.target.dataset.a2];f&&f(e.target,e)}});
+document.addEventListener('input',e=>{const t=e.target,i=t.dataset&&t.dataset.i;if(!i)return;
+ if(i==='cdM'){VC.items[+t.dataset.n].m=t.value}
+ else if(i==='vFilter'){vFilter=t.value;renderVList()}else if(i==='gFilter'){gFilter=t.value;renderGList()}});
+document.addEventListener('change',e=>{const t=e.target,c=t.dataset&&t.dataset.c;if(!c)return;
+ if(c==='upFile'){handleFiles([...t.files],t.dataset.k);t.value=''}
+ else if(c==='sLang'){S.lang=t.value;saveS()}else if(c==='sNews'){S.newsSrc=t.value;saveS()}else if(c==='sKey'){S.aiKey=t.value.trim();saveS()}else if(c==='sModel'){S.mdl=S.mdl||{};S.mdl[S.aiProv]=t.value.trim();saveS()}
+ else if(c==='sToken'){S.token=t.value.trim();saveS()}else if(c==='sGist'){S.gist=t.value.trim();saveS()}else if(c==='sAuto'){S.auto=t.checked;saveS()}
+ else if(c==='impFile'){const f=t.files[0];if(f)f.text().then(x=>{if(!importJSON(x,'v'))toast('不是有效的備份檔')});t.value=''}});
+/* ================= Nôto 重構覆寫區（同名函式以此區為準） ================= */
+NAV.length=0;
+NAV.push(['home','首頁','home','#/'],['study','ファイル','book','#/study'],['news','ニュース','news','#/news'],['test','テスト','test','#/test'],['me','個人','user','#/me']);
+IC.user='<circle cx="12" cy="8.5" r="3.5"/><path d="M5 19.5c.8-3.5 3.6-5.5 7-5.5s6.2 2 7 5.5"/>';
+IC.speaker='<path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4Z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/>';
+IC.flag='<path d="M6 20V5M6 5.5h10l-1.8 3.2L16 12H6"/>';
+(function(){const h=new Date().getHours();const g=h>=4&&h<11?'おはようございます':h<18?'こんにちは':'こんばんは';const el=document.getElementById('spHi');if(el)el.textContent=g;setTimeout(()=>{const s=document.getElementById('splash');s&&s.remove()},2700)})();
+
+let vFolder='all',CS=null;
+
+/* ---------- 資料／設定 ---------- */
+const newDefaults=()=>({cats:[{id:'study',t:'study',n:'ファイル',s:'語彙 ・ 文法'},{id:'news',t:'news',n:'ニュース',s:'每日三則'},{id:'test',t:'test',n:'テスト',s:'複習 ・ 測驗'}],words:[],grammar:[],aiQs:[],news:{},weak:{},gst:{},hist:[],del:{},act:{},me:{name:'',goal:'N1'},u:0});
+function normalizeData(){
+ const sys={study:['ファイル','語彙 ・ 文法'],news:['ニュース','每日三則'],test:['テスト','複習 ・ 測驗']};
+ if(!Array.isArray(D.cats))D.cats=[];
+ Object.keys(sys).forEach((t,i)=>{let c=D.cats.find(x=>x.t===t);if(!c){c={id:t,t,n:'',s:''};D.cats.splice(Math.min(i,D.cats.length),0,c)}c.n=sys[t][0];c.s=sys[t][1]});
+ ['words','grammar','aiQs','hist'].forEach(k=>{if(!Array.isArray(D[k]))D[k]=[]});
+ ['news','weak','gst','del','act'].forEach(k=>{if(!D[k]||typeof D[k]!=='object')D[k]={}});
+ const ids=new Set(D.cats.map(c=>c.id));
+ D.words.forEach(w=>{if(w.f===undefined)w.f=(w.cats&&w.cats[0])||'';if(w.f&&!ids.has(w.f))w.f='';if(w.st===undefined)w.st='';if(!w.xt)w.xt={};if(w.k===undefined)w.k='';if(w.ac===undefined)w.ac=''});
+ D.me=Object.assign({name:'',goal:'N1'},D.me||{})}
+function load(){let d=null,s=null;try{d=JSON.parse(localStorage.getItem(LS))}catch(e){}try{s=JSON.parse(localStorage.getItem(LSS))}catch(e){}
+ D=Object.assign(newDefaults(),d||{});
+ S=Object.assign({lang:'zh',qn:10,aiKey:'',aiProv:'',mdl:{},token:'',gist:'',auto:false,newsSrc:'easy',furi:true},s||{});
+ if(!S.mdl||typeof S.mdl!=='object')S.mdl={};
+ if(!S.aiProv)S.aiProv=S.aiKey?'anthropic':'gemini';
+ if(S.aiModel){if(!S.mdl[S.aiProv])S.mdl[S.aiProv]=S.aiModel;delete S.aiModel}
+ if(!['zh','en','ko'].includes(S.lang))S.lang='zh';
+ if(!['easy','nhk','yahoo'].includes(S.newsSrc))S.newsSrc='easy';
+ normalizeData()}
+{const _m=mergeData;mergeData=function(R){_m(R);D.act=D.act||{};Object.keys(R.act||{}).forEach(k=>{D.act[k]=Math.max(D.act[k]||0,R.act[k])});if(R.me&&(R.u||0)>(D.u||0))D.me=Object.assign({},D.me,R.me);normalizeData()}}
+function bump(n=1){if(!D.act)D.act={};const k=dayKey();D.act[k]=(D.act[k]||0)+n}
+function mean(w,lang){return lang==='en'?(w.e||w.m||w.k||''):lang==='ko'?(w.k||w.e||w.m||''):(w.m||w.e||w.k||'')}
+function exTr(w,lang=S.lang){const x=w.xt||{};return lang==='en'?(x.en||x.zh||x.ko||''):lang==='ko'?(x.ko||x.en||x.zh||''):(x.zh||x.en||x.ko||'')}
+const langSeg=()=>`<div class="lseg">${[['zh','中'],['en','EN'],['ko','한']].map(l=>`<button class="${S.lang===l[0]?'on':''}" data-a="setLang" data-v="${l[0]}">${l[1]}</button>`).join('')}</div>`;
+const acMark=a=>{if(a===''||a==null)return'';const n=parseInt(a,10);return isNaN(n)?esc(a):('⓪①②③④⑤⑥⑦⑧⑨⑩⑪⑫'[n]||esc(a))};
+function rubyWord(s,r){if(!r||!hasKanji(s))return esc(s);let a=0,b=0;
+ while(s.length-b>a+1&&r.length-b>a+1&&s[s.length-1-b]===r[r.length-1-b]&&!hasKanji(s[s.length-1-b]))b++;
+ while(a<s.length-b-1&&a<r.length-b-1&&s[a]===r[a]&&!hasKanji(s[a]))a++;
+ const base=s.slice(a,s.length-b),rt=r.slice(a,r.length-b);if(!rt||rt===base)return esc(s);
+ return esc(s.slice(0,a))+`<ruby>${esc(base)}<rt>${esc(rt)}</rt></ruby>`+esc(s.slice(s.length-b))}
+function rubyHTML(t){if(!KT)return esc(t);let o='';for(const k of KT.tokenize(t)){const s=k.surface_form;const r=k.reading&&k.reading!=='*'?kata2hira(k.reading):'';o+=(hasKanji(s)&&r)?rubyWord(s,r):esc(s)}return o}
+
+/* ---------- AI（Gemini / OpenAI / Claude，文字與圖片皆可） ---------- */
+const DEF_MODEL={gemini:'gemini-2.5-flash',openai:'gpt-4o-mini',anthropic:'claude-sonnet-5-5'};
+const modelOf=()=>((S.mdl||{})[S.aiProv]||DEF_MODEL[S.aiProv]||DEF_MODEL.gemini);
+async function ai(prompt,max=2500,images){
+ if(!S.aiKey)throw new Error('尚未設定 AI 金鑰（到「個人」頁填寫）');
+ const prov=S.aiProv||'gemini',model=modelOf(),imgs=images||[];let url,opt,pick;
+ if(prov==='gemini'){
+  const gc={temperature:.2,maxOutputTokens:Math.max(max,8192)};if(/JSON/.test(prompt))gc.responseMimeType='application/json';if(/2\.5-flash/.test(model))gc.thinkingConfig={thinkingBudget:0};
+  url=`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(S.aiKey)}`;
+  opt={method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({contents:[{role:'user',parts:[{text:prompt},...imgs.map(i=>({inline_data:{mime_type:i.mime,data:i.b64}}))]}],generationConfig:gc})};
+  pick=j=>(((j.candidates||[])[0]||{}).content&&((j.candidates[0].content.parts)||[]).map(p=>p.text||'').join(''))||''}
+ else if(prov==='openai'){
+  url='https://api.openai.com/v1/chat/completions';
+  opt={method:'POST',headers:{'content-type':'application/json','Authorization':'Bearer '+S.aiKey},body:JSON.stringify({model,messages:[{role:'user',content:[{type:'text',text:prompt},...imgs.map(i=>({type:'image_url',image_url:{url:`data:${i.mime};base64,${i.b64}`}}))]}]})};
+  pick=j=>((j.choices||[])[0]&&j.choices[0].message&&j.choices[0].message.content)||''}
+ else{
+  url='https://api.anthropic.com/v1/messages';
+  opt={method:'POST',headers:{'content-type':'application/json','x-api-key':S.aiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model,max_tokens:Math.max(max,4096),messages:[{role:'user',content:[...imgs.map(i=>({type:'image',source:{type:'base64',media_type:i.mime,data:i.b64}})),{type:'text',text:prompt}]}]})};
+  pick=j=>(j.content||[]).map(c=>c.text||'').join('')}
+ const ctl=new AbortController(),to=setTimeout(()=>ctl.abort(),90000);let r,j;
+ try{r=await fetch(url,{...opt,signal:ctl.signal});j=await r.json().catch(()=>({}))}catch(e){throw new Error(e.name==='AbortError'?'AI 回應逾時（90 秒）':'無法連線到 AI 服務（請檢查網路或金鑰）')}finally{clearTimeout(to)}
+ if(!r.ok){const m=(j.error&&(j.error.message||j.error))||('HTTP '+r.status);throw new Error(typeof m==='string'?m:JSON.stringify(m))}
+ const out=pick(j);if(!out)throw new Error('AI 沒有回傳內容');return out}
+
+/* ---------- 連線（逾時＋多重 Proxy） ---------- */
+async function fetchTxt(url,proxy=true,ms=7000){
+ const tryF=async(u,unwrap)=>{const c=new AbortController(),t=setTimeout(()=>c.abort(),ms);try{const r=await fetch(u,{signal:c.signal});if(!r.ok)throw new Error('http');const x=await r.text();return unwrap?(JSON.parse(x).contents||''):x}finally{clearTimeout(t)}};
+ const steps=[()=>tryF(url)];
+ if(proxy)steps.push(()=>tryF('https://api.allorigins.win/get?url='+encodeURIComponent(url),true),()=>tryF('https://api.allorigins.win/raw?url='+encodeURIComponent(url)),()=>tryF('https://corsproxy.io/?'+encodeURIComponent(url)));
+ for(const s of steps){try{const t=await s();if(t&&t.length>20)return t}catch(e){}}
+ throw new Error('無法連線：'+url)}
+async function getJSONT(url,ms=8000){const c=new AbortController(),t=setTimeout(()=>c.abort(),ms);try{const r=await fetch(url,{signal:c.signal});if(!r.ok)throw new Error('http');return await r.json()}finally{clearTimeout(t)}}
+
+/* ---------- 新聞（NHK EASY／NHK RSS／Yahoo RSS，失敗自動用內建） ---------- */
+const stripH=s=>{try{const d=new DOMParser().parseFromString(String(s||''),'text/html');return(d.body.textContent||'').replace(/\s+/g,' ').trim()}catch(e){return String(s||'')}};
+async function rssItems(url){
+ try{const r=await getJSONT('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(url));if(r.status==='ok'&&r.items&&r.items.length)return r.items.map(i=>({title:stripH(i.title),desc:stripH(i.description||i.content||''),url:i.link||''}))}catch(e){}
+ const xml=await fetchTxt(url);const doc=new DOMParser().parseFromString(xml,'text/xml');
+ return[...doc.querySelectorAll('item')].map(i=>({title:stripH((i.querySelector('title')||{}).textContent),desc:stripH((i.querySelector('description')||{}).textContent),url:((i.querySelector('link')||{}).textContent||'').trim()}))}
+async function srcEasy(rand){const out=[];
+ for(const base of ['https://www3.nhk.or.jp/news/easy/','https://news.web.nhk/news/easy/']){
+  let all=[];try{const list=JSON.parse((await fetchTxt(base+'news-list.json')).replace(/^﻿/,''));(Array.isArray(list)?list:[list]).forEach(o=>Object.keys(o).forEach(d=>(o[d]||[]).forEach(it=>all.push({d,id:it.news_id,title:it.title}))))}catch(e){continue}
+  all.sort((a,b)=>b.d.localeCompare(a.d));const cand=all.slice(0,18).map(x=>[rand(),x]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]).slice(0,7);
+  const got=await Promise.all(cand.map(async c=>{try{const html=await fetchTxt(`${base}${c.id}/${c.id}.html`);const doc=new DOMParser().parseFromString(html,'text/html');doc.querySelectorAll('rt,rp,script,style').forEach(e=>e.remove());
+   const box=doc.querySelector('#js-article-body,.article-body,.article-main__body,article')||doc.body;const body=[...box.querySelectorAll('p')].map(p=>p.textContent.replace(/\s+/g,'').trim()).filter(t=>t.length>8).join('\n');
+   return body.length>40?{id:c.id,title:stripH(c.title),src:'NHK NEWS WEB EASY',url:`${base}${c.id}/${c.id}.html`,body}:null}catch(e){return null}}));
+  got.filter(Boolean).forEach(x=>out.push(x));if(out.length)break}
+ return out}
+async function srcRss(url,label,rand,key){const its=(await rssItems(url)).filter(x=>x.title&&x.title.length>4).slice(0,20);
+ return its.map(x=>[rand(),x]).sort((a,b)=>a[0]-b[0]).slice(0,6).map((x,i)=>({id:key+i+dayKey(),title:x[1].title,src:label,url:x[1].url,body:(x[1].desc&&x[1].desc!==x[1].title)?x[1].title+'\n'+x[1].desc:x[1].title}))}
+async function fetchNews(){const rand=rng(+dayKey().replace(/-/g,''));const out=[];
+ const S3={easy:()=>srcEasy(rand),nhk:()=>srcRss('https://www3.nhk.or.jp/rss/news/cat0.xml','NHK ニュース（摘要）',rand,'n'),yahoo:()=>srcRss('https://news.yahoo.co.jp/rss/topics/top-picks.xml','Yahoo!ニュース（標題）',rand,'y')};
+ const order=[S.newsSrc,...['easy','nhk','yahoo'].filter(x=>x!==S.newsSrc)];
+ for(const k of order){if(out.length>=3)break;try{(await S3[k]()).forEach(x=>{if(out.length<3&&!out.some(o=>o.title===x.title))out.push(x)})}catch(e){}}
+ return out}
+async function getNews(force){const k=dayKey();const c=D.news[k];
+ if(!force&&c&&c.items&&c.items.length>=3&&((c.real||0)>=3||Date.now()-c.at<10*60*1000))return c.items;
+ let items=[];try{items=await Promise.race([fetchNews(),new Promise(r=>setTimeout(()=>r([]),28000))])}catch(e){items=[]}
+ const real=items.length;SAMPLES.forEach(s=>{if(items.length<3&&!items.some(x=>x.id===s.id))items.push({...s})});
+ D.news[k]={items:items.slice(0,3),live:real>=1,real,at:Date.now()};Object.keys(D.news).sort().slice(0,-14).forEach(x=>delete D.news[x]);save();return D.news[k].items}
+function vNews(){return`${head('ニュース','Daily News ・ 今日の3本','#/')}<div id="newsBox"><div class="card empty"><span class="sp"></span>連線取得今日新聞中…（最長約 30 秒，失敗會自動改用內建新聞）</div></div>`}
+async function loadNews(force){if(loadNews.busy)return;loadNews.busy=true;let items;try{items=await getNews(force)}finally{loadNews.busy=false}if(!$('#newsBox'))return;const c=D.news[dayKey()],real=c.real||0;
+ $('#newsBox').innerHTML=`<div class="meta"><span class="mono">${dayKey()}</span><span>${real>=3?'已自動取得今日新聞':real>0?`${real} 則為即時新聞，其餘為內建範例`:'外部新聞暫時無法連線，已顯示內建精選新聞'}</span><button class="lnk" data-a="newsRefresh">重新取得</button></div>
+ ${items.map((a,i)=>`<div class="news-c" data-a="go" data-to="#/news/${i}"><span class="n">${i+1}</span><div><h3 class="jp">${esc(a.title)}</h3><p>${esc(a.body.replace(/\n/g,' ').slice(0,90))}…</p><div class="meta" style="margin:5px 0 0">${esc(a.src)}</div></div></div>`).join('')}
+ <p class="hint">每天固定選 3 則；讀完可開關ふりがな、擷取重點單字／文法並做測驗。</p>`}
+function vArticle(p){const items=(D.news[dayKey()]||{}).items||[];const a=items[+p[1]];if(!a)return`${head('閱讀','News ・ 記事','#/news')}<div class="card empty">找不到這則新聞，請回到列表重新取得。</div>`;
+ return`${head('閱讀','News ・ 記事','#/news')}<div class="card art ${S.furi?'':'nofuri'}" id="artCard"><div class="meta"><span>${esc(a.src)}</span>${a.url?`<a class="lnk" target="_blank" rel="noopener" href="${esc(a.url)}">${ic('link')}原文</a>`:''}<button class="chip sm" id="furiBtn" data-a="furiTog" style="margin-left:auto">ふりがな ${S.furi?'ON':'OFF'}</button></div><h2 class="art-h jp" id="artTitle">${esc(a.title)}</h2><div id="artBody">${a.body.split('\n').map(x=>`<p>${esc(x)}</p>`).join('')}</div></div>
+ <div class="seg" id="arSeg"><button class="on" data-a="arTab" data-t="w">重點單字</button><button data-a="arTab" data-t="g">重點文法</button><button data-a="arTab" data-t="q">測驗</button></div><div id="arBody"><div class="card empty"><span class="sp"></span>分析文章…</div></div>`}
+function applyFuri(){const a=AR&&AR.a;if(!a||!KT||!$('#artBody'))return;try{$('#artTitle').innerHTML=rubyHTML(a.title);$('#artBody').innerHTML=a.body.split('\n').map(x=>`<p>${rubyHTML(x)}</p>`).join('')}catch(e){}}
+async function loadArticle(i){const a=((D.news[dayKey()]||{}).items||[])[i];if(!a)return;AR={i,a,tab:'w',words:[],gram:[],mode:''};if(KT)applyFuri();
+ try{const r=await analyze(a.body);AR.words=r.words.filter(w=>w.pos!=='固有名詞').sort((x,y)=>(hasKanji(y.w)-hasKanji(x.w))||(y.count-x.count)).slice(0,14);AR.gram=r.grammar;AR.mode=r.mode}catch(e){}
+ applyFuri();renderAr();runPool(AR.words,async w=>{const r=(await dictSearch(w.w,1))[0];if(r){w.e=r.e;if(!w.r&&r.r&&hasKanji(w.w))w.r=r.r}if(AR&&AR.tab==='w'&&$('#arBody'))renderAr()},3)}
+
+/* ---------- 路由 ---------- */
+function render(){
+ const p=(location.hash||'#/').slice(1).split('/').filter(Boolean);const v=p[0]||'home';
+ const fn={home:vHome,study:vStudy,vocab:vVocab,grammar:vGrammar,gtopic:vGTopic,news:p[1]!==undefined?vArticle:vNews,test:vTest,quiz:vQuiz,cat:vCat,me:vMe,set:vMe,cards:vCards}[v]||vHome;
+ const key={home:'home',study:'study',vocab:'study',grammar:'study',gtopic:'study',cards:'study',news:'news',test:'test',quiz:'test',cat:'home',me:'me',set:'me'}[v]||'home';
+ const y=render.keep?window.scrollY:0;render.keep=false;closeSheet();
+ $('#app').innerHTML=`<div class="shell"><aside class="side"><div class="logo">Nôto</div><div class="lsub">ARCHIVE // NIHONGO</div>${NAV.map(n=>`<button class="nv ${n[0]===key?'on':''}" data-a="go" data-to="${n[3]}">${ic(n[2])}${n[1]}</button>`).join('')}</aside><main id="main">${fn(p)}</main></div>
+ <nav class="tabs"><div class="tabs-in">${NAV.map(n=>`<button class="tab ${n[0]===key?'on':''}" data-a="go" data-to="${n[3]}">${ic(n[2])}<span>${n[1]}</span></button>`).join('')}</div></nav>`;
+ window.scrollTo(0,y);
+ const post={vocab:()=>renderVList(),grammar:()=>renderGList(),news:()=>{p[1]!==undefined?loadArticle(+p[1]):loadNews()}}[v];post&&post()}
+
+/* ---------- 首頁 ---------- */
+function actGrid(){const a=D.act||{};const days=[];for(let i=29;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);days.push(dayKey(d))}
+ const lv=n=>n<=0?0:n<=2?1:n<=5?2:n<=10?3:4,al=[0,.22,.45,.72,1];
+ return`<div class="act">${days.map(k=>{const n=a[k]||0,l=lv(n);return`<i class="${l?'':'z'}" style="${l?`background:rgba(90,29,34,${al[l]})`:''}" title="${k}：${n}"></i>`}).join('')}</div>`}
+const act30=()=>{let s=0;for(let i=0;i<30;i++){const d=new Date();d.setDate(d.getDate()-i);s+=(D.act||{})[dayKey(d)]||0}return s};
+function pickDaily(){const r=rng(+dayKey().replace(/-/g,'')+7);let L=D.words.filter(w=>w.st!=='known').map(w=>[(w.wrong||0)*2+(w.st==='vague'?1:0)+r()*.9,w]).sort((a,b)=>b[0]-a[0]).slice(0,5).map(x=>x[1]);
+ if(!L.length&&D.words.length)L=shuffle(D.words).slice(0,5);return L}
+function folderCount(c){if(c.t==='study')return D.words.length+D.grammar.length;if(c.t==='news')return'3';if(c.t==='test')return D.words.filter(w=>w.wrong>0).length;return D.words.filter(w=>(w.f||'')===c.id).length}
+function catCard(c){const m={study:['book','#/study','#5A1D22'],news:['news','#/news','#378696'],test:['test','#/test','#29100C']}[c.t]||['folder','#/cat/'+c.id,'#8D807A'];
+ return`<div class="cat" data-id="${c.id}" style="--bar:${m[2]}"><div class="cat-main" data-a="go" data-to="${m[1]}"><span class="cat-ic">${ic(m[0])}</span><span class="cat-tx"><b>${esc(c.n)}</b><small>${esc(c.s||'')}</small></span><span class="cat-n">${folderCount(c)}</span></div>
+ <div class="cat-ctl">${c.t==='custom'?`<button class="xbtn" data-a="catDel" data-id="${c.id}" aria-label="刪除">${ic('trash')}</button>`:''}<span class="handle" data-drag aria-label="拖曳排序">${ic('drag')}</span></div></div>`}
+function vHome(){const d=new Date(),wd='日月火水木金土'[d.getDay()],p2=n=>String(n).padStart(2,'0'),md=`${d.getMonth()+1}.${d.getDate()} ${wd}`,md2=`${p2(d.getMonth()+1)}.${p2(d.getDate())}`;
+ const dl=pickDaily();
+ return`<header class="mast"><div class="mast-top"><span class="mono">${md}</span><span class="mono">ARCHIVE // ${md2}</span></div>
+ <h1 class="mast-t">Nôto</h1><p class="mast-s">ゆっくり、ていねいに、日本語を。</p><div class="mast-rule"></div>
+ <div class="hsearch">${ic('search')}<input id="hq" placeholder="搜尋單字・文法" data-i="hsearch" autocomplete="off"></div><div id="hsr"></div>
+ <div class="mast-h"><span class="mono">ACTIVITY // LAST 30 DAYS</span><span class="mono">${act30()}</span></div>${actGrid()}</header>
+ <section class="card"><div class="rowc" style="margin:0 0 6px"><b style="font-size:13px;letter-spacing:.12em">每日複習</b>${langSeg()}</div>
+ ${dl.length?dl.map(w=>`<div class="dr"><b class="jp">${esc(w.w)}</b><small>${esc(w.r)}</small><span>${esc(mean(w,S.lang))}</span></div>`).join('')+`<div class="acts2"><button class="btn lime" data-a="dailyGo">${ic('check')}開始複習 ${dl.length} 張</button></div>`:'<div class="empty">還沒有單字。到「ファイル → 語彙」上傳或貼上資料吧。</div>'}</section>
+ <div class="sec-h"><b>分類</b><div><button class="lnk" data-a="catEdit">${editMode?'完成':'整理'}</button><button class="lnk" data-a="catAdd">${ic('plus')}新增</button></div></div>
+ <div id="catList" class="${editMode?'editing':''}">${D.cats.map(catCard).join('')}</div><p class="hint" style="text-align:center">按住右側 ≡ 上下拖曳排序</p>`}
+function vStudy(){return`${head('ファイル','File ・ 学習項目','#/')}
+ <div class="big-blk" data-a="go" data-to="#/vocab"><span class="no mono">01</span><div class="cat-ic">${ic('book')}</div><div><h2>語彙</h2><p>上傳辨識・資料夾・翻轉單字卡</p><small>${D.words.length} 個單字　收藏 ${D.words.filter(w=>w.fav).length}　錯題 ${D.words.filter(w=>w.wrong>0).length}</small></div></div>
+ <div class="big-blk" data-a="go" data-to="#/grammar"><span class="no mono">02</span><div class="cat-ic">${ic('pen')}</div><div><h2>文法</h2><p>例句訓練・易混文法對比・弱點加強</p><small>${D.grammar.length} 個文法　題庫 ${GB.reduce((n,g)=>n+g.qs.length,0)+D.aiQs.length} 題</small></div></div>`}
+
+/* ---------- 上傳（視覺 AI → 預覽確認清單） ---------- */
+function dropHTML(k){const v=k==='v';
+ return`<div class="dz2"><label class="drop"><input type="file" accept="image/*" multiple hidden data-c="upFile" data-k="${k}">${ic('upload')}<b>相簿／圖片</b><small>可多選・自動壓縮</small></label>
+ <label class="drop"><input type="file" accept="image/*" capture="environment" hidden data-c="upFile" data-k="${k}">${ic('camera')}<b>拍照</b><small>直接開啟相機</small></label></div>
+ <div class="chips"><label class="chip">${ic('upload')}匯入檔案 .txt .csv .json<input type="file" accept=".txt,.csv,.tsv,.json,.md" multiple hidden data-c="upFile" data-k="${k}"></label></div>
+ <div class="prog"><i id="p_${k}"></i></div><div id="s_${k}" class="status"></div>
+ <div class="or">或貼上文字／批量清單</div><textarea id="t_${k}" rows="3" placeholder="${v?'貼上日文文章，或每行「單字,讀音,意思」的清單…':'貼上含文法的日文文章，或每行「文法,意思,例句」…'}"></textarea>
+ <div class="rowc"><label class="chk"><input type="checkbox" id="vert_${k}">直排文字（內建 OCR）</label><button class="btn soft" data-a="upText" data-k="${k}">${ic('spark')}分析文字</button></div>
+ <p class="hint">${v?(S.aiKey?`已啟用 AI 視覺辨識（${S.aiProv}）：自動萃取單字、讀音、詞性、三語意思與原文例句。`:'尚未設定 AI 金鑰，將使用內建 OCR（精準度較低）。到「個人」頁填入金鑰即可啟用 AI 視覺辨識。'):'圖片以內建日文 OCR 辨識；支援 .txt .csv .tsv .json。'}</p>`}
+function compressImg(file,max=1600,q=.82){return new Promise((res,rej)=>{const u=URL.createObjectURL(file);const im=new Image();
+ im.onload=()=>{try{const sc=Math.min(1,max/Math.max(im.naturalWidth,im.naturalHeight));const c=document.createElement('canvas');c.width=Math.max(1,Math.round(im.naturalWidth*sc));c.height=Math.max(1,Math.round(im.naturalHeight*sc));const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);x.drawImage(im,0,0,c.width,c.height);const d=c.toDataURL('image/jpeg',q);c.toBlob(b=>{URL.revokeObjectURL(u);res({blob:b,dataUrl:d,b64:d.split(',')[1],mime:'image/jpeg'})},'image/jpeg',q)}catch(e){URL.revokeObjectURL(u);rej(e)}};
+ im.onerror=()=>{URL.revokeObjectURL(u);rej(new Error('無法讀取圖片（HEIC 等格式請改存成 JPG／PNG）'))};im.src=u})}
+const normW=x=>({w:String(x.w||x.word||'').trim(),r:kata2hira(String(x.r||x.reading||'').trim()),pos:x.pos||'',m:x.m||x.zh||x.meaning||'',e:x.e||x.en||'',k:x.k||x.ko||'',ex:x.ex||'',xt:(x.xt&&typeof x.xt==='object')?x.xt:{},ac:x.ac==null?'':x.ac,count:x.count||1,sel:x.sel!==false});
+async function aiExtract({images=[],text=''}){
+ const prompt=`你是日語教學助理。${images.length?'請閱讀附上的圖片（可能是課本、手寫筆記或文章截圖）':'請閱讀下列文字'}，不管內容形式，自動精準萃取出所有值得學習的日文單字（略過助詞、助動詞與過於基礎的詞；活用詞請還原為辭書形）。\n只輸出 JSON 陣列，每個元素格式：\n{"w":"日文單字（含漢字，辭書形）","r":"平假名讀音","pos":"詞性，例：名・他動、動・自、い形、な形、副","m":"繁體中文意思","e":"English meaning","k":"한국어 뜻","ex":"原文中出現該單字的完整例句（內容中沒有則自行造一句簡短自然的日文例句）","xt":{"zh":"例句繁體中文翻譯","en":"example translation in English","ko":"예문 한국어 번역"},"ac":重音核位置的整數（平板型為 0，不確定則 null）}\n不要輸出任何說明文字。${text?'\n\n文字內容：\n'+text.slice(0,6000):''}`;
+ const arr=jparse(await ai(prompt,8000,images));if(!Array.isArray(arr))throw new Error('AI 回傳格式不是清單');
+ const seen=new Set();return arr.map(normW).filter(x=>x.w&&!seen.has(x.w)&&seen.add(x.w))}
+function parseList(text){const lines=text.split(/\n/).map(l=>l.trim()).filter(Boolean);const st=lines.filter(l=>{const c=splitCols(l);return c.length>=2&&/[぀-ヿ一-鿿]/.test(c[0])&&c[0].length<=20});
+ if(lines.length&&st.length/lines.length>=.6)return st.map(l=>{const c=splitCols(l);const kana=/^[ぁ-んァ-ヶー]+$/.test(c[1]||'');return normW({w:c[0],r:kana?c[1]:'',m:kana?c.slice(2).join(' '):c.slice(1).join(' ')})});return null}
+function finishExtract(L,label){VC.items=L;markDup(VC.items);if(!L.length){setSt('v','沒有擷取到單字，請換一張更清晰的照片，或改貼上文字。',true);return}
+ setSt('v',`${label}：找到 ${L.length} 個候選詞，請在彈出清單確認。`);openPreview()}
+async function vText(text){const L=parseList(text);if(L){finishExtract(L,'清單匯入');return}
+ if(S.aiKey){try{setSt('v','<span class="sp"></span>AI 整理單字中…');finishExtract(await aiExtract({text}),'AI 擷取');return}catch(e){setSt('v','AI 失敗：'+esc(e.message)+'；改用內建分析…',true)}}
+ setSt('v','<span class="sp"></span>分析詞性與讀音中…（首次需載入詞典）');
+ try{const r=await analyze(text);finishExtract(r.words.map(x=>normW(x)),r.mode==='kuromoji'?'內建詞典分析':'簡易擷取（詞典載入失敗）')}catch(e){setSt('v','分析失敗：'+esc(e.message),true)}}
+function procVocab(t){return vText(t)}
+async function vFiles(files){const imgs=files.filter(f=>f.type.startsWith('image/')),others=files.filter(f=>!f.type.startsWith('image/'));let text='';$('#p_v').style.width='0';
+ for(const f of others){try{const t=await f.text();if(/\.json$/i.test(f.name)&&importJSON(t,'v'))return;text+='\n'+t}catch(e){}}
+ if(imgs.length){setSt('v','<span class="sp"></span>壓縮圖片中…');const pics=[];
+  for(const f of imgs.slice(0,6)){try{pics.push(await compressImg(f))}catch(e){setSt('v','圖片讀取失敗：'+esc(e.message),true)}}
+  if(!pics.length)return;
+  if(S.aiKey){try{setSt('v',`<span class="sp"></span>AI 辨識 ${pics.length} 張圖片中…（約 10～40 秒）`);finishExtract(await aiExtract({images:pics,text:text.trim()}),'AI 視覺辨識');return}catch(e){setSt('v','AI 辨識失敗：'+esc(e.message)+'。改用內建 OCR…',true)}}
+  try{const o=[];for(const p of pics)o.push(await ocr(p.blob,'v'));text=(text+'\n'+o.join('\n')).trim()}catch(e){setSt('v','OCR 失敗：'+esc(e.message)+'（若離線，請改貼上文字）',true);return}}
+ if(text.trim()){$('#t_v').value=text.trim();$('#p_v').style.width='100%';return vText(text)}
+ setSt('v','沒有可處理的內容',true)}
+async function handleFiles(files,k){
+ if(k==='v')return vFiles(files);
+ const out=[];$('#p_'+k).style.width='0';
+ for(const f of files){try{
+  if(f.type.startsWith('image/')){setSt(k,`<span class="sp"></span>準備辨識：${esc(f.name)}`);out.push(await ocr(f,k))}
+  else{const txt=await f.text();if(/\.json$/i.test(f.name)&&importJSON(txt,k))continue;out.push(txt)}
+ }catch(e){setSt(k,'讀取失敗：'+esc(e.message)+'（若離線，請改貼上文字）',true)}}
+ const text=out.join('\n').trim();if(text){$('#t_'+k).value=text;$('#p_'+k).style.width='100%';runText(k)}}
+function importJSON(txt,k){let j;try{j=JSON.parse(txt)}catch(e){return false}
+ if(j&&!Array.isArray(j)&&(j.words||j.grammar)){mergeData(j);save();toast('已匯入備份資料');render();return true}
+ if(Array.isArray(j)&&j.length&&k==='v'&&j[0]&&j[0].w){VC.items=j.map(normW);markDup(VC.items);openPreview();return true}
+ if(Array.isArray(j)&&j.length&&k==='g'&&j[0]&&j[0].p){GC.items=j.map(x=>({p:x.p,m:x.m||'',ex:x.ex||'',tr:x.tr||'',lv:x.lv||'',sel:true}));renderGCand();return true}
+ return false}
+function openPreview(){const cs=D.cats.filter(c=>c.t==='custom');
+ sheet(`<h3>預覽與確認清單</h3><div class="rowc" style="margin:0 0 6px"><small id="pvN"></small><span><button class="lnk" data-a="pvAll" data-v="1">全選</button><button class="lnk" data-a="pvAll" data-v="0">全不選</button></span></div><div id="pvList"></div>
+ <div class="pvfoot"><div class="rowc" style="margin:0 0 8px;flex-wrap:nowrap"><select id="pv_f" style="flex:1"><option value="">未分類</option>${cs.map(c=>`<option value="${c.id}" ${vFolder===c.id?'selected':''}>${esc(c.n)}</option>`).join('')}</select><button class="btn sm" data-a="pvFill">補全意思</button></div><button class="btn pri" id="pvAdd" data-a="pvAdd" style="width:100%"></button><div id="pvSt" class="hint"></div></div>`);pvRender()}
+function pvRender(){const L=VC.items,el=$('#pvList');if(!el)return;
+ el.innerHTML=L.slice(0,150).map((c,i)=>`<div class="pv ${c.sel?'on':''}"><div class="pv-h"><button class="ck" data-a="pvSel" data-n="${i}">${ic('check')}</button>${c.dup?'<span class="tag ghost">已收錄</span>':''}${c.count>1?`<span class="tag ghost">×${c.count}</span>`:''}${c.ac!==''?`<span class="tag ghost">重音 ${acMark(c.ac)}</span>`:''}</div><div class="pv-g">${[['w','單字'],['r','讀音'],['pos','詞性'],['m','中文'],['e','English'],['k','한국어']].map(f=>`<input data-i="pvF" data-n="${i}" data-f="${f[0]}" value="${esc(c[f[0]])}" placeholder="${f[1]}">`).join('')}<input class="full" data-i="pvF" data-n="${i}" data-f="ex" value="${esc(c.ex)}" placeholder="例句"></div></div>`).join('')||'<div class="empty">沒有項目</div>';
+ const n=L.filter(c=>c.sel).length;$('#pvN').textContent=`共 ${L.length} 個・已選 ${n}`;const b=$('#pvAdd');b.textContent=`匯入單字表（${n}）`;b.disabled=!n}
+
+/* ---------- 語彙 ---------- */
+function vVocab(){return`${head('語彙','Vocabulary ・ 単語','#/study')}
+ <section class="card"><h3 class="ct">${ic('search')}查詢新資料</h3><div class="srch"><input id="vq" placeholder="輸入單字、讀音或英文…" data-i="enter" data-a2="vFind"><button class="btn pri" data-a="vFind">站內查</button></div>
+ <div class="chips">${ENG_V.map((e,i)=>`<button class="chip" data-a="vWeb" data-n="${i}">${e[0]} ↗</button>`).join('')}</div><p class="hint">「站內查」可直接把結果加進單字表；其他按鈕會用新分頁開啟網站。</p><div id="vFound"></div></section>
+ <section class="card"><h3 class="ct">${ic('upload')}上傳資料</h3>${dropHTML('v')}</section>
+ <section class="card"><div class="rowc" style="margin:0 0 8px"><h3 class="ct" style="margin:0">${ic('book')}我的單字表</h3>${langSeg()}</div>
+ <div class="tabsx" id="vFold"></div><div id="vFA"></div><div class="srch" style="margin:4px 0 8px"><input placeholder="在單字表中搜尋" data-i="vFilter"></div><div class="tabsx" id="vTabs"></div><div id="vList"></div>
+ <div class="acts2"><button class="btn lime" data-a="vCards">${ic('check')}翻轉單字卡</button><button class="btn" data-a="vQuizSheet" data-src="${vFolder==='all'?'all':'f:'+vFolder}">小卡測驗</button><button class="btn sm" data-a="wAdd">${ic('plus')}手動新增</button></div></section>`}
+function vFiltered(){let L=D.words;if(vFolder!=='all')L=L.filter(w=>(w.f||'')===vFolder);
+ if(vTab==='fav')L=L.filter(w=>w.fav);else if(vTab==='wrong')L=L.filter(w=>w.wrong>0);else if(vTab==='vague')L=L.filter(w=>w.st==='vague');
+ const q=vFilter.trim().toLowerCase();if(q)L=L.filter(w=>(w.w+w.r+(w.m||'')+(w.e||'')+(w.k||'')).toLowerCase().includes(q));return L}
+function moveSel(w){const cs=D.cats.filter(c=>c.t==='custom');return`<span class="mvw"><select data-c="wMove" data-id="${w.id}" aria-label="移動分類"><option value="">未分類</option>${cs.map(c=>`<option value="${c.id}" ${w.f===c.id?'selected':''}>${esc(c.n)}</option>`).join('')}</select></span>`}
+function wRow(w){const m=mean(w,S.lang);return`<div class="wr"><div class="wr-b" data-a="wEdit" data-id="${w.id}"><div class="wr-t"><b class="jp">${esc(w.w)}</b><small>${esc(w.r)}</small>${w.pos?`<span class="tag">${esc(w.pos)}</span>`:''}${w.wrong>0?`<span class="tag bad">錯 ${w.wrong}</span>`:''}${w.st==='known'?'<span class="tag lav">已掌握</span>':w.st==='vague'?'<span class="tag ghost">待複習</span>':''}</div><div class="wr-m">${m?esc(m):'<span class="en">（尚無意思，點此編輯）</span>'}</div></div><div class="wr-side"><button class="ib ${w.fav?'on':''}" data-a="wFav" data-id="${w.id}" aria-label="收藏">${ic('star')}</button>${moveSel(w)}</div></div>`}
+function renderVList(){const fb=$('#vFold');if(!fb)return;const cs=D.cats.filter(c=>c.t==='custom');if(vFolder!=='all'&&vFolder!==''&&!cs.some(c=>c.id===vFolder))vFolder='all';
+ const cnt=f=>f==='all'?D.words.length:D.words.filter(w=>(w.f||'')===f).length;
+ fb.innerHTML=[['all','全部'],['','未分類'],...cs.map(c=>[c.id,c.n])].map(f=>`<button class="chip ${vFolder===f[0]?'on':''}" data-a="vFolder" data-f="${esc(f[0])}">${esc(f[1])} ${cnt(f[0])}</button>`).join('')+`<button class="chip" data-a="catAdd">${ic('plus')}資料夾</button>`;
+ const fa=$('#vFA');if(fa)fa.innerHTML=(vFolder!=='all'&&vFolder!=='')?`<div class="rowc" style="margin:0 0 6px"><small>資料夾操作</small><span><button class="lnk" data-a="catRename">重新命名</button><button class="lnk" data-a="catDel" data-id="${esc(vFolder)}">刪除資料夾</button></span></div>`:'';
+ const base=vFolder==='all'?D.words:D.words.filter(w=>(w.f||'')===vFolder);
+ $('#vTabs').innerHTML=[['all','全部',base.length],['fav','收藏',base.filter(w=>w.fav).length],['wrong','錯題',base.filter(w=>w.wrong>0).length],['vague','待複習',base.filter(w=>w.st==='vague').length]].map(t=>`<button class="chip ${vTab===t[0]?'on':''}" data-a="vTab" data-t="${t[0]}">${t[1]} ${t[2]}</button>`).join('');
+ const L=vFiltered();$('#vList').innerHTML=L.length?L.slice(0,200).map(wRow).join(''):`<div class="empty">${D.words.length?'沒有符合的單字':'還沒有單字。上傳照片或貼上文章開始吧。'}</div>`}
+function addWords(list,folder=''){let n=0;for(const x of list){const ex=D.words.find(w=>w.w===x.w);
+ if(ex){['r','m','e','k','ex','pos','ac'].forEach(k=>{if((ex[k]===''||ex[k]==null)&&x[k])ex[k]=x[k]});if(x.xt)ex.xt=Object.assign({},x.xt,ex.xt||{});ex.u=Date.now();continue}
+ D.words.unshift({id:uid(),w:x.w,r:x.r||'',pos:x.pos||'',m:x.m||'',e:x.e||'',k:x.k||'',ex:x.ex||'',xt:x.xt||{},ac:x.ac==null?'':x.ac,src:x.src||'',f:x.f!==undefined?x.f:folder,st:'',fav:!!x.fav,wrong:0,right:0,u:Date.now()});n++}
+ if(n)bump(n);save();return n}
+function wSheet(w){const cs=D.cats.filter(c=>c.t==='custom');const xt=w.xt||{};const i=(id,l,v,full)=>`<div class="${full?'full':''}"><label class="l">${l}</label><input id="${id}" value="${esc(v)}"></div>`;
+ sheet(`<h3>${w.id?'編輯單字':'新增單字'}</h3><div class="fgrid">${i('e_w','單字',w.w)}${i('e_r','讀音（ひらがな）',w.r)}${i('e_p','詞性（例：名・他動）',w.pos||'')}${i('e_a','重音（數字，0＝平板）',w.ac==null?'':w.ac)}${i('e_m','中文',w.m)}${i('e_e','English',w.e)}${i('e_k','한국어',w.k||'',1)}${i('e_x','例句',w.ex,1)}${i('e_xz','例句翻譯（中）',xt.zh||'',1)}${i('e_xe','Example (EN)',xt.en||'',1)}${i('e_xk','예문 (한국어)',xt.ko||'',1)}</div>
+ <label class="l">資料夾</label><select id="e_f"><option value="">未分類</option>${cs.map(c=>`<option value="${c.id}" ${(w.f||'')===c.id?'selected':''}>${esc(c.n)}</option>`).join('')}</select>
+ <div class="acts2" style="margin-top:16px"><button class="btn pri" data-a="wSave" data-id="${w.id||''}">儲存</button>${w.id?`<button class="btn" data-a="wDel" data-id="${w.id}">${ic('trash')}刪除</button><a class="btn" target="_blank" rel="noopener" href="${ENG_V[0][1](w.w)}">${ic('link')}Jisho</a>`:''}</div>`)}
+function scopeWords(v){if(v==='fav')return D.words.filter(w=>w.fav);if(v==='wrong')return D.words.filter(w=>w.wrong>0);if(v==='vague')return D.words.filter(w=>w.st==='vague');if(v.startsWith('f:'))return D.words.filter(w=>(w.f||'')===v.slice(2));return D.words}
+function vQuizSheet(src,cat,pool,back,title){const fo=[['f:','未分類'],...D.cats.filter(c=>c.t==='custom').map(c=>['f:'+c.id,c.n])];
+ sheet(`<h3>${title||'單字複習'}</h3><label class="l">範圍（可選自訂資料夾）</label><select id="qz_s">${[['all','全部單字'],['fav','收藏'],['wrong','錯題'],['vague','待複習（曖昧）'],...fo].map(o=>`<option value="${esc(o[0])}" ${o[0]===src?'selected':''}>${esc(o[1])}（${scopeWords(o[0]).length}）</option>`).join('')}</select>
+ <label class="l">模式</label><select id="qz_m"><option value="flip">翻轉單字卡（Archive）</option><option value="jp2m">測驗：看日文 → 選意思</option><option value="m2jp">測驗：看意思 → 選日文</option><option value="read">測驗：看漢字 → 選讀音</option></select>
+ <label class="l">意思語言</label><select id="qz_l"><option value="zh" ${S.lang==='zh'?'selected':''}>中文</option><option value="en" ${S.lang==='en'?'selected':''}>English</option><option value="ko" ${S.lang==='ko'?'selected':''}>한국어</option></select>
+ <label class="l">題數</label><select id="qz_n">${[5,10,15,20,30,50].map(n=>`<option ${S.qn===n?'selected':''}>${n}</option>`).join('')}</select>
+ <div class="acts2" style="margin-top:16px"><button class="btn pri" data-a="qzGo" data-back="${esc(back||location.hash||'#/test')}">開始</button></div>`)}
+
+/* ---------- 翻轉單字卡 ---------- */
+function startCards(o){const ids=(o.ids||[]).filter(Boolean);if(!ids.length){toast('沒有可複習的單字');return}
+ CS={q:[...ids],i:0,re:{},res:{known:0,vague:0,again:0},furi:true,title:o.title||'翻轉單字卡',back:o.back||'#/test',total:ids.length};
+ if(location.hash==='#/cards')render();else location.hash='#/cards'}
+const curW=()=>CS&&D.words.find(x=>x.id===CS.q[CS.i]);
+function hiEx(w){const ex=w.ex||'';if(!ex)return'';const key=[w.w,w.w.length>1?w.w.slice(0,-1):''].find(k=>k&&ex.includes(k));if(!key)return esc(ex);return esc(ex).split(esc(key)).join(`<mark>${esc(key)}</mark>`)}
+function fcDone(){const r=CS.res;return`${head('完成',CS.title,CS.back)}<div class="card" style="text-align:center"><div class="mono">SESSION COMPLETE</div><div class="score">${CS.total}</div><small>張卡片</small><div style="margin-top:10px;font-size:12px">覚えた <b style="color:var(--acc2)">${r.known}</b>　／　曖昧 <b>${r.vague}</b>　／　まだ <b style="color:var(--acc)">${r.again}</b></div></div>
+ <div class="acts2" style="justify-content:center"><button class="btn lime" data-a="fcAgain">再複習還沒掌握的</button><button class="btn" data-a="go" data-to="${CS.back}">返回</button></div>`}
+function vCards(){
+ if(!CS)return`${head('單字卡','Flashcards','#/study')}<div class="card empty">目前沒有進行中的複習。</div>`;
+ const n=CS.q.length;if(CS.i>=n)return fcDone();
+ const w=D.words.find(x=>x.id===CS.q[CS.i]);if(!w){CS.q.splice(CS.i,1);return vCards()}
+ const no=String(D.words.length-D.words.indexOf(w)).padStart(3,'0'),fname=(D.cats.find(c=>c.id===w.f&&c.t==='custom')||{}).n||'未分類';
+ const meta=`<div class="fc-meta"><span class="mono">NO. ${no} // ${esc(fname)} 語彙</span><span class="fc-btns"><button class="ib sm ${w.fav?'on':''}" data-a="fcStar" aria-label="收藏">${ic('star')}</button><button class="ib sm ${w.wrong>0?'on':''}" data-a="fcWrong" aria-label="標記錯題">${ic('flag')}</button></span></div>`;
+ const word=(hasKanji(w.w)&&w.r)?`<ruby>${esc(w.w)}<rt>${esc(w.r)}</rt></ruby>`:esc(w.w);
+ const m=mean(w,S.lang),tr=exTr(w);
+ return`<div class="phead"><a class="back" href="${CS.back}">${ic('back')}</a><div><h1>${esc(CS.title)}</h1><small>FLASHCARD</small></div>${langSeg()}</div>
+ <div class="fc-prog"><div class="prog"><i style="width:${CS.i/n*100}%"></i></div><span class="mono">${CS.i+1} / ${n}</span></div>
+ <div class="fc-wrap"><div class="fc"><div class="fc-in" id="fcIn" data-a="fcFlip">
+  <div class="fc-face fc-front">${meta}<div class="fc-mid"><button class="chip sm" id="fcFuriBtn" data-a="fcFuri">假名 ${CS.furi?'ON':'OFF'}</button><div class="fc-word ${CS.furi?'':'nofuri'}" id="fcWord">${word}<button class="ib" data-a="fcSpeak" aria-label="發音">${ic('speaker')}</button></div></div><div class="fc-pos">${w.pos?'['+esc(w.pos)+']':'&nbsp;'}</div><div class="fc-tap">TAP TO FLIP</div></div>
+  <div class="fc-face fc-back">${meta}<div style="padding-top:12px"><div class="fc-r">${esc(w.r||w.w)}<span class="ac">${acMark(w.ac)}</span></div><div class="fc-m">${m?esc(m):'<span class="en">（尚無意思）</span>'}</div>${w.ex?`<div class="fc-ex">${hiEx(w)}</div>${tr?`<div class="fc-xt">${esc(tr)}</div>`:''}`:''}<div style="margin-top:10px"><button class="chip sm" data-a="wEdit" data-id="${w.id}">編輯此卡</button></div></div></div>
+ </div></div></div>
+ <div class="fc-act"><button class="btn" data-a="fcGrade" data-v="again">まだ</button><button class="btn" data-a="fcGrade" data-v="vague">曖昧</button><button class="btn pri" data-a="fcGrade" data-v="known">覚えた</button></div>
+ <div class="fc-nav"><button class="lnk" data-a="fcNav" data-d="-1">← 上一張</button><span class="hint" style="margin:0">左右滑動切換</span><button class="lnk" data-a="fcNav" data-d="1">下一張 →</button></div>`}
+let _tx=null;
+document.addEventListener('touchstart',e=>{const w=e.target.closest&&e.target.closest('.fc-wrap');_tx=w?{x:e.touches[0].clientX,y:e.touches[0].clientY}:null},{passive:true});
+document.addEventListener('touchend',e=>{if(!_tx)return;const t=e.changedTouches[0],dx=t.clientX-_tx.x,dy=t.clientY-_tx.y;_tx=null;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5)A.fcNav({dataset:{d:dx<0?1:-1}})},{passive:true});
+document.addEventListener('keydown',e=>{if(!location.hash.startsWith('#/cards')||!CS||/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;if(e.key==='ArrowRight')A.fcNav({dataset:{d:1}});else if(e.key==='ArrowLeft')A.fcNav({dataset:{d:-1}});else if(e.key===' '){e.preventDefault();A.fcFlip()}});
+
+/* ---------- 測驗／分類／個人 ---------- */
+function qAdvance(ok){const it=Q.items[Q.i];bump();it.on&&it.on(ok);if(ok)Q.sc++;else Q.wr.push(it)}
+function vTest(){const wrong=D.words.filter(w=>w.wrong>0).length,wk=weakList().slice(0,6);const fo=[['','未分類'],...D.cats.filter(c=>c.t==='custom').map(c=>[c.id,c.n])];
+ return`${head('テスト','Review ・ 復習','#/')}<div class="grid2" style="margin-bottom:12px"><button class="tile" data-a="vQuizSheet" data-src="wrong"><small class="mono">WRONG</small><span class="big">${wrong}</span><small>錯題單字</small></button><button class="tile" data-a="vQuizSheet" data-src="fav"><small class="mono">FAVORITE</small><span class="big">${D.words.filter(w=>w.fav).length}</span><small>收藏單字</small></button></div>
+ <section class="card"><div class="rowc" style="margin:0 0 6px"><h3 class="ct" style="margin:0">${ic('folder')}依資料夾複習</h3>${langSeg()}</div>
+ ${fo.map(f=>{const n=scopeWords('f:'+f[0]).length;return`<div class="gr"><div class="gr-b"><b class="jp gr-p">${esc(f[1])}</b> <span class="mono">${n}</span></div><button class="btn sm" data-a="vQuizSheet" data-src="f:${esc(f[0])}" ${n?'':'disabled'}>測驗</button><button class="btn sm lime" data-a="foldFlip" data-id="${esc(f[0])}" ${n?'':'disabled'}>翻轉卡</button></div>`}).join('')}
+ <div class="acts2"><button class="btn" data-a="vQuizSheet" data-src="all">全部單字</button><button class="btn" data-a="vQuizSheet" data-src="vague">待複習</button></div></section>
+ <section class="card"><h3 class="ct">${ic('pen')}文法對比訓練（N2・N1）</h3><div class="acts2"><button class="btn lime" data-a="gQuiz" data-src="weak">弱點加強</button><button class="btn" data-a="gQuiz" data-src="all" data-lv="N2">N2 綜合</button><button class="btn" data-a="gQuiz" data-src="all" data-lv="N1">N1 綜合</button><button class="btn soft" data-a="aiGenSheet">${ic('spark')}AI 生成</button></div>
+ <hr class="dash"><b class="jp">常錯文法</b>${wk.length?wk.map(e=>`<div class="gr"><div class="gr-b"><b class="jp gr-p">${esc(e[0])}</b></div><span class="tag bad">錯 ${e[1]}</span></div>`).join(''):'<div class="empty">還沒有錯題紀錄，做幾題訓練後這裡會自動統計。</div>'}</section>
+ ${D.hist.length?`<section class="card"><h3 class="ct">最近成績</h3>${D.hist.slice(0,6).map(h=>`<div class="gr"><div class="gr-b">${esc(h.k)}<div class="wr-m">${new Date(h.t).toLocaleDateString()}</div></div><b class="mono" style="color:var(--acc)">${h.s}/${h.n}</b></div>`).join('')}</section>`:''}`}
+function vCat(p){const c=D.cats.find(x=>x.id===p[1]);if(!c)return vHome();const ws=D.words.filter(w=>(w.f||'')===c.id);
+ return`${head(esc(c.n),'資料夾 ・ FOLDER','#/')}<section class="card"><div class="rowc" style="margin:0 0 6px"><h3 class="ct" style="margin:0">${ic('book')}單字 ${ws.length}</h3>${langSeg()}</div>${ws.length?ws.map(wRow).join(''):'<div class="empty">尚無單字。上傳時選擇此資料夾，或用「加入單字」。</div>'}
+ <div class="acts2">${ws.length?`<button class="btn lime" data-a="foldFlip" data-id="${c.id}">翻轉單字卡</button><button class="btn" data-a="vQuizSheet" data-src="f:${c.id}">測驗</button>`:''}<button class="btn sm" data-a="catPick" data-id="${c.id}">${ic('plus')}加入單字</button><button class="btn sm" data-a="vGo" data-id="${c.id}">到語彙頁管理</button></div></section>`}
+function vMe(){const W=D.words,known=W.filter(w=>w.st==='known').length,days=Object.keys(D.act||{}).filter(k=>D.act[k]>0).length;
+ const provOpts=[['gemini','Google Gemini'],['openai','OpenAI'],['anthropic','Anthropic Claude']];
+ return`${head('個人','マイページ ・ MY PAGE','#/')}
+ <div class="stats"><div><small class="mono">WORDS</small><b>${W.length}</b><small>單字 ・ 掌握 ${known}</small></div><div><small class="mono">STARRED</small><b>${W.filter(w=>w.fav).length}</b><small>收藏</small></div><div><small class="mono">WRONG</small><b>${W.filter(w=>w.wrong>0).length}</b><small>錯題</small></div><div><small class="mono">GRAMMAR</small><b>${D.grammar.length}</b><small>文法</small></div></div>
+ <section class="card"><div class="rowc" style="margin:0 0 10px"><span class="mono">LEARNER FILE // PROFILE</span><span class="mono">${dayKey()}</span></div>
+ <div class="pf"><div><label class="l" style="font-size:11px;color:var(--brown2)">暱稱</label><input value="${esc(D.me.name)}" placeholder="你的名字" data-i="meName" maxlength="24"></div><div><label class="l" style="font-size:11px;color:var(--brown2)">目標</label><select data-c="meGoal">${['JLPT N5','JLPT N4','JLPT N3','JLPT N2','JLPT N1'].map(g=>`<option ${D.me.goal===g||D.me.goal===g.replace('JLPT ','')?'selected':''}>${g}</option>`).join('')}</select></div></div>
+ <div class="rowc" style="margin-top:12px"><small>累計學習天數 <b style="color:var(--acc)">${days}</b></small><small>近 30 天操作 <b style="color:var(--acc)">${act30()}</b></small></div></section>
+ <section class="card"><div class="rowc" style="margin:0 0 8px"><h3 class="ct" style="margin:0">學習足跡</h3><span class="mono">LAST 30 DAYS</span></div>${actGrid()}</section>
+ <section class="card"><h3 class="ct">${ic('sliders')}設定</h3><div class="set-r"><div><b>單字意思語言</b><small>單字表、小卡、每日複習</small></div>${langSeg()}</div>
+ <div class="set-r"><div><b>每日新聞來源</b><small>失敗時會自動換來源，最後用內建新聞</small></div><select data-c="sNews" style="width:auto"><option value="easy" ${S.newsSrc==='easy'?'selected':''}>NHK EASY</option><option value="nhk" ${S.newsSrc==='nhk'?'selected':''}>NHK 一般（摘要）</option><option value="yahoo" ${S.newsSrc==='yahoo'?'selected':''}>Yahoo!（標題）</option></select></div></section>
+ <section class="card"><h3 class="ct">${ic('spark')}AI 辨識金鑰</h3><p class="hint" style="margin-top:-4px">用於：拍照／截圖萃取單字、三語意思補全、AI 對比題、新聞閱讀題。金鑰只存在這台裝置的瀏覽器，不會同步或備份。</p>
+ <label class="l" style="display:block;margin:10px 0 4px;font-size:11px;color:var(--brown2)">服務</label><select data-c="sProv">${provOpts.map(o=>`<option value="${o[0]}" ${S.aiProv===o[0]?'selected':''}>${o[1]}</option>`).join('')}</select>
+ <label class="l" style="display:block;margin:10px 0 4px;font-size:11px;color:var(--brown2)">API Key</label><input type="password" placeholder="貼上金鑰" value="${esc(S.aiKey)}" data-c="sKey" autocomplete="off">
+ <label class="l" style="display:block;margin:10px 0 4px;font-size:11px;color:var(--brown2)">模型</label><input value="${esc(modelOf())}" data-c="sModel"></section>
+ <section class="card"><h3 class="ct">${ic('cloud')}跨裝置同步</h3><p class="hint" style="margin-top:-4px">使用你自己的 GitHub 私人 Gist（Token 只需勾 gist 權限）。另一台裝置填入同一組 Token 與 Gist ID 後按「下載並合併」。</p>
+ <label class="l" style="display:block;margin:10px 0 4px;font-size:11px;color:var(--brown2)">GitHub Token</label><input type="password" value="${esc(S.token)}" data-c="sToken" autocomplete="off"><label class="l" style="display:block;margin:10px 0 4px;font-size:11px;color:var(--brown2)">Gist ID（首次上傳自動建立）</label><input value="${esc(S.gist)}" data-c="sGist">
+ <div class="set-r"><div><b>變更後自動上傳</b></div><input type="checkbox" ${S.auto?'checked':''} data-c="sAuto"></div>
+ <div class="acts2"><button class="btn lime" data-a="syncUp">${ic('upload')}上傳到雲端</button><button class="btn" data-a="syncDown">下載並合併</button></div><div id="syncSt" class="hint"></div></section>
+ <section class="card"><h3 class="ct">資料備份與還原</h3><div class="acts2"><button class="btn pri" data-a="exp">下載備份 JSON</button><label class="btn">匯入 JSON<input type="file" accept=".json" hidden data-c="impFile"></label><button class="btn" data-a="reset" style="color:var(--acc)">清除全部資料</button></div><p class="hint">資料存在這個瀏覽器的 localStorage；換裝置請用備份或同步。</p></section>`}
+
+/* ---------- 事件處理（新增／覆蓋） ---------- */
+Object.assign(A,{
+ setLang:t=>{S.lang=t.dataset.v;saveS();render.keep=true;render()},
+ dailyGo:()=>startCards({ids:pickDaily().map(w=>w.id),title:'每日複習',back:'#/'}),
+ vFolder:t=>{vFolder=t.dataset.f;renderVList()},
+ vTab:t=>{vTab=t.dataset.t;renderVList()},
+ vCards:()=>{const L=vFiltered();startCards({ids:shuffle(L).slice(0,50).map(w=>w.id),title:'翻轉單字卡',back:'#/vocab'})},
+ vGo:t=>{vFolder=t.dataset.id;location.hash='#/vocab'},
+ foldFlip:t=>startCards({ids:shuffle(scopeWords('f:'+t.dataset.id)).slice(0,50).map(w=>w.id),title:'資料夾複習',back:location.hash.startsWith('#/cat')?location.hash:'#/test'}),
+ vQuizSheet:t=>vQuizSheet(t.dataset.src||'all',null,null,location.hash||'#/test'),
+ catQuiz:t=>vQuizSheet('f:'+t.dataset.id,null,null,'#/cat/'+t.dataset.id),
+ qzGo:t=>{const mode=$('#qz_m').value,lang=$('#qz_l').value,n=+$('#qz_n').value,sv=$('#qz_s').value;S.qn=n;S.lang=lang;saveS();const back=t.dataset.back||'#/test';
+  if(mode==='flip'){const L=shuffle(scopeWords(sv)).slice(0,n);closeSheet();return startCards({ids:L.map(w=>w.id),title:'翻轉單字卡',back})}
+  let src=sv,cat=null;if(sv.startsWith('f:')){src='cat';cat=sv.slice(2)}
+  const items=buildVocabQs({src,cat,mode,lang,n});closeSheet();startQuiz({title:'單字測驗',items,back})},
+ vFoundAdd:t=>{const x=VC.found[+t.dataset.n];addWords([{w:x.w,r:x.r,e:x.e}],vFolder==='all'?'':vFolder);toast('已加入單字表');renderVList()},
+ wAdd:()=>wSheet({w:'',r:'',m:'',e:'',k:'',ex:'',xt:{},pos:'',ac:'',f:vFolder==='all'?'':vFolder}),
+ wSave:t=>{const v=id=>$(id).value.trim();if(!v('#e_w'))return toast('請輸入單字');
+  const o={w:v('#e_w'),r:v('#e_r'),pos:v('#e_p'),ac:v('#e_a'),m:v('#e_m'),e:v('#e_e'),k:v('#e_k'),ex:v('#e_x'),xt:{zh:v('#e_xz'),en:v('#e_xe'),ko:v('#e_xk')},f:$('#e_f').value};
+  if(t.dataset.id){Object.assign(D.words.find(x=>x.id===t.dataset.id),o,{u:Date.now()})}else{addWords([o],o.f)}
+  save();closeSheet();location.hash.startsWith('#/vocab')?renderVList():render()},
+ catDel:t=>{const c=D.cats.find(x=>x.id===t.dataset.id);if(!c||!confirm(`刪除資料夾「${c.n}」？（裡面的單字會移到「未分類」）`))return;D.words.forEach(w=>{if(w.f===c.id){w.f='';w.u=Date.now()}});D.cats=D.cats.filter(x=>x!==c);if(vFolder===c.id)vFolder='all';save();render()},
+ catRename:()=>{const c=D.cats.find(x=>x.id===vFolder);if(!c)return;const n=prompt('資料夾名稱',c.n);if(n&&n.trim()){c.n=n.trim();save();render.keep=true;render()}},
+ catPick:t=>{const id=t.dataset.id;sheet(`<h3>加入單字到此資料夾</h3>${D.words.length?`<div style="max-height:50vh;overflow:auto">${D.words.map(w=>`<label class="chk" style="padding:7px 0;border-bottom:1px solid var(--line2)"><input type="checkbox" class="cp" value="${w.id}" ${(w.f||'')===id?'checked':''}> <b class="jp">${esc(w.w)}</b> <small>${esc(mean(w,S.lang))}</small></label>`).join('')}</div>`:'<div class="empty">單字表是空的</div>'}<div class="acts2"><button class="btn pri" data-a="catPickSave" data-id="${id}">完成</button></div>`)},
+ catPickSave:t=>{const id=t.dataset.id,sel=new Set($$('.cp').filter(x=>x.checked).map(x=>x.value));D.words.forEach(w=>{if(sel.has(w.id)){if(w.f!==id){w.f=id;w.u=Date.now()}}else if(w.f===id){w.f='';w.u=Date.now()}});save();closeSheet();render()},
+ /* 預覽確認清單 */
+ pvSel:t=>{const c=VC.items[+t.dataset.n];c.sel=!c.sel;pvRender()},
+ pvAll:t=>{VC.items.forEach(c=>c.sel=t.dataset.v==='1');pvRender()},
+ pvAdd:()=>{const f=$('#pv_f').value;const L=VC.items.filter(c=>c.sel&&c.w);const n=addWords(L.map(c=>({...c,src:'上傳'})),f);VC.items=VC.items.filter(c=>!c.sel);vFolder=f||'all';closeSheet();toast(`已匯入 ${n} 個單字`);if(location.hash.startsWith('#/vocab')){setSt('v',`已匯入 ${n} 個單字`);renderVList()}else render()},
+ pvFill:async()=>{const L=VC.items.filter(c=>c.sel&&(!c.m||!c.e||!c.k||!c.pos||!c.r)).slice(0,40);const st=$('#pvSt');if(!L.length){toast('選取項目的資料已完整');return}
+  if(S.aiKey){st.innerHTML='<span class="sp"></span>AI 補全中…';try{const arr=jparse(await ai(`請為下列日文單字補全資料，只輸出 JSON 陣列，元素格式：{"w":"原單字","r":"平假名讀音","pos":"詞性，例：名・他動","m":"繁體中文意思","e":"English","k":"한국어 뜻"}。\n${JSON.stringify(L.map(c=>({w:c.w,ex:c.ex})))}`,4000));arr.forEach(x=>{const c=L.find(y=>y.w===x.w);if(c)['r','pos','m','e','k'].forEach(f=>{if(!c[f]&&x[f])c[f]=f==='r'?kata2hira(x[f]):x[f]})});pvRender();$('#pvSt').textContent='已補全'}catch(e){st.textContent='AI 失敗：'+e.message}return}
+  st.innerHTML='<span class="sp"></span>查詢詞典（英文）…';let n=0;await runPool(L,async c=>{const r=(await dictSearch(c.w,1))[0];if(r){if(!c.e)c.e=r.e;if(!c.r&&r.r&&hasKanji(c.w))c.r=r.r}n++;st.textContent=`查詢中 ${n}/${L.length}`},4);pvRender();$('#pvSt').textContent='已補上英文詞義；中文／韓文需要設定 AI 金鑰'},
+ /* 翻轉卡 */
+ fcFlip:()=>{const e=$('#fcIn');e&&e.classList.toggle('flip')},
+ fcFuri:()=>{CS.furi=!CS.furi;const w=$('#fcWord');w&&w.classList.toggle('nofuri',!CS.furi);const b=$('#fcFuriBtn');b&&(b.textContent='假名 '+(CS.furi?'ON':'OFF'))},
+ fcSpeak:()=>{const w=curW();if(!w)return;if(!('speechSynthesis' in window)||typeof SpeechSynthesisUtterance==='undefined')return toast('此瀏覽器不支援語音朗讀');try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(w.w);u.lang='ja-JP';u.rate=.9;speechSynthesis.speak(u)}catch(e){toast('語音朗讀失敗')}},
+ fcStar:()=>{const w=curW();if(!w)return;w.fav=!w.fav;w.u=Date.now();save();$$('[data-a=fcStar]').forEach(b=>b.classList.toggle('on',!!w.fav))},
+ fcWrong:()=>{const w=curW();if(!w)return;w.wrong=w.wrong>0?0:1;w.u=Date.now();save();$$('[data-a=fcWrong]').forEach(b=>b.classList.toggle('on',w.wrong>0));toast(w.wrong>0?'已標記為錯題':'已取消錯題標記')},
+ fcGrade:t=>{const w=curW();if(!w)return;const v=t.dataset.v;
+  if(v==='again'){w.wrong=(w.wrong||0)+1;w.st='';CS.res.again++;const c=CS.re[w.id]||0;if(c<2){CS.re[w.id]=c+1;CS.q.splice(Math.min(CS.i+4,CS.q.length),0,w.id)}}
+  else if(v==='vague'){w.st='vague';CS.res.vague++}else{w.st='known';w.wrong=0;CS.res.known++}
+  w.u=Date.now();bump();save();CS.i++;render()},
+ fcNav:t=>{if(!CS)return;const d=+t.dataset.d;if(CS.i+d<0)return;CS.i=Math.min(CS.q.length,CS.i+d);render()},
+ fcAgain:()=>{const ids=[...new Set(CS.q)].filter(id=>{const w=D.words.find(x=>x.id===id);return w&&w.st!=='known'});if(!ids.length)return toast('全部都已掌握了');startCards({ids:shuffle(ids),title:CS.title,back:CS.back})},
+ /* 新聞 */
+ furiTog:()=>{S.furi=!S.furi;saveS();const c=$('#artCard');c&&c.classList.toggle('nofuri',!S.furi);const b=$('#furiBtn');b&&(b.textContent='ふりがな '+(S.furi?'ON':'OFF'));if(S.furi&&!KT)toast('詞典載入後才會顯示ふりがな')},
+ reset:()=>{if(confirm('確定清除所有單字、文法與紀錄？此動作無法復原。')&&confirm('再次確認：全部清除？')){D=newDefaults();normalizeData();save(true);render()}}
+});
+document.addEventListener('change',e=>{const t=e.target,c=t.dataset&&t.dataset.c;if(!c)return;
+ if(c==='wMove'){const w=D.words.find(x=>x.id===t.dataset.id);if(!w)return;w.f=t.value;w.u=Date.now();save();toast(`已移至「${t.value?((D.cats.find(x=>x.id===t.value)||{}).n||''):'未分類'}」`);if(location.hash.startsWith('#/vocab'))renderVList();else{render.keep=true;render()}}
+ else if(c==='sProv'){S.aiProv=t.value;saveS();render.keep=true;render()}
+ else if(c==='meGoal'){D.me.goal=t.value;save()}});
+document.addEventListener('input',e=>{const t=e.target,i=t.dataset&&t.dataset.i;if(!i)return;
+ if(i==='pvF'){const c=VC.items[+t.dataset.n];if(c)c[t.dataset.f]=t.value}
+ else if(i==='meName'){D.me.name=t.value;save(true)}
+ else if(i==='hsearch'){const q=t.value.trim().toLowerCase(),el=$('#hsr');if(!el)return;if(!q){el.innerHTML='';return}
+  const ws=D.words.filter(w=>(w.w+w.r+(w.m||'')+(w.e||'')+(w.k||'')).toLowerCase().includes(q)).slice(0,6),gs=D.grammar.filter(g=>(g.p+g.m).toLowerCase().includes(q)).slice(0,4);
+  el.innerHTML=(ws.length||gs.length)?ws.map(w=>`<div class="hs-r" data-a="wEdit" data-id="${w.id}"><b class="jp">${esc(w.w)}</b><small>${esc(w.r)}</small><span>${esc(mean(w,S.lang))}</span></div>`).join('')+gs.map(g=>`<div class="hs-r" data-a="gEdit" data-id="${g.id}"><b class="jp">${esc(g.p)}</b><span>${esc(g.m)}</span></div>`).join(''):`<div class="hs-r"><small>找不到「${esc(t.value.trim())}」</small></div>`}});
+
+/* 啟動 */
+load();render();
+if(S.auto&&S.token&&S.gist)syncPull().then(()=>{if(!location.hash.startsWith('#/quiz'))render()}).catch(()=>{});
+</script>
+</body>
+</html>
